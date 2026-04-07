@@ -1,0 +1,859 @@
+/* ============================================================
+   MINO Solutions — components.css
+   Contenido: Navegación, Botones, Tags, Cards reutilizables,
+              Carruseles, Menú móvil
+   ============================================================ */
+
+
+/* ─────────────────────────────────────────────────────────────
+   1. NAVEGACIÓN PRINCIPAL
+   ───────────────────────────────────────────────────────────── */
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 16px 0;
+  transition: var(--transition);
+}
+
+/* Estado con scroll activo */
+#navbar.scrolled {
+  background: rgba(253, 253, 253, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 12px 0;
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.nav-logo-text {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--color-dark);
+  letter-spacing: -0.02em;
+}
+
+.nav-logo svg {
+  height: 36px;
+  width: auto;
+  transition: var(--transition);
+}
+
+/* Links de navegación */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--color-dark);
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  background-color: var(--color-gray-light);
+  color: var(--color-primary);
+}
+
+/* Página activa */
+.nav-links a.active,
+.nav-links a[aria-current="page"] {
+  background-color: var(--color-gray-light);
+  color: var(--color-primary);
+}
+
+/* Lado derecho del nav */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Toggle de idioma */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  background: var(--color-gray-light);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  gap: 2px;
+}
+
+.lang-btn {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: var(--color-gray);
+  transition: var(--transition);
+}
+
+.lang-btn.active {
+  background: var(--color-white);
+  color: var(--color-dark);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón CTA en nav */
+.nav-cta {
+  font-size: 0.88rem;
+  padding: 10px 20px;
+}
+
+/* Hamburguesa (mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-dark);
+  border-radius: 2px;
+  transition: var(--transition);
+  pointer-events: none;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   2. MENÚ MÓVIL
+   ───────────────────────────────────────────────────────────── */
+
+.mobile-menu {
+  display: none !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-white);
+  z-index: 999;
+  flex-direction: column;
+  padding: 100px 32px 40px;
+  gap: 8px;
+}
+
+.mobile-menu.open {
+  display: flex !important;
+}
+
+.mobile-menu a {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.mobile-menu a:hover {
+  color: var(--color-primary);
+  padding-left: 8px;
+}
+
+.close-menu {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius);
+  background: var(--color-gray-light);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: var(--color-dark);
+  transition: var(--transition);
+}
+
+.close-menu:hover {
+  background: var(--color-light-blue);
+  color: var(--color-primary);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   3. BOTONES
+   ───────────────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.btn svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Variante primaria */
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: 0 4px 20px rgba(48, 138, 205, 0.35);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(48, 138, 205, 0.45);
+}
+
+/* Variante secundaria / outline */
+.btn-secondary {
+  background: transparent;
+  color: var(--color-dark);
+  border: 2px solid var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* Variante WhatsApp */
+.btn-whatsapp {
+  background: #25D366;
+  color: white;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+}
+
+.btn-whatsapp:hover {
+  background: #1ebe5a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.45);
+}
+
+/* Variante oscura */
+.btn-dark {
+  background: var(--color-dark);
+  color: var(--color-white);
+  box-shadow: 0 4px 20px rgba(11, 37, 64, 0.25);
+}
+
+.btn-dark:hover {
+  background: #152e4d;
+  transform: translateY(-2px);
+}
+
+/* Variante blanca (sobre fondos oscuros) */
+.btn-white {
+  background: white;
+  color: var(--color-dark);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white:hover {
+  background: var(--color-gray-light);
+  transform: translateY(-2px);
+}
+
+/* Variante outline */
+.btn-outline {
+  background: transparent;
+  color: var(--color-dark);
+  border: 1.5px solid var(--border);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+/* Tamaño grande */
+.btn-lg {
+  padding: 18px 36px;
+  font-size: 1.05rem;
+  border-radius: 14px;
+}
+
+/* Tamaño pequeño */
+.btn-sm {
+  padding: 9px 16px;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-sm svg {
+  width: 16px;
+  height: 16px;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   4. TAGS / BADGES
+   ───────────────────────────────────────────────────────────── */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-light-blue);
+  color: var(--color-primary-dark);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+  font-family: var(--font-heading);
+}
+
+.tag::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Tag sobre fondo oscuro */
+.tag-dark {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tag-dark::before {
+  background: var(--color-primary);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   5. ENCABEZADO DE SECCIÓN (section-header)
+   ───────────────────────────────────────────────────────────── */
+
+.section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 64px;
+}
+
+.section-header h2 {
+  margin-bottom: 16px;
+  color: var(--color-dark);
+}
+
+.section-header p {
+  font-size: 1.05rem;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   6. CARRUSEL DE HERRAMIENTAS (Tools Carousel)
+   ───────────────────────────────────────────────────────────── */
+
+.carousel-section {
+  padding: 40px 0;
+  background: var(--color-gray-light);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.carousel-label {
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 28px;
+  font-family: var(--font-heading);
+}
+
+.carousel-track-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-track-wrap::before,
+.carousel-track-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-track-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-gray-light), transparent);
+}
+
+.carousel-track-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-gray-light), transparent);
+}
+
+.carousel-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee 50s linear infinite;
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Item individual del carrusel de tools */
+.tool-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 32px;
+  flex-shrink: 0;
+}
+
+.tool-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: white;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(11, 37, 64, 0.06);
+  flex-shrink: 0;
+}
+
+.tool-icon svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-gray);
+}
+
+.tool-name {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-gray);
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   7. CARRUSEL DE LOGOS DE CLIENTES (Clients Carousel)
+   ───────────────────────────────────────────────────────────── */
+
+#clients {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--color-gray-light);
+  overflow: hidden;
+}
+
+.clients-label {
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 28px;
+  font-family: var(--font-heading);
+}
+
+.clients-track-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.clients-track-wrap::before,
+.clients-track-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.clients-track-wrap::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-gray-light), transparent);
+}
+
+.clients-track-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-gray-light), transparent);
+}
+
+.clients-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.clients-track:hover {
+  animation-play-state: paused;
+}
+
+.client-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 48px;
+  flex-shrink: 0;
+}
+
+.client-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: white;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+}
+
+.client-icon svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-gray);
+  opacity: 0.7;
+}
+
+.client-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-gray);
+  letter-spacing: -0.01em;
+  opacity: 0.6;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.client-item:hover .client-name {
+  opacity: 1;
+  color: var(--color-primary);
+}
+
+.client-item:hover .client-icon {
+  border-color: var(--color-primary);
+}
+
+.client-item:hover .client-icon svg {
+  opacity: 1;
+  color: var(--color-primary);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   8. FLOATING BADGES (hero y about)
+   ───────────────────────────────────────────────────────────── */
+
+.floating-badge {
+  position: absolute;
+  background: white;
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+}
+
+.badge-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.badge-icon.blue   { background: var(--color-light-blue); }
+.badge-icon.purple { background: rgba(77, 69, 170, 0.12); }
+
+.badge-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.badge-text strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.badge-text span {
+  font-size: 0.72rem;
+  color: var(--color-gray);
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   9. MOCKUP DEL HERO (browser + métricas)
+   ───────────────────────────────────────────────────────────── */
+
+.mockup-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 28px;
+  border: 1px solid var(--border);
+}
+
+.mockup-browser {
+  background: var(--color-gray-light);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mockup-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.mockup-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.mockup-dots span:nth-child(1) { background: #FF5F56; }
+.mockup-dots span:nth-child(2) { background: #FFBD2E; }
+.mockup-dots span:nth-child(3) { background: #27C93F; }
+
+.mockup-url {
+  flex: 1;
+  background: white;
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 0.75rem;
+  color: var(--color-gray);
+  font-family: monospace;
+}
+
+/* Placeholder de imagen dentro del mockup */
+.mockup-img-placeholder {
+  width: 100%;
+  height: 160px;
+  background: linear-gradient(135deg, var(--color-light-blue) 0%, #dbeeff 100%);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  font-size: 0.78rem;
+  font-weight: 500;
+  font-family: var(--font-heading);
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 16px;
+  border: 2px dashed rgba(48, 138, 205, 0.25);
+}
+
+.mockup-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.metric-item {
+  text-align: center;
+  padding: 12px 8px;
+  background: var(--color-gray-light);
+  border-radius: 10px;
+}
+
+.metric-val {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.metric-val.green  { color: #27AE60; }
+.metric-val.blue   { color: var(--color-primary); }
+.metric-val.purple { color: var(--color-secondary); }
+
+.metric-lbl {
+  font-size: 0.7rem;
+  color: var(--color-gray);
+  margin-top: 2px;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   FIX 1: Hero eyebrow — igual al tag-dark de projects
+   ───────────────────────────────────────────────────────────── */
+
+
+
+/* El fondo del hero index es blanco — ajustar colores */
+#hero .hero-eyebrow {
+  background: var(--color-light-blue);
+  border: 1px solid rgba(48, 138, 205, 0.2);
+  color: var(--color-primary-dark);
+}
+
+.hero-eyebrow span:first-child {
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   FIX 2: Nav transparente sobre hero oscuro (projects.html)
+   El nav empieza transparente, sin fondo. Los links deben
+   ser visibles sobre el hero oscuro y sobre el fondo blanco.
+   ───────────────────────────────────────────────────────────── */
+
+/* Estado inicial — sobre hero oscuro */
+#navbar .nav-links a {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+#navbar .nav-links a:hover,
+#navbar .nav-links a.active,
+#navbar .nav-links a[aria-current="page"] {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+#navbar .nav-logo-text {
+  color: white;
+}
+
+#navbar .lang-toggle {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+#navbar .lang-btn {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#navbar .lang-btn.active {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: none;
+}
+
+#navbar .hamburger span {
+  background: white;
+}
+
+/* Estado scrolled — sobre fondo blanco */
+#navbar.scrolled .nav-links a {
+  color: var(--color-dark);
+}
+
+#navbar.scrolled .nav-links a:hover,
+#navbar.scrolled .nav-links a.active,
+#navbar.scrolled .nav-links a[aria-current="page"] {
+  background-color: var(--color-gray-light);
+  color: var(--color-primary);
+}
+
+#navbar.scrolled .nav-logo-text {
+  color: var(--color-dark);
+}
+
+#navbar.scrolled .lang-toggle {
+  background: var(--color-gray-light);
+}
+
+#navbar.scrolled .lang-btn {
+  color: var(--color-gray);
+}
+
+#navbar.scrolled .lang-btn.active {
+  background: var(--color-white);
+  color: var(--color-dark);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+#navbar.scrolled .hamburger span {
+  background: var(--color-dark);
+}

@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- ============================================================
+       META & SEO
+       ============================================================ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MINO Solutions — Diseño web, transformación digital y estrategias de contenido para empresas que quieren crecer en internet." />
+  <meta name="keywords" content="diseño web, desarrollo web, UX/UI, WordPress, transformación digital, SEO, El Salvador" />
+  <meta name="author" content="MINO Solutions" />
+
+  <!-- Open Graph (redes sociales) -->
+  <meta property="og:title"       content="MINO Solutions — Soluciones Digitales" />
+  <meta property="og:description" content="Diseño web, transformación digital y estrategias de contenido para empresas que quieren crecer en internet." />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://www.mino.solutions/" />
+  <!-- TODO: agregar og:image con ruta a imagen de preview (1200x630px) -->
+  <!-- <meta property="og:image" content="assets/og-image.webp" /> -->
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="MINO Solutions" />
+  <meta name="twitter:description" content="Diseño web, transformación digital y estrategias de contenido." />
+
+  <title>MINO Solutions — Soluciones Digitales</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/icons/Icono_web.svg" />
+
+  <!-- ============================================================
+       FUENTES (Google Fonts)
+       ============================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- ============================================================
+       HOJAS DE ESTILO
+       Orden: base → componentes → secciones → responsive
+       ============================================================ -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       SKIP LINK — Accesibilidad: salta directo al contenido
+       ============================================================ -->
+  <a class="sr-only" href="#main-content">Saltar al contenido principal</a>
+
+
+  <!-- ============================================================
+       NAVEGACIÓN PRINCIPAL
+       ============================================================ -->
+  <nav id="navbar" class="scrolled" role="navigation" aria-label="Navegación principal">
+    <div class="container">
+      <div class="nav-inner">
+
+        <!-- Logo -->
+        <a href="index.html" class="nav-logo" aria-label="MINO Solutions — Ir al inicio">
+          <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          role="img"
+          aria-hidden="true"
+          focusable="false"
+          width="38" height="43" 
+          viewBox="0 0 38 43" 
+          fill="none"
+          >
+          <path d="M31.6321 6.53229C31.6235 6.48527 31.6005 6.44208 31.5664 6.40872C31.5388 6.37016 31.5021 6.33903 31.4595 6.3181C27.2469 4.13774 22.5747 3 17.8336 3C13.0925 3 8.42037 4.13774 4.20768 6.3181C4.16664 6.34121 4.13038 6.37197 4.10084 6.40872C4.07112 6.44523 4.04879 6.48721 4.0351 6.53229C2.25277 13.136 2.78362 20.1526 5.53904 26.4113C6.1376 27.7696 7.11586 28.9251 8.35554 29.738C9.59523 30.5508 11.0433 30.9863 12.5246 30.9918H26.9724C27.2018 30.9852 27.4267 30.926 27.6298 30.8188C27.8342 30.7042 28.0066 30.5399 28.1311 30.341C30.3369 26.8358 31.7877 22.9074 32.3906 18.8074C32.9935 14.7074 32.7351 10.5264 31.6321 6.53229ZM17.4556 24.2199C15.5948 24.1616 13.8206 23.6209 12.2219 22.6647C10.6232 21.7084 9.2937 20.3598 8.35882 18.7459C7.42394 17.1321 6.91444 15.3062 6.87834 13.4403C6.84223 11.5744 7.28072 9.73007 8.15246 8.08109C8.19319 7.99759 8.25218 7.92438 8.32505 7.8669C8.39667 7.80897 8.4813 7.76938 8.5716 7.75156C11.1557 7.05145 13.8108 6.64793 16.4858 6.54877C17.1442 7.90687 17.487 9.39687 17.4884 10.9068C17.4907 12.4608 17.1275 13.9933 16.4283 15.3802C16.4081 15.4446 16.4081 15.5136 16.4283 15.5779C16.4347 15.6459 16.4636 15.7097 16.5105 15.7592C16.9881 16.2848 17.4095 16.8592 17.7679 17.4728C17.827 17.5754 17.9121 17.6607 18.0145 17.72C18.1169 17.7793 18.2331 17.8105 18.3514 17.8105C18.467 17.8098 18.5804 17.7786 18.6801 17.7199C18.7852 17.6642 18.8711 17.5781 18.9266 17.4728C19.2667 16.8591 19.6687 16.2821 20.1265 15.751C20.1702 15.6994 20.1987 15.6366 20.2087 15.5697C20.2244 15.5047 20.2244 15.437 20.2087 15.372C19.5678 14.0903 19.2091 12.6856 19.1568 11.2528C19.1069 9.81538 19.3705 8.38433 19.9293 7.05954C19.9816 6.92734 20.0772 6.81694 20.2005 6.74649C20.3188 6.66625 20.4607 6.6285 20.6032 6.63939C22.8028 6.8098 24.9818 7.18488 27.1121 7.7598C27.2029 7.78066 27.2875 7.82304 27.3586 7.88338C27.4289 7.9402 27.4875 8.01015 27.5312 8.08933C28.4268 9.79572 28.863 11.7067 28.7968 13.6337C28.6897 16.5439 27.4356 19.2927 25.3095 21.2773C23.1834 23.2618 20.3589 24.3201 17.4556 24.2199ZM18.7376 39.7903C20.9569 38.4002 22.9849 36.7245 24.7699 34.8062C24.8133 34.7576 24.8419 34.6976 24.852 34.6331C24.8727 34.5717 24.8727 34.5051 24.852 34.4437C24.8298 34.3812 24.7861 34.3286 24.7288 34.2954C24.6759 34.2567 24.6132 34.2338 24.548 34.2295H11.3987C11.3334 34.2338 11.2707 34.2567 11.2179 34.2954C11.1606 34.3286 11.1169 34.3812 11.0946 34.4437C11.0782 34.5058 11.0782 34.5711 11.0946 34.6331C11.1113 34.6969 11.1422 34.7561 11.185 34.8062C13.0052 36.7384 15.0755 38.4174 17.3405 39.7986C17.5558 39.9303 17.8032 40 18.0555 40C18.3078 40 18.5552 39.9303 18.7705 39.7986L18.7376 39.7903Z" fill="#0B2540"/>
+          <path d="M26.1013 12.085C26.1024 12.6428 25.9364 13.1882 25.6246 13.6503C25.3136 14.1134 24.8734 14.4744 24.359 14.6883C23.8401 14.9075 23.2673 14.9649 22.7154 14.8531C22.1713 14.74 21.6716 14.471 21.2772 14.0787C20.8819 13.6855 20.6128 13.1829 20.5045 12.6354C20.3961 12.0879 20.4534 11.5204 20.669 11.0058C20.8768 10.4914 21.2349 10.052 21.6963 9.74532C22.1582 9.43468 22.7016 9.26839 23.2578 9.2675C23.457 9.26406 23.6559 9.28621 23.8495 9.3334C23.6659 9.47675 23.517 9.6598 23.4139 9.86889C23.3121 10.0795 23.2588 10.3104 23.2578 10.5444C23.2582 10.7485 23.3001 10.9503 23.3811 11.1376C23.4574 11.3223 23.5691 11.4902 23.7098 11.6319C23.8515 11.7784 24.0223 11.8935 24.2111 11.9697C24.3996 12.0443 24.6002 12.0834 24.8028 12.085C25.035 12.0842 25.264 12.0313 25.4731 11.93C25.6822 11.8288 25.866 11.6819 26.0109 11.5001C26.0618 11.6913 26.0921 11.8873 26.1013 12.085Z" fill="#0B2540"/>
+          <path d="M15.1954 12.0846C15.1955 12.6411 15.0326 13.1853 14.727 13.6499C14.4138 14.111 13.9743 14.4715 13.4614 14.6879C12.9421 14.9056 12.3697 14.963 11.8177 14.8527C11.2736 14.7396 10.774 14.4706 10.3795 14.0783C9.98757 13.6844 9.7215 13.1826 9.6152 12.6366C9.4984 12.0842 9.55289 11.5093 9.77135 10.9889C9.98526 10.4758 10.3455 10.0373 10.8069 9.72845C11.2679 9.41598 11.8118 9.24952 12.3683 9.25063C12.5675 9.24806 12.7663 9.2702 12.9601 9.31653C12.772 9.45525 12.6222 9.63948 12.5245 9.85202C12.419 10.0613 12.3654 10.2931 12.3683 10.5276C12.3684 10.7298 12.4083 10.9299 12.4859 11.1166C12.5635 11.3032 12.6772 11.4726 12.8203 11.615C12.9618 11.7593 13.1307 11.8737 13.317 11.9515C13.5034 12.0294 13.7033 12.069 13.9052 12.0681C14.1391 12.071 14.3702 12.0173 14.5791 11.9116C14.7891 11.8142 14.9724 11.6672 15.1132 11.4832C15.1669 11.6792 15.1945 11.8814 15.1954 12.0846Z" fill="#0B2540"/>
+          <path d="M34.53 31.4289V33.8262C34.5238 33.9338 34.4802 34.0358 34.4067 34.1146C34.3304 34.1914 34.2273 34.2357 34.1191 34.2381H27.8403C27.7741 34.2385 27.7089 34.2215 27.6513 34.1887C27.5995 34.1493 27.5573 34.0986 27.528 34.0404C27.5117 33.9783 27.5117 33.913 27.528 33.8509C27.5367 33.7876 27.5622 33.7279 27.602 33.6779C28.2239 32.924 28.8055 32.1375 29.3443 31.3218C29.408 31.2314 29.4926 31.1579 29.5908 31.1076C29.6858 31.0528 29.7936 31.0243 29.9031 31.0252H34.1027C34.2099 31.0246 34.3131 31.0659 34.3903 31.1405C34.4686 31.2177 34.5179 31.3195 34.53 31.4289Z" fill="#0B2540"/>
+          <path d="M8.44168 31.3135C9.00874 32.1374 9.60867 32.92 10.2497 33.6779C10.2932 33.7264 10.3217 33.7865 10.3319 33.8509C10.352 33.9125 10.352 33.9789 10.3319 34.0404C10.3074 34.0995 10.2641 34.1488 10.2086 34.1805C10.1551 34.2167 10.0923 34.2367 10.0278 34.2381H3.57644C3.52255 34.2388 3.46912 34.2282 3.41958 34.2069C3.37004 34.1856 3.32549 34.1542 3.2888 34.1146C3.21212 34.038 3.16794 33.9347 3.16553 33.8262V31.4371C3.16794 31.3287 3.21212 31.2253 3.2888 31.1488C3.32549 31.1092 3.37004 31.0778 3.41958 31.0565C3.46912 31.0352 3.52255 31.0245 3.57644 31.0252H7.87461C7.98578 31.0243 8.09559 31.0497 8.19513 31.0993C8.29338 31.1497 8.37799 31.2232 8.44168 31.3135Z" fill="#0B2540"/>
+          </svg>
+          <span class="nav-logo-text">MINO</span>
+        </a>
+
+        <!-- Links de navegación (desktop) -->
+        <ul class="nav-links" role="list">
+          <li><a href="#services" data-i18n="nav.services">Servicios</a></li>
+          <li><a href="#process"  data-i18n="nav.process">Proceso</a></li>
+          <li><a href="#cases"    data-i18n="nav.cases">Proyectos</a></li>
+          <li><a href="#packages" data-i18n="nav.packages">Paquetes</a></li>
+          <li><a href="#about"    data-i18n="nav.about">Nosotros</a></li>
+        </ul>
+
+        <!-- Acciones del nav (idioma + CTA) -->
+        <div class="nav-right">
+
+          <!-- Toggle de idioma -->
+          <div
+            class="lang-toggle"
+            role="group"
+            aria-label="Seleccionar idioma"
+          >
+            <button
+              class="lang-btn active"
+              onclick="setLang('es')"
+              aria-pressed="true"
+              aria-label="Español"
+            >ES</button>
+            <button
+              class="lang-btn"
+              onclick="setLang('en')"
+              aria-pressed="false"
+              aria-label="English"
+            >EN</button>
+          </div>
+
+          <!-- CTA WhatsApp (desktop) -->
+          <a
+            href="https://wa.me/message/J3MYMT4QSDQDL1"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-primary nav-cta"
+            aria-label="Contáctanos por WhatsApp"
+          >
+            <!-- Ícono WhatsApp -->
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            <span data-i18n="nav.cta">Hablemos</span>
+          </a>
+
+          <!-- Botón hamburguesa (mobile) -->
+          <button
+            class="hamburger"
+            id="hamburger"
+            onclick="toggleMenu()"
+            aria-label="Abrir menú de navegación"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ============================================================
+       MENÚ MÓVIL
+       ============================================================ -->
+  <div
+    id="mobileMenu"
+    class="mobile-menu"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Menú de navegación"
+  >
+    <button
+      class="close-menu"
+      onclick="toggleMenu()"
+      aria-label="Cerrar menú"
+    >✕</button>
+
+    <a href="#services" onclick="toggleMenu()" data-i18n="nav.services">Servicios</a>
+    <a href="#process"  onclick="toggleMenu()" data-i18n="nav.process">Proceso</a>
+    <a href="#cases"    onclick="toggleMenu()" data-i18n="nav.cases">Proyectos</a>
+    <a href="#packages" onclick="toggleMenu()" data-i18n="nav.packages">Paquetes</a>
+    <a href="#about"    onclick="toggleMenu()" data-i18n="nav.about">Nosotros</a>
+
+    <a
+      href="https://wa.me/message/J3MYMT4QSDQDL1"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn btn-whatsapp btn-lg"
+      aria-label="Contáctanos por WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+      <span data-i18n="nav.cta">Hablemos por WhatsApp</span>
+    </a>
+  </div>
+
+
+  <!-- ============================================================
+       CONTENIDO PRINCIPAL
+       ============================================================ -->
+  <main id="main-content">
+
+
+    <!-- ============================================================
+         SECCIÓN: HERO
+         ============================================================ -->
+    <section id="hero" aria-label="Sección principal">
+
+      <!-- Fondo decorativo (no descriptivo) -->
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+      </div>
+
+      <div class="container">
+        <div class="hero-grid">
+
+          <!-- Columna izquierda: contenido -->
+          <div class="hero-content">
+
+
+
+            <!-- Título principal -->
+            <h1 class="hero-title" data-i18n-html="hero.title">
+              Tu negocio merece una<br>
+              <em>presencia digital</em><br>
+              que venda
+            </h1>
+
+            <!-- Descripción -->
+            <p class="hero-desc" data-i18n="hero.desc">
+              Diseñamos, desarrollamos y optimizamos tu ecosistema digital.
+              Sitios web de alto rendimiento, transformación de procesos y
+              estrategias de contenido que convierten visitantes en clientes.
+            </p>
+
+            <!-- Llamados a la acción -->
+            <div class="hero-actions">
+              <a
+                href="https://wa.me/message/J3MYMT4QSDQDL1"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-whatsapp btn-lg"
+                aria-label="Iniciar mi proyecto por WhatsApp"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                <span data-i18n="hero.cta1">Iniciar mi proyecto</span>
+              </a>
+
+              <a href="#cases" class="btn btn-secondary btn-lg" data-i18n="hero.cta2">
+                Ver proyectos
+              </a>
+            </div>
+
+            <!-- Estadísticas -->
+            <div class="hero-stats" aria-label="Estadísticas de MINO Solutions">
+              <div class="stat-item">
+                <div class="stat-num">+20</div>
+                <div class="stat-label" data-i18n="hero.stat1">Proyectos finalizados</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num">+90<span>%</span></div>
+                <div class="stat-label" data-i18n="hero.stat2">Mejora en performance</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-num">3</div>
+                <div class="stat-label" data-i18n="hero.stat3">Áreas de especialidad</div>
+              </div>
+            </div>
+
+          </div><!-- /hero-content -->
+
+          <!-- Columna derecha: mockup visual -->
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-mockup">
+
+              <!-- Badge flotante 1: Performance -->
+              <div class="floating-badge floating-badge-1">
+                <div class="badge-icon blue">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false">
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                    <polyline points="16 7 22 7 22 13"/>
+                  </svg>
+                </div>
+                <div class="badge-text">
+                  <strong data-i18n="hero.badge1.title">Performance Score</strong>
+                  <span data-i18n="hero.badge1.sub">+90% en todos los proyectos</span>
+                </div>
+              </div>
+
+              <!-- Tarjeta del mockup de browser -->
+              <div class="mockup-card">
+                <div class="mockup-browser">
+                  <div class="mockup-dots" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <div class="mockup-url">mino.solutions</div>
+                </div>
+
+                <!--
+                  IMAGEN: Captura de pantalla o mockup de proyecto destacado
+                  Especificaciones: 800×400px · WebP
+                  Ejemplo: screenshot de Casa Escencia o CATO Media
+                  Reemplaza el div.mockup-img-placeholder con:
+                  <img
+                    src="assets/projects/cato-media/hero.webp"
+                    alt="Vista del proyecto CATO Media desarrollado por MINO Solutions"
+                    width="800"
+                    height="400"
+                    loading="lazy"
+                  />
+                -->
+                  <img
+                    src="assets/projects/about-team.png"
+                    alt="Vista del proyecto CATO Media desarrollado por MINO Solutions"
+                    width="800"
+                    height="400"
+                    loading="lazy"
+                  />
+
+                <!-- Métricas de Lighthouse -->
+                <div class="mockup-metrics" aria-label="Métricas de rendimiento">
+                  <div class="metric-item">
+                    <div class="metric-val green">98</div>
+                    <div class="metric-lbl">Performance</div>
+                  </div>
+                  <div class="metric-item">
+                    <div class="metric-val green">95</div>
+                    <div class="metric-lbl">SEO</div>
+                  </div>
+                  <div class="metric-item">
+                    <div class="metric-val green">100</div>
+                    <div class="metric-lbl">Accesibilidad</div>
+                  </div>
+                </div>
+              </div><!-- /mockup-card -->
+
+              <!-- Badge flotante 2: UI/UX -->
+              <div class="floating-badge floating-badge-2">
+                <div class="badge-icon purple">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true" focusable="false">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                </div>
+                <div class="badge-text">
+                  <strong data-i18n="hero.badge2.title">Diseño UI/UX</strong>
+                  <span data-i18n="hero.badge2.sub">Centrado en el usuario</span>
+                </div>
+              </div>
+
+            </div><!-- /hero-mockup -->
+          </div><!-- /hero-visual -->
+
+        </div><!-- /hero-grid -->
+      </div><!-- /container -->
+    </section>
+    <!-- /HERO -->
+
+
+    <!-- ============================================================
+         SECCIÓN: CLIENTES (carrusel)
+         ============================================================ -->
+    <section id="clients" aria-label="Empresas que han confiado en MINO Solutions">
+      <div class="container">
+        <p class="clients-label" data-i18n="clients.label">
+          Empresas que han confiado en MINO
+        </p>
+      </div>
+
+      <div class="clients-track-wrap">
+        <div class="clients-track" role="list" aria-label="Logos de clientes">
+
+          <!-- ── SET 1 ── -->
+          <div class="client-item" role="listitem">
+            <div class="client-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span class="client-name">Lienzos & Trazos</span>
+          </div>
+
+          <div class="client-item" role="listitem">
+            <div class="client-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <span class="client-name">Linework</span>
+          </div>
+
+          <div class="client-item" role="listitem">
+            <div class="client-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <span class="client-name">CATO Media</span>
+          </div>
+
+          <div class="client-item" role="listitem">
+            <div class="client-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            </div>
+            <span class="client-name">Casa Escencia</span>
+          </div>
+
+          <div class="client-item" role="listitem">
+            <div class="client-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <span class="client-name">RPG Architect</span>
+          </div>
+
+          <div class="client-item" role="listitem">
+            <div class="client-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10z"/></svg>
+            </div>
+            <span class="client-name">Zentro Labs</span>
+          </div>
+
+          <div class="client-item" role="listitem">
+            <div class="client-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+            </div>
+            <span class="client-name">NuvPOS</span>
+          </div>
+
+          <div class="client-item" role="listitem">
+            <div class="client-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <span class="client-name">ABG Homes</span>
+          </div>
+
+          <div class="client-item" role="listitem">
+            <div class="client-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7z"/></svg>
+            </div>
+            <span class="client-name">Super Clean SV</span>
+          </div>
+
+          <!-- ── SET 2 (duplicado para loop infinito) ── -->
+          <div class="client-item" role="listitem" aria-hidden="true">
+            <div class="client-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+            <span class="client-name">Lienzos & Trazos</span>
+          </div>
+          <div class="client-item" role="listitem" aria-hidden="true">
+            <div class="client-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <span class="client-name">Linework</span>
+          </div>
+          <div class="client-item" role="listitem" aria-hidden="true">
+            <div class="client-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <span class="client-name">CATO Media</span>
+          </div>
+          <div class="client-item" role="listitem" aria-hidden="true">
+            <div class="client-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
+            <span class="client-name">Casa Escencia</span>
+          </div>
+          <div class="client-item" role="listitem" aria-hidden="true">
+            <div class="client-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+            <span class="client-name">RPG Architect</span>
+          </div>
+          <div class="client-item" role="listitem" aria-hidden="true">
+            <div class="client-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10z"/></svg></div>
+            <span class="client-name">Zentro Labs</span>
+          </div>
+          <div class="client-item" role="listitem" aria-hidden="true">
+            <div class="client-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8z"/></svg></div>
+            <span class="client-name">NuvPOS</span>
+          </div>
+          <div class="client-item" role="listitem" aria-hidden="true">
+            <div class="client-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+            <span class="client-name">ABG Homes</span>
+          </div>
+          <div class="client-item" role="listitem" aria-hidden="true">
+            <div class="client-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7z"/></svg></div>
+            <span class="client-name">Super Clean SV</span>
+          </div>
+
+        </div><!-- /clients-track -->
+      </div><!-- /clients-track-wrap -->
+    </section>
+    <!-- /CLIENTES -->
+
+
+    <!-- ============================================================
+         SECCIÓN: SERVICIOS
+         ============================================================ -->
+    <section id="services" class="section bg-white" aria-labelledby="services-heading">
+      <div class="container">
+
+        <header class="section-header">
+          <div class="tag" data-i18n="services.tag">Nuestros Servicios</div>
+          <h2 id="services-heading" data-i18n="services.title">
+            Todo lo que tu negocio necesita para crecer en digital
+          </h2>
+          <p data-i18n="services.desc">
+            Combinamos diseño, tecnología y estrategia para construir
+            un ecosistema digital que trabaje por tu negocio.
+          </p>
+        </header>
+
+        <div class="services-grid">
+
+          <!-- Servicio 1: Diseño UI/UX -->
+          <article class="service-card fade-up" aria-labelledby="s1-heading">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <h3 id="s1-heading" data-i18n="s1.title">Diseño UI/UX</h3>
+            <p data-i18n="s1.desc">Interfaces claras, intuitivas y atractivas que conectan tu marca con tus clientes desde el primer clic.</p>
+            <ul class="service-features" aria-label="Incluye">
+              <li data-i18n="s1.f1">Investigación y análisis de usuarios</li>
+              <li data-i18n="s1.f2">Prototipado y wireframes en Figma</li>
+              <li data-i18n="s1.f3">Diseño centrado en conversión</li>
+              <li data-i18n="s1.f4">Testing de usabilidad</li>
+            </ul>
+          </article>
+
+          <!-- Servicio 2: Desarrollo Web -->
+          <article class="service-card fade-up" aria-labelledby="s2-heading">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3 id="s2-heading" data-i18n="s2.title">Desarrollo Web</h3>
+            <p data-i18n="s2.desc">Sitios web profesionales construidos desde cero o con WordPress, optimizados para rendimiento y conversión.</p>
+            <ul class="service-features" aria-label="Incluye">
+              <li data-i18n="s2.f1">Desarrollo a medida (HTML/CSS/JS)</li>
+              <li data-i18n="s2.f2">WordPress + temas personalizados</li>
+              <li data-i18n="s2.f3">WooCommerce y e-commerce</li>
+              <li data-i18n="s2.f4">Integración de pasarelas de pago</li>
+            </ul>
+          </article>
+
+          <!-- Servicio 3: Optimización Web -->
+          <article class="service-card fade-up" aria-labelledby="s3-heading">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h3 id="s3-heading" data-i18n="s3.title">Optimización Web</h3>
+            <p data-i18n="s3.desc">Convertimos sitios lentos en máquinas de rendimiento. SEO técnico, velocidad y accesibilidad en un solo servicio.</p>
+            <ul class="service-features" aria-label="Incluye">
+              <li data-i18n="s3.f1">Auditoría técnica completa</li>
+              <li data-i18n="s3.f2">Optimización Core Web Vitals</li>
+              <li data-i18n="s3.f3">SEO on-page y técnico</li>
+              <li data-i18n="s3.f4">+90% en performance garantizado</li>
+            </ul>
+          </article>
+
+          <!-- Servicio 4: Transformación Digital -->
+          <article class="service-card fade-up" aria-labelledby="s4-heading">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+            </div>
+            <h3 id="s4-heading" data-i18n="s4.title">Transformación Digital</h3>
+            <p data-i18n="s4.desc">Modernizamos cómo opera tu empresa: herramientas digitales, automatización y procesos más eficientes.</p>
+            <ul class="service-features" aria-label="Incluye">
+              <li data-i18n="s4.f1">Diagnóstico de procesos digitales</li>
+              <li data-i18n="s4.f2">Implementación de herramientas CRM</li>
+              <li data-i18n="s4.f3">Automatización de tareas operativas</li>
+              <li data-i18n="s4.f4">Integración de sistemas</li>
+            </ul>
+          </article>
+
+          <!-- Servicio 5: Estrategia de Contenido -->
+          <article class="service-card fade-up" aria-labelledby="s5-heading">
+            <div class="service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-3 2-6 2-5.5-2-9-2-4 2-4 2v16s1-2 4-2 5.5 2 9 2 6-2 6-2V4z"/><line x1="12" y1="6" x2="12" y2="18"/></svg>
+            </div>
+            <h3 id="s5-heading" data-i18n="s5.title">Estrategia de Contenido</h3>
+            <p data-i18n="s5.desc">Construimos tu presencia en redes sociales con contenido que comunica, conecta y convierte.</p>
+            <ul class="service-features" aria-label="Incluye">
+              <li data-i18n="s5.f1">Estrategia editorial personalizada</li>
+              <li data-i18n="s5.f2">Creación de contenido para redes</li>
+              <li data-i18n="s5.f3">Calendario de publicaciones</li>
+              <li data-i18n="s5.f4">Análisis y mejora continua</li>
+            </ul>
+          </article>
+
+          <!-- Tarjeta CTA -->
+          <div class="service-card service-card-cta fade-up">
+            <div>
+              <div aria-hidden="true" style="font-size:2rem;margin-bottom:20px;">💬</div>
+              <h3 data-i18n="s6.title" style="color:white;margin-bottom:12px;">¿No sabes por dónde empezar?</h3>
+              <p data-i18n="s6.desc" style="color:rgba(255,255,255,0.55);font-size:0.9rem;">Cuéntanos tu proyecto y te recomendamos la mejor solución, sin compromiso.</p>
+            </div>
+            <a
+              href="https://wa.me/message/J3MYMT4QSDQDL1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-whatsapp"
+              style="margin-top:28px;justify-content:center;"
+              aria-label="Solicitar consulta gratuita por WhatsApp"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              <span data-i18n="s6.cta">Consulta gratuita</span>
+            </a>
+          </div>
+
+        </div><!-- /services-grid -->
+      </div><!-- /container -->
+    </section>
+    <!-- /SERVICIOS -->
+
+
+    <!-- ============================================================
+         SECCIÓN: PROCESO DE TRABAJO
+         ============================================================ -->
+    <section id="process" class="section bg-dark" aria-labelledby="process-heading">
+      <div class="container">
+
+        <header class="section-header">
+          <div class="tag" data-i18n="process.tag">Cómo Trabajamos</div>
+          <h2 id="process-heading" data-i18n="process.title">Un proceso claro, sin sorpresas</h2>
+          <p data-i18n="process.desc">De la idea al lanzamiento con metodología probada y comunicación constante en cada etapa.</p>
+        </header>
+
+        <ol class="process-grid" aria-label="Pasos del proceso de trabajo">
+
+          <!-- Paso 1 -->
+          <li class="process-step fade-up">
+            <div class="step-num" aria-hidden="true">01</div>
+            <div class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3 data-i18n="p1.title">Diagnóstico</h3>
+            <p data-i18n="p1.desc">Analizamos tu negocio, objetivos y audiencia para entender qué solución digital necesitas realmente.</p>
+          </li>
+
+          <!-- Paso 2 -->
+          <li class="process-step fade-up">
+            <div class="step-num" aria-hidden="true">02</div>
+            <div class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <h3 data-i18n="p2.title">Estrategia & Diseño</h3>
+            <p data-i18n="p2.desc">Definimos la arquitectura, diseño visual y plan de contenido. Presentamos prototipos antes de desarrollar.</p>
+          </li>
+
+          <!-- Paso 3 -->
+          <li class="process-step fade-up">
+            <div class="step-num" aria-hidden="true">03</div>
+            <div class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            </div>
+            <h3 data-i18n="p3.title">Desarrollo</h3>
+            <p data-i18n="p3.desc">Construimos tu solución con código limpio, optimizado y preparado para escalar. Iteraciones rápidas con tu feedback.</p>
+          </li>
+
+          <!-- Paso 4 -->
+          <li class="process-step fade-up">
+            <div class="step-num" aria-hidden="true">04</div>
+            <div class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            </div>
+            <h3 data-i18n="p4.title">Lanzamiento & Soporte</h3>
+            <p data-i18n="p4.desc">Publicamos con pruebas completas de rendimiento, SEO y accesibilidad. Te acompañamos después del lanzamiento.</p>
+          </li>
+
+        </ol><!-- /process-grid -->
+      </div><!-- /container -->
+    </section>
+    <!-- /PROCESO -->
+
+
+    <!-- ============================================================
+         SECCIÓN: PROYECTOS DESTACADOS
+         ============================================================ -->
+    <section id="cases" class="section bg-light" aria-labelledby="cases-heading">
+      <div class="container">
+
+        <header class="section-header">
+          <div class="tag" data-i18n="cases.tag">Proyectos</div>
+          <h2 id="cases-heading" data-i18n="cases.title">Resultados reales, no promesas</h2>
+          <p data-i18n="cases.desc">Cada proyecto es una historia de transformación digital. Más del 90% de mejora en performance, SEO y accesibilidad.</p>
+        </header>
+
+        <div class="cases-grid">
+
+          <!-- Proyecto: CATO Media -->
+          <article class="case-card fade-up" aria-labelledby="case1-heading">
+            <div class="case-img" style="background:linear-gradient(135deg,#0B2540,#1a3a5c);">
+              <span class="case-type">Ecosistema Digital</span>
+              <!--
+                IMAGEN: Screenshot de CATO Media Company
+                Especificaciones: 600×400px · WebP
+                Reemplaza el div por:
+                <img
+                  src="assets/projects/cato-media/hero.webp"
+                  alt="Plataforma digital de CATO Media Company desarrollada por MINO Solutions"
+                  width="600" height="400"
+                  loading="lazy"
+                  class="project-img"
+                />
+              -->
+                <img
+                  src="assets/projects/cato-media/hero-sbj.png"
+                  alt="Plataforma digital de CATO Media Company desarrollada por MINO Solutions"
+                  width="600" height="400"
+                  loading="lazy"
+                  class="project-img"
+                />
+            </div>
+            <div class="case-body">
+              <h3 id="case1-heading">CATO Media</h3>
+              <p data-i18n="case1.desc">Ecosistema de 3 plataformas de noticias interconectadas. Infraestructura escalable con WordPress, PHP y automatización completa.</p>
+              <div class="case-tags" aria-label="Tecnologías utilizadas">
+                <span class="case-tag">WordPress</span>
+                <span class="case-tag">PHP</span>
+                <span class="case-tag">CRM</span>
+                <span class="case-tag">Automatización</span>
+              </div>
+              <div class="case-metric">
+                <span class="case-score" aria-label="Resultado: más del 90% de mejora en Performance y SEO">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg>
+                  +90% Performance & SEO
+                </span>
+                <a
+                  href="projects.html#proj-cato"
+                  class="case-link"
+                  aria-label="Ver proyecto CATO Media en detalle"
+                  data-i18n="case.view"
+                >Ver proyecto →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proyecto: Linework -->
+          <article class="case-card fade-up" aria-labelledby="case2-heading">
+            <div class="case-img" style="background:linear-gradient(135deg,#1a2744,#308ACD33);">
+              <span class="case-type">Product Design</span>
+              <!--
+                IMAGEN: Mockup de la app Linework
+                Especificaciones: 600×400px · WebP
+                <img
+                  src="assets/projects/linework/marketplace.webp"
+                  alt="Interfaz del marketplace de Linework diseñada por MINO Solutions"
+                  width="600" height="400"
+                  loading="lazy"
+                  class="project-img"
+                />
+              -->
+                <img
+                  src="assets/projects/linework/hero-linework.png"
+                  alt="Interfaz del marketplace de Linework diseñada por MINO Solutions"
+                  width="600" height="400"
+                  loading="lazy"
+                  class="project-img"
+                />
+            </div>
+            <div class="case-body">
+              <h3 id="case2-heading">Linework</h3>
+              <p data-i18n="case2.desc">Plataforma de gestión de proyectos de construcción. Lead UX: diseño de flujos que eliminaron retrasos y mejoraron la comunicación.</p>
+              <div class="case-tags" aria-label="Tecnologías utilizadas">
+                <span class="case-tag">UX/UI</span>
+                <span class="case-tag">Figma</span>
+                <span class="case-tag">Product Design</span>
+              </div>
+              <div class="case-metric">
+                <span class="case-score" aria-label="Resultado: diseño escalable e intuitivo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg>
+                  Diseño escalable e intuitivo
+                </span>
+                <a
+                  href="projects.html#proj-linework"
+                  class="case-link"
+                  aria-label="Ver proyecto Linework en detalle"
+                  data-i18n="case.view"
+                >Ver proyecto →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proyecto: Casa Escencia -->
+          <article class="case-card fade-up" aria-labelledby="case3-heading">
+            <div class="case-img" style="background:linear-gradient(135deg,#2d1b4e,#6B3FA0);">
+              <span class="case-type">E-Commerce</span>
+              <!--
+                IMAGEN: Homepage de Casa Escencia
+                Especificaciones: 600×400px · WebP
+                <img
+                  src="assets/projects/casa-escencia/hero.webp"
+                  alt="Homepage de la tienda online Casa Escencia desarrollada por MINO Solutions"
+                  width="600" height="400"
+                  loading="lazy"
+                  class="project-img"
+                />
+              -->
+                <img
+                  src="assets/projects/casa-escencia/hero-ce.png"
+                  alt="Homepage de la tienda online Casa Escencia desarrollada por MINO Solutions"
+                  width="600" height="400"
+                  loading="lazy"
+                  class="project-img"
+                />
+            </div>
+            <div class="case-body">
+              <h3 id="case3-heading">Casa Escencia</h3>
+              <p data-i18n="case3.desc">Tienda online de accesorios de bienestar. WordPress + WooCommerce con pasarela Wompy y experiencia de compra premium.</p>
+              <div class="case-tags" aria-label="Tecnologías utilizadas">
+                <span class="case-tag">WordPress</span>
+                <span class="case-tag">WooCommerce</span>
+                <span class="case-tag">E-Commerce</span>
+              </div>
+              <div class="case-metric">
+                <span class="case-score" aria-label="Resultado: más del 90% de mejora en todas las métricas">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg>
+                  +90% en todas las métricas
+                </span>
+                <a
+                  href="projects.html#proj-casa"
+                  class="case-link"
+                  aria-label="Ver proyecto Casa Escencia en detalle"
+                  data-i18n="case.view"
+                >Ver proyecto →</a>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /cases-grid -->
+
+        <div class="cases-cta">
+          <a href="projects.html" class="btn btn-secondary btn-lg" data-i18n="cases.cta">
+            Ver todos los proyectos →
+          </a>
+        </div>
+
+      </div><!-- /container -->
+    </section>
+    <!-- /PROYECTOS DESTACADOS -->
+
+
+    <!-- ============================================================
+         SECCIÓN: PAQUETES
+         ============================================================ -->
+    <section id="packages" class="section bg-light" aria-labelledby="packages-heading">
+      <div class="container">
+
+        <header class="section-header">
+          <div class="tag" data-i18n="packages.tag">Paquetes</div>
+          <h2 id="packages-heading" data-i18n="packages.title">Soluciones adaptadas a tu etapa digital</h2>
+          <p data-i18n="packages.desc">Desde presencia web completa hasta estrategia de redes. Elige el paquete que mejor encaja con los objetivos de tu negocio.</p>
+        </header>
+
+        <div class="packages-grid">
+
+          <!-- Paquete: BusinessSync -->
+          <article class="package-card fade-up" aria-labelledby="pkg2-heading">
+            <h3 id="pkg2-heading">BusinessSync</h3>
+            <p class="package-subtitle" data-i18n="pkg2.sub">Optimización digital para empresas que quieren operar mejor</p>
+            <div class="package-services">
+              <div class="pkg-service-group">
+                <strong data-i18n="pkg.digital">Transformación Digital</strong>
+                <ul class="pkg-features" aria-label="Incluye en Transformación Digital">
+                  <li data-i18n="pkg2.f1">Modernización de procesos operativos</li>
+                  <li data-i18n="pkg2.f2">Implementación de herramientas digitales</li>
+                  <li data-i18n="pkg2.f3">Mejora de comunicación empresarial</li>
+                </ul>
+              </div>
+              <div class="pkg-service-group">
+                <strong data-i18n="pkg.web">Desarrollo Web</strong>
+                <ul class="pkg-features" aria-label="Incluye en Desarrollo Web">
+                  <li data-i18n="pkg2.f4">Sitio web profesional</li>
+                  <li data-i18n="pkg2.f5">Formularios y canales de contacto</li>
+                  <li data-i18n="pkg2.f6">UX optimizada para conversión</li>
+                </ul>
+              </div>
+            </div>
+            <a
+              href="https://wa.me/message/J3MYMT4QSDQDL1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-dark"
+              aria-label="Contratar paquete BusinessSync por WhatsApp"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span data-i18n="pkg.cta2">Optimizar mi negocio</span>
+            </a>
+          </article>
+
+          <!-- Paquete: WebUnity (destacado) -->
+          <article class="package-card featured fade-up" aria-labelledby="pkg1-heading">
+            <div class="package-badge" data-i18n="pkg.recommended">⭐ Más popular</div>
+            <h3 id="pkg1-heading">WebUnity</h3>
+            <p class="package-subtitle" data-i18n="pkg1.sub">Presencia digital completa: web, transformación y contenido en un solo paquete</p>
+            <div class="package-services">
+              <div class="pkg-service-group">
+                <strong data-i18n="pkg.digital">Transformación Digital</strong>
+                <ul class="pkg-features" aria-label="Incluye en Transformación Digital">
+                  <li data-i18n="pkg1.f1">Diagnóstico y modernización de procesos</li>
+                  <li data-i18n="pkg1.f2">Implementación de herramientas digitales</li>
+                  <li data-i18n="pkg1.f3">Optimización de comunicación</li>
+                </ul>
+              </div>
+              <div class="pkg-service-group">
+                <strong data-i18n="pkg.web">Desarrollo Web</strong>
+                <ul class="pkg-features" aria-label="Incluye en Desarrollo Web">
+                  <li data-i18n="pkg1.f4">Diseño y desarrollo web profesional</li>
+                  <li data-i18n="pkg1.f5">Integración de canales de comunicación</li>
+                  <li data-i18n="pkg1.f6">UX centrado en conversión</li>
+                </ul>
+              </div>
+              <div class="pkg-service-group">
+                <strong data-i18n="pkg.content">Estrategia de Contenido</strong>
+                <ul class="pkg-features" aria-label="Incluye en Estrategia de Contenido">
+                  <li data-i18n="pkg1.f7">Contenido personalizado para redes</li>
+                  <li data-i18n="pkg1.f8">Estrategia editorial mensual</li>
+                  <li data-i18n="pkg1.f9">Fortalecimiento de presencia online</li>
+                </ul>
+              </div>
+            </div>
+            <a
+              href="https://wa.me/message/J3MYMT4QSDQDL1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+              aria-label="Contratar paquete WebUnity por WhatsApp"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span data-i18n="pkg.cta1">Crear mi presencia digital</span>
+            </a>
+          </article>
+
+          <!-- Paquete: SocialBoost -->
+          <article class="package-card fade-up" aria-labelledby="pkg3-heading">
+            <h3 id="pkg3-heading">SocialBoost</h3>
+            <p class="package-subtitle" data-i18n="pkg3.sub">Estrategia y crecimiento en redes sociales para conectar con tu audiencia</p>
+            <div class="package-services">
+              <div class="pkg-service-group">
+                <strong data-i18n="pkg.digital">Transformación Digital</strong>
+                <ul class="pkg-features" aria-label="Incluye en Transformación Digital">
+                  <li data-i18n="pkg3.f1">Implementación de herramientas digitales</li>
+                  <li data-i18n="pkg3.f2">Organización de procesos de comunicación</li>
+                  <li data-i18n="pkg3.f3">Optimización de gestión de contenido</li>
+                </ul>
+              </div>
+              <div class="pkg-service-group">
+                <strong data-i18n="pkg.content">Estrategia de Contenido</strong>
+                <ul class="pkg-features" aria-label="Incluye en Estrategia de Contenido">
+                  <li data-i18n="pkg3.f4">Contenido personalizado para tu marca</li>
+                  <li data-i18n="pkg3.f5">Estrategia para redes sociales</li>
+                  <li data-i18n="pkg3.f6">Análisis y optimización continua</li>
+                </ul>
+              </div>
+            </div>
+            <a
+              href="https://wa.me/message/J3MYMT4QSDQDL1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-dark"
+              aria-label="Contratar paquete SocialBoost por WhatsApp"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span data-i18n="pkg.cta3">Impulsar mi presencia</span>
+            </a>
+          </article>
+
+        </div><!-- /packages-grid -->
+
+        <p style="text-align:center;margin-top:32px;font-size:0.87rem;color:var(--color-gray);">
+          ¿Necesitas algo diferente?
+          <a
+            href="https://wa.me/message/J3MYMT4QSDQDL1"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="color:var(--color-primary);font-weight:600;"
+            aria-label="Contactar por WhatsApp para propuesta personalizada"
+          >Cuéntanos tu proyecto</a>
+          y creamos una propuesta personalizada.
+        </p>
+
+      </div><!-- /container -->
+    </section>
+    <!-- /PAQUETES -->
+
+
+    <!-- ============================================================
+         SECCIÓN: SOBRE NOSOTROS
+         ============================================================ -->
+    <section id="about" class="section bg-white" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+
+          <!-- Visual / imagen -->
+          <div class="about-visual">
+            <div class="about-img-wrap">
+              <!--
+                IMAGEN: Foto del equipo o imagen representativa de MINO
+                Especificaciones: 800×600px · WebP
+                Reemplaza el div por:
+                <img
+                  src="assets/about-team.webp"
+                  alt="Equipo de MINO Solutions trabajando en proyectos digitales"
+                  width="800" height="600"
+                  loading="lazy"
+                  class="project-img"
+                />
+              -->
+                <img
+                  src="assets/projects/hero-mino.png"
+                  alt="Equipo de MINO Solutions trabajando en proyectos digitales"
+                  width="800" height="600"
+                  loading="lazy"
+                  class="project-img"
+                />
+            </div>
+
+            <!-- Badges flotantes -->
+            <div class="about-badge-float top-left" aria-hidden="true">
+              <div class="about-badge-icon blue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div class="about-badge-text">
+                <strong data-i18n="about.badge1.t">Compromiso total</strong>
+                <span data-i18n="about.badge1.s">Con cada proyecto</span>
+              </div>
+            </div>
+
+            <div class="about-badge-float bot-right" aria-hidden="true">
+              <div class="about-badge-icon purple">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#4D45AA" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <div class="about-badge-text">
+                <strong data-i18n="about.badge2.t">Entrega puntual</strong>
+                <span data-i18n="about.badge2.s">Sin sorpresas</span>
+              </div>
+            </div>
+          </div><!-- /about-visual -->
+
+          <!-- Contenido -->
+          <div class="about-content">
+            <div class="tag" data-i18n="about.tag">Sobre MINO</div>
+            <h2 id="about-heading" data-i18n="about.title">Tecnología accesible que hace crecer tu negocio</h2>
+            <p data-i18n="about.desc">En MINO creemos que la transformación digital no debe ser complicada ni inaccesible. Diseñamos soluciones simples, efectivas y escalables que permiten a las empresas adaptarse al entorno digital de forma progresiva y sostenible.</p>
+
+            <!-- Misión y Visión -->
+            <div class="mv-grid" aria-label="Misión y Visión de MINO Solutions">
+              <div class="mv-card">
+                <div class="mv-card-head">
+                  <div class="mv-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  </div>
+                  <h3 class="mv-card-heading" data-i18n="about.mission.title">Misión</h3>
+                </div>
+                <p data-i18n="about.mission.desc">Ser aliado estratégico en la transformación digital de empresas, ofreciendo soluciones confiables que fortalezcan su presencia online.</p>
+              </div>
+
+              <div class="mv-card">
+                <div class="mv-card-head">
+                  <div class="mv-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                  </div>
+                  <h3 class="mv-card-heading" data-i18n="about.vision.title">Visión</h3>
+                </div>
+                <p data-i18n="about.vision.desc">Convertirnos en referente en soluciones digitales para negocios en crecimiento en la región, impulsando innovación y desarrollo empresarial.</p>
+              </div>
+            </div><!-- /mv-grid -->
+
+            <a
+              href="https://wa.me/message/J3MYMT4QSDQDL1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary btn-lg"
+              aria-label="Trabajar con MINO Solutions — contactar por WhatsApp"
+              data-i18n="about.cta"
+            >
+              Trabajemos juntos
+            </a>
+          </div><!-- /about-content -->
+
+        </div><!-- /about-grid -->
+      </div><!-- /container -->
+    </section>
+    <!-- /SOBRE NOSOTROS -->
+
+
+    <!-- ============================================================
+         SECCIÓN: LLAMADO A LA ACCIÓN FINAL (CTA)
+         ============================================================ -->
+    <section id="cta" class="section" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-inner">
+          <div class="tag" data-i18n="cta.tag">¿Listo para comenzar?</div>
+          <h2 id="cta-heading" data-i18n="cta.title">
+            Tu próximo cliente está buscando tu negocio en internet
+          </h2>
+          <p data-i18n="cta.desc">
+            No dejes que la competencia te adelante. Contáctanos hoy y en menos de 24 horas te presentamos una propuesta personalizada para tu negocio.
+          </p>
+          <div class="cta-actions">
+            <a
+              href="https://wa.me/message/J3MYMT4QSDQDL1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-whatsapp btn-lg"
+              aria-label="Escribir a MINO Solutions por WhatsApp"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span data-i18n="cta.cta1">Escribir por WhatsApp</span>
+            </a>
+            <a
+              href="mailto:esminoapp@gmail.com"
+              class="btn btn-white btn-lg"
+              data-i18n="cta.cta2"
+              aria-label="Enviar un email a MINO Solutions"
+            >
+              Enviar un email
+            </a>
+          </div>
+          <p class="cta-note" data-i18n="cta.note">
+            Respuesta en menos de 24 horas · Sin compromiso · Primera consulta gratuita
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- /CTA -->
+
+
+  </main>
+  <!-- /CONTENIDO PRINCIPAL -->
+
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer role="contentinfo" aria-label="Pie de página de MINO Solutions">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Columna: Marca -->
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <a href="index.html" aria-label="MINO Solutions — inicio">
+              <svg width="100" height="44" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" focusable="false">
+                <path d="M150.816 23.5994C150.777 23.3917 150.676 23.201 150.525 23.0536C150.403 22.8833 150.241 22.7459 150.053 22.6534C131.449 13.0245 110.816 8 89.8782 8C68.9407 8 48.3073 13.0245 29.7031 22.6534C29.5219 22.7555 29.3617 22.8914 29.2313 23.0536C29.1001 23.2149 29.0014 23.4003 28.941 23.5994C21.0698 52.7626 23.4142 83.7498 35.5827 111.389C38.2261 117.388 42.5463 122.491 48.021 126.081C53.4957 129.671 59.8906 131.594 66.4324 131.618H130.237C131.25 131.589 132.243 131.327 133.14 130.854C134.043 130.348 134.804 129.622 135.354 128.744C145.095 113.264 151.503 95.9152 154.165 77.8088C156.828 59.7024 155.687 41.2381 150.816 23.5994Z" fill="white" opacity="0.9"/>
+                <path d="M93.8705 170.474C103.671 164.335 112.628 156.935 120.51 148.463C120.702 148.249 120.828 147.983 120.873 147.699C120.964 147.427 120.964 147.134 120.873 146.862C120.775 146.586 120.582 146.354 120.329 146.207C120.095 146.036 119.819 145.935 119.53 145.916H61.4602C61.1719 145.935 60.895 146.036 60.6618 146.207C60.4086 146.354 60.2157 146.586 60.1173 146.862C60.045 147.136 60.045 147.425 60.1173 147.699C60.1912 147.981 60.3277 148.242 60.5166 148.463C68.5551 156.996 77.6978 164.411 87.7006 170.51C88.6516 171.092 89.7441 171.4 90.8582 171.4C91.9723 171.4 93.0648 171.092 94.0157 170.51L93.8705 170.474Z" fill="#308ACD"/>
+              </svg>
+            </a>
+          </div>
+          <p data-i18n="footer.brand">Soluciones digitales para empresas y emprendedores que quieren crecer en internet.</p>
+
+          <!-- Redes sociales -->
+          <div class="footer-socials" aria-label="Redes sociales de MINO Solutions">
+            <a
+              href="https://www.instagram.com/mino_web503/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-btn"
+              aria-label="MINO Solutions en Instagram"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a
+              href="https://www.facebook.com/profile.php?id=100055272588375"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-btn"
+              aria-label="MINO Solutions en Facebook"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a
+              href="https://wa.me/message/J3MYMT4QSDQDL1"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-btn"
+              aria-label="MINO Solutions en WhatsApp"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div><!-- /footer-brand -->
+
+        <!-- Columna: Servicios -->
+        <nav class="footer-col" aria-label="Links de servicios">
+          <h2 class="footer-col-heading" data-i18n="footer.services">Servicios</h2>
+          <ul class="footer-links" role="list">
+            <li><a href="#services" data-i18n="f.s1">Diseño UI/UX</a></li>
+            <li><a href="#services" data-i18n="f.s2">Desarrollo Web</a></li>
+            <li><a href="#services" data-i18n="f.s3">Optimización Web</a></li>
+            <li><a href="#services" data-i18n="f.s4">Transformación Digital</a></li>
+            <li><a href="#services" data-i18n="f.s5">Estrategia de Contenido</a></li>
+          </ul>
+        </nav>
+
+        <!-- Columna: Empresa -->
+        <nav class="footer-col" aria-label="Links de empresa">
+          <h2 class="footer-col-heading" data-i18n="footer.company">Empresa</h2>
+          <ul class="footer-links" role="list">
+            <li><a href="#about"       data-i18n="f.c1">Sobre Nosotros</a></li>
+            <li><a href="#cases"       data-i18n="f.c2">Proyectos</a></li>
+            <li><a href="#packages"    data-i18n="f.c3">Paquetes</a></li>
+            <li><a href="projects.html" data-i18n="f.c4">Portafolio</a></li>
+          </ul>
+        </nav>
+
+        <!-- Columna: Contacto -->
+        <div class="footer-col" aria-label="Información de contacto">
+          <h2 class="footer-col-heading" data-i18n="footer.contact">Contacto</h2>
+          <address style="font-style:normal;">
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <a href="https://wa.me/message/J3MYMT4QSDQDL1" target="_blank" rel="noopener noreferrer" aria-label="Llamar al +503 7888 6872 por WhatsApp">+503 7888 6872</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <a href="mailto:esminoapp@gmail.com" aria-label="Enviar email a esminoapp@gmail.com">esminoapp@gmail.com</a>
+            </div>
+          </address>
+        </div>
+
+      </div><!-- /footer-grid -->
+
+      <!-- Barra inferior -->
+      <div class="footer-bottom">
+        <p>© 2025 MINO Solutions. <span data-i18n="footer.rights">Todos los derechos reservados.</span></p>
+        <div class="footer-bottom-links">
+          <a href="#" data-i18n="footer.privacy">Privacidad</a>
+          <a href="#" data-i18n="footer.terms">Términos</a>
+        </div>
+      </div>
+
+    </div><!-- /container -->
+  </footer>
+  <!-- /FOOTER -->
+
+
+  <!-- ============================================================
+       SCRIPTS
+       main.js: nav scroll, menú móvil, i18n, animaciones
+       ============================================================ -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>

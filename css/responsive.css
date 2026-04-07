@@ -1,0 +1,207 @@
+/* ============================================================
+   MINO Solutions — responsive.css
+   Contenido: Todos los @media queries del proyecto
+   Breakpoints:
+     - 1024px → Tablet landscape
+     - 768px  → Tablet portrait / Mobile grande
+     - 480px  → Mobile pequeño
+   ============================================================ */
+
+
+/* ─────────────────────────────────────────────────────────────
+   BREAKPOINT: 1024px — Tablet landscape
+   ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+
+  /* Nav */
+  .nav-cta { display: none; }
+
+  /* Hero */
+  .hero-grid         { grid-template-columns: 1fr; gap: 48px; }
+  .hero-visual       { display: none; }
+  .hero-stats        { gap: 28px; }
+
+  /* Servicios */
+  .services-grid     { grid-template-columns: repeat(2, 1fr); }
+
+  /* Casos */
+  .cases-grid        { grid-template-columns: repeat(2, 1fr); }
+
+  /* Paquetes */
+  .packages-grid     {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .package-card.featured { transform: none; }
+
+  /* Proceso */
+  .process-grid      { grid-template-columns: repeat(2, 1fr); }
+  .process-step:first-child { border-radius: var(--radius-lg) 0 0 0; }
+  .process-step:last-child  { border-radius: 0 0 var(--radius-lg) 0; }
+
+  /* Footer */
+  .footer-grid       { grid-template-columns: 1fr 1fr; gap: 36px; }
+
+  /* Projects — header */
+  .proj-header       { grid-template-columns: 1fr; gap: 32px; }
+  .proj-content      { grid-template-columns: 1fr; }
+  .content-block.full { grid-column: 1; }
+
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   BREAKPOINT: 768px — Tablet / Mobile
+   ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+
+  /* Variables ajustadas para mobile */
+  :root {
+    --section-padding: 72px 0;
+  }
+
+  /* Nav */
+  .nav-links         { display: none; }
+  .hamburger         { display: flex; }
+  .nav-cta           { display: none; }
+
+  /* Hero */
+  .hero-grid         { grid-template-columns: 1fr; gap: 48px; }
+  .hero-visual       { display: none; }
+  .hero-stats        { gap: 24px; flex-wrap: wrap; }
+  .hero-actions      { flex-direction: column; align-items: flex-start; }
+
+  /* Servicios */
+  .services-grid     { grid-template-columns: 1fr; }
+
+  /* Proceso */
+  .process-grid      { grid-template-columns: 1fr; }
+  .process-step:first-child {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+  .process-step:last-child {
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  }
+
+  /* Casos */
+  .cases-grid        { grid-template-columns: 1fr; }
+
+  /* About */
+  .about-grid        { grid-template-columns: 1fr; gap: 48px; }
+  .about-visual      { display: none; }
+  .mv-grid           { grid-template-columns: 1fr; }
+
+  /* Footer */
+  .footer-grid       { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom     { flex-direction: column; text-align: center; }
+
+  /* CTA */
+  .cta-actions       { flex-direction: column; align-items: center; }
+  .cta-actions .btn  { width: 100%; justify-content: center; }
+
+  /* ── Projects page ── */
+
+  /* Hero de proyectos */
+  #page-hero         { padding: 100px 0 60px; }
+  .hero-stats-row    { gap: 20px; flex-wrap: wrap; }
+  .hstat-num         { font-size: 1.4rem; }
+
+  /* Barra de filtros */
+  .filter-inner      { flex-direction: column; align-items: flex-start; }
+  .filter-tabs       { flex-wrap: wrap; }
+
+  /* Header del proyecto */
+  .proj-header       { grid-template-columns: 1fr; gap: 24px; }
+  .proj-content      { grid-template-columns: 1fr; }
+  .content-block.full { grid-column: 1; }
+  .proj-metrics      { grid-template-columns: 1fr 1fr; }
+
+  /* Grid de imágenes */
+  .img-grid          { grid-template-columns: 1fr 1fr; }
+  .img-grid-2col     { grid-template-columns: 1fr; }
+
+  /* Pie de proyecto */
+  .proj-footer       { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .proj-footer-right { flex-wrap: wrap; }
+
+  /* Botones del header de proyecto */
+  .proj-header-left .btn-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* Logos carousel */
+  .logo-card {
+    min-width: 130px;
+    padding: 10px 14px;
+    height: 52px;
+  }
+
+  .logo-card-name    { font-size: 0.72rem; }
+
+  /* Linework: proto+images colapsa a 1 columna */
+  .linework-proto-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* CATO: grid 2x2 colapsa a 1 columna */
+  .cato-img-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Footer de projects */
+  .projects-footer .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+}
+
+
+/* ─────────────────────────────────────────────────────────────
+   BREAKPOINT: 480px — Mobile pequeño
+   ───────────────────────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+
+  /* Hero stats */
+  .hero-stats        { gap: 16px; }
+  .stat-num          { font-size: 1.5rem; }
+
+  /* Proyectos stats */
+  .hstat-num         { font-size: 1.2rem; }
+
+  /* Métricas del proyecto: siempre 2 col */
+  .proj-metrics      { grid-template-columns: 1fr 1fr; }
+
+  /* Grid de imágenes: 1 col */
+  .img-grid          { grid-template-columns: 1fr; }
+
+  /* Logos carousel: solo ícono, sin nombre */
+  .logo-card {
+    min-width: 60px;
+    padding: 8px 12px;
+  }
+
+  .logo-card-name    { display: none; }
+  .logo-card-icon    { width: 24px; height: 24px; }
+
+  /* Figma embed ajusta aspect-ratio en mobile */
+  .figma-embed-wrap  { aspect-ratio: 4 / 3 !important; min-height: unset !important; }
+
+  /* Buttons full width en mobile */
+  .hero-actions .btn,
+  .cta-actions .btn  {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Section header más compacto */
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+}
