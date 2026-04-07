@@ -1,0 +1,455 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #0F0E0C;
+  --paper: #F5F2EC;
+  --accent: #C8502A;
+  --muted: #7A7670;
+  --mid: #D9D4CB;
+  --blue: #1B3A5C;
+}
+
+body { background: var(--paper); font-family: 'DM Sans', sans-serif; color: var(--ink); }
+
+.wrapper { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+.tab-bar { display: flex; gap: 0; border-bottom: 1.5px solid var(--ink); margin-bottom: 2rem; }
+.tab { padding: 0.6rem 1.4rem; font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; border: none; background: transparent; color: var(--muted); transition: all 0.2s; position: relative; }
+.tab.active { color: var(--ink); }
+.tab.active::after { content: ''; position: absolute; bottom: -1.5px; left: 0; right: 0; height: 1.5px; background: var(--accent); }
+.tab:hover { color: var(--ink); }
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* ── CV PANEL ── */
+.cv-header { display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 2rem; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1.5px solid var(--mid); }
+.cv-name { font-family: 'DM Serif Display', serif; font-size: clamp(38px, 6vw, 58px); line-height: 1; color: var(--ink); }
+.cv-name em { font-style: italic; color: var(--accent); }
+.cv-role { font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 0.5rem; }
+.cv-contact-block { text-align: right; }
+.cv-contact-block p { font-size: 11.5px; color: var(--muted); line-height: 1.8; font-family: 'Space Mono', monospace; }
+.cv-contact-block a { color: var(--blue); text-decoration: none; }
+
+.two-col { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; }
+.section-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+.section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--mid); }
+
+.summary-text { font-size: 13.5px; line-height: 1.75; color: var(--ink); }
+
+.exp-item { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--mid); }
+.exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.exp-top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+.exp-title { font-family: 'DM Serif Display', serif; font-size: 15px; color: var(--ink); }
+.exp-date { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--muted); white-space: nowrap; }
+.exp-company { font-size: 11.5px; color: var(--accent); font-weight: 500; margin: 2px 0 6px; }
+.exp-bullets { list-style: none; }
+.exp-bullets li { font-size: 12px; color: #3A3835; line-height: 1.6; padding-left: 1rem; position: relative; margin-bottom: 3px; }
+.exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--mid); font-size: 10px; }
+
+.skill-pill { display: inline-block; background: var(--ink); color: var(--paper); font-family: 'Space Mono', monospace; font-size: 9.5px; padding: 3px 8px; border-radius: 2px; margin: 3px 2px; letter-spacing: 0.04em; }
+.skill-group { margin-bottom: 1.2rem; }
+.skill-group-name { font-size: 10px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+
+.cert-item { font-size: 11px; color: #3A3835; padding: 4px 0; border-bottom: 0.5px solid var(--mid); line-height: 1.4; }
+.cert-org { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--accent); }
+
+.sidebar-block { margin-bottom: 2rem; }
+
+/* ── JOBS PANEL ── */
+.jobs-intro { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 2rem; }
+.stat-card { background: var(--ink); color: var(--paper); padding: 1rem 1.2rem; border-radius: 2px; }
+.stat-num { font-family: 'DM Serif Display', serif; font-size: 28px; color: var(--accent); }
+.stat-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-top: 2px; }
+
+.match-badge { display: inline-flex; align-items: center; gap: 4px; font-family: 'Space Mono', monospace; font-size: 9px; padding: 2px 7px; border-radius: 2px; font-weight: 700; }
+.match-high { background: #1B3A5C; color: #A8C4E0; }
+.match-mid { background: #3A2A18; color: #E8C28A; }
+
+.job-card { border: 0.5px solid var(--mid); padding: 1.25rem 1.4rem; margin-bottom: 0.75rem; position: relative; transition: border-color 0.2s; cursor: default; }
+.job-card:hover { border-color: var(--ink); }
+.job-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.5rem; }
+.job-title { font-family: 'DM Serif Display', serif; font-size: 16px; color: var(--ink); }
+.job-company { font-size: 11.5px; color: var(--accent); font-weight: 500; margin-bottom: 4px; }
+.job-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.job-tag { font-family: 'Space Mono', monospace; font-size: 9px; padding: 2px 7px; border: 0.5px solid var(--mid); color: var(--muted); }
+.job-desc { font-size: 12px; color: #3A3835; line-height: 1.65; margin-bottom: 10px; }
+.job-match-skills { display: flex; flex-wrap: wrap; gap: 4px; }
+.match-skill { font-size: 10px; background: #EDE9E0; color: var(--ink); padding: 2px 7px; font-weight: 500; }
+.job-link { font-family: 'Space Mono', monospace; font-size: 9.5px; color: var(--blue); text-decoration: none; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; }
+.job-link:hover { color: var(--accent); }
+
+.category-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin: 1.5rem 0 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+.category-label::after { content: ''; flex: 1; height: 0.5px; background: var(--mid); }
+
+.tip-box { border-left: 2px solid var(--accent); padding: 0.75rem 1rem; background: #EDE9E0; margin-top: 2rem; }
+.tip-box p { font-size: 12px; line-height: 1.65; color: var(--ink); }
+.tip-title { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase; margin-bottom: 4px; }
+
+.print-note { display: flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 9px; color: var(--muted); margin-top: 1.5rem; padding-top: 1rem; border-top: 0.5px solid var(--mid); }
+
+@media (max-width: 600px) {
+  .two-col { grid-template-columns: 1fr; }
+  .cv-header { grid-template-columns: 1fr; }
+  .cv-contact-block { text-align: left; }
+  .jobs-intro { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="wrapper">
+
+<div class="tab-bar">
+  <button class="tab active" onclick="showPanel('cv', this)">CV Visual</button>
+  <button class="tab" onclick="showPanel('jobs', this)">Ofertas Laborales</button>
+</div>
+
+<!-- ══ CV PANEL ══ -->
+<div id="cv" class="panel active">
+
+  <div class="cv-header">
+    <div>
+      <div class="cv-name">Erick<br><em>Hernández</em></div>
+      <div class="cv-role">UI/UX Designer · WordPress Developer · Product Designer</div>
+    </div>
+    <div class="cv-contact-block">
+      <p>+503 7888 6872</p>
+      <p>es.designer79@gmail.com</p>
+      <p><a href="https://www.linkedin.com/in/erickehc/">linkedin.com/in/erickehc</a></p>
+      <p>San Salvador, El Salvador</p>
+      <p style="margin-top:6px; font-size:10px; background:#0F0E0C; color:#F5F2EC; padding:3px 7px; display:inline-block;">Available · Remote</p>
+    </div>
+  </div>
+
+  <div class="two-col">
+
+    <!-- LEFT COLUMN -->
+    <div>
+
+      <div class="section-label">Perfil profesional</div>
+      <p class="summary-text" style="margin-bottom:2rem;">
+        UI/UX Designer y WordPress Developer con 6+ años de experiencia construyendo productos digitales de principio a fin. Especializado en interfaces intuitivas, sistemas de diseño escalables y desarrollo web. Experiencia en fintech, media digital y SaaS. Trabajo en inglés y español, con clientes en EE.UU., Australia y El Salvador.
+      </p>
+
+      <div class="section-label">Experiencia</div>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <div class="exp-title">Senior Web Engineer</div>
+          <div class="exp-date">2025 – actual</div>
+        </div>
+        <div class="exp-company">Salem Business Journal / CATO Media Company</div>
+        <ul class="exp-bullets">
+          <li>Lideré desarrollo y optimización de plataformas de media digital con PHP, CSS, HTML y JavaScript.</li>
+          <li>Rediseñé el periódico digital con experiencias responsive para mobile y desktop.</li>
+          <li>Integré CRM (GoHighLevel) y SEO (Google Analytics, Search Console).</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <div class="exp-title">Lead UI/UX & WordPress Dev</div>
+          <div class="exp-date">2024 – 2025</div>
+        </div>
+        <div class="exp-company">Linework · Fintech</div>
+        <ul class="exp-bullets">
+          <li>Rediseñé una app fintech con crypto marketplace, red social descentralizada y cold wallet.</li>
+          <li>Creé design system completo y UI kit para toda la plataforma.</li>
+          <li>Conduje user research, usability testing y prototipado en Figma.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <div class="exp-title">Web & UX Designer</div>
+          <div class="exp-date">2023 – 2024</div>
+        </div>
+        <div class="exp-company">SIPcity · Australia · Cloud SaaS</div>
+        <ul class="exp-bullets">
+          <li>Diseñé landing pages responsive para plataforma UCaaS en mercado australiano.</li>
+          <li>Motion graphics con After Effects; SEO management y WordPress con Elementor.</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-top">
+          <div class="exp-title">Web Designer</div>
+          <div class="exp-date">2022 – 2023</div>
+        </div>
+        <div class="exp-company">Taskable · El Salvador</div>
+        <ul class="exp-bullets">
+          <li>Landing pages, prototipos y mantenimiento WordPress con Divi y Elementor.</li>
+        </ul>
+      </div>
+
+      <div class="section-label" style="margin-top:1.5rem;">Proyectos destacados</div>
+      <div class="exp-item">
+        <div class="exp-title" style="font-size:13px;">Lienzos y Trazos — CENAR (2024)</div>
+        <div class="exp-company">Product Designer & Gestor Cultural</div>
+        <ul class="exp-bullets">
+          <li>Website informativo para estudiantes de Bellas Artes del CENAR. UX design, design system y gestión cultural de talleres.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div>
+
+      <div class="sidebar-block">
+        <div class="section-label">Stack</div>
+        <div class="skill-group">
+          <div class="skill-group-name">Diseño</div>
+          <span class="skill-pill">Figma</span>
+          <span class="skill-pill">Adobe XD</span>
+          <span class="skill-pill">Illustrator</span>
+          <span class="skill-pill">Photoshop</span>
+          <span class="skill-pill">After Effects</span>
+          <span class="skill-pill">Blender</span>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-name">Desarrollo</div>
+          <span class="skill-pill">WordPress</span>
+          <span class="skill-pill">PHP</span>
+          <span class="skill-pill">HTML5</span>
+          <span class="skill-pill">CSS3</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">Elementor</span>
+          <span class="skill-pill">Gutenberg</span>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-name">UX Process</div>
+          <span class="skill-pill">Design Systems</span>
+          <span class="skill-pill">User Research</span>
+          <span class="skill-pill">Usability Testing</span>
+          <span class="skill-pill">Design Sprint</span>
+          <span class="skill-pill">Lean UX</span>
+          <span class="skill-pill">IA</span>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-name">Marketing & Analytics</div>
+          <span class="skill-pill">SEO</span>
+          <span class="skill-pill">Google Analytics</span>
+          <span class="skill-pill">Search Console</span>
+          <span class="skill-pill">GoHighLevel</span>
+        </div>
+      </div>
+
+      <div class="sidebar-block">
+        <div class="section-label">Educación</div>
+        <div class="cert-item">
+          <strong>Licenciatura en Bellas Artes</strong><br>
+          Minor en Diseño Gráfico<br>
+          <span class="cert-org">Universidad de El Salvador · 2025</span>
+        </div>
+      </div>
+
+      <div class="sidebar-block">
+        <div class="section-label">Certificaciones</div>
+        <div class="cert-item">UX Design Fundamentals<br><span class="cert-org">Google / Coursera</span></div>
+        <div class="cert-item">Graphic Design Specialization<br><span class="cert-org">CalArts / Coursera</span></div>
+        <div class="cert-item">Design Systems · Design Sprint · Lean UX<br><span class="cert-org">Platzi 2021–2024</span></div>
+        <div class="cert-item">Advanced Figma · User-Centered Design<br><span class="cert-org">Platzi 2022–2023</span></div>
+      </div>
+
+      <div class="sidebar-block">
+        <div class="section-label">Idiomas</div>
+        <div class="cert-item">Español <span style="color:var(--accent)">—</span> Nativo</div>
+        <div class="cert-item">Inglés <span style="color:var(--accent)">—</span> Profesional</div>
+      </div>
+
+      <div class="sidebar-block">
+        <div class="section-label">Clientes Freelance</div>
+        <p style="font-size:11px; color:var(--muted); line-height:1.8;">ABG Homes · Clark County Catalyst · Press Release Salem · Denim Project SV · RPG Architect · CATO Media · XMT Construction</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="print-note">
+    <span>▲</span> <span>Versión visual para envío directo · Para sistemas ATS descarga el .docx adjunto</span>
+  </div>
+
+</div>
+
+<!-- ══ JOBS PANEL ══ -->
+<div id="jobs" class="panel">
+
+  <div class="jobs-intro">
+    <div class="stat-card">
+      <div class="stat-num">6+</div>
+      <div class="stat-label">Años de experiencia</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Perfiles objetivo</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">$45–70k</div>
+      <div class="stat-label">Rango estimado USD/año</div>
+    </div>
+  </div>
+
+  <!-- HYBRID ROLES -->
+  <div class="category-label">Mejor match · Rol híbrido diseño + desarrollo</div>
+
+  <div class="job-card">
+    <div class="job-card-top">
+      <div>
+        <div class="job-title">UI/UX Designer & WordPress Developer</div>
+        <div class="job-company">TEKsystems / via Dice · 100% Remoto</div>
+      </div>
+      <span class="match-badge match-high">✦ Match alto</span>
+    </div>
+    <div class="job-meta">
+      <span class="job-tag">$45–50/hr</span>
+      <span class="job-tag">Part-time 25–30h/sem</span>
+      <span class="job-tag">USA · Remote</span>
+    </div>
+    <p class="job-desc">Rol que combina exactamente tu perfil: diseñar wireframes, mockups y páginas en WordPress con PHP y JS. 5–10 páginas nuevas por mes. Requiere portfolio con wireframes y sitios live.</p>
+    <div class="job-match-skills">
+      <span class="match-skill">Figma</span>
+      <span class="match-skill">WordPress</span>
+      <span class="match-skill">PHP</span>
+      <span class="match-skill">HTML/CSS/JS</span>
+      <span class="match-skill">Wireframing</span>
+      <span class="match-skill">Responsive Design</span>
+    </div>
+    <a class="job-link" href="https://remotive.com/remote/jobs/design/ui-ux-designer-wordpress-developer-3752738">Ver oferta en Remotive ↗</a>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-top">
+      <div>
+        <div class="job-title">WordPress Designer/Developer</div>
+        <div class="job-company">Múltiples empresas · Glassdoor / ZipRecruiter</div>
+      </div>
+      <span class="match-badge match-high">✦ Match alto</span>
+    </div>
+    <div class="job-meta">
+      <span class="job-tag">$30–55/hr</span>
+      <span class="job-tag">Contract / Full-time</span>
+      <span class="job-tag">100% Remote</span>
+    </div>
+    <p class="job-desc">Alta demanda activa para perfiles que hacen temas, plugins, responsive design y tienen criterio UI/UX. Bonus si tienes experiencia con WooCommerce, SEO y APIs REST.</p>
+    <div class="job-match-skills">
+      <span class="match-skill">WordPress</span>
+      <span class="match-skill">PHP</span>
+      <span class="match-skill">Custom Themes</span>
+      <span class="match-skill">SEO</span>
+      <span class="match-skill">REST APIs</span>
+      <span class="match-skill">Elementor</span>
+    </div>
+    <a class="job-link" href="https://www.glassdoor.com/Job/remote-wordpress-developer-jobs-SRCH_IL.0,6_IS11047_KO7,26.htm">Explorar en Glassdoor ↗</a>
+  </div>
+
+  <!-- PRODUCT DESIGNER FINTECH -->
+  <div class="category-label">Product Designer · Fintech / LATAM</div>
+
+  <div class="job-card">
+    <div class="job-card-top">
+      <div>
+        <div class="job-title">Senior Product Designer — Fintech</div>
+        <div class="job-company">Darwoft · Remoto LATAM · Argentina</div>
+      </div>
+      <span class="match-badge match-high">✦ Match alto</span>
+    </div>
+    <div class="job-meta">
+      <span class="job-tag">$45–70k USD/año</span>
+      <span class="job-tag">Full-time Remote</span>
+      <span class="job-tag">LATAM</span>
+    </div>
+    <p class="job-desc">Buscan diseñador con experiencia en fintech (tu trabajo en Linework califica), design systems desde cero, y que sepa usar herramientas AI como Claude/v0. Requiere portfolio con 4–5 proyectos mobile end-to-end. Pago en USD.</p>
+    <div class="job-match-skills">
+      <span class="match-skill">Figma avanzado</span>
+      <span class="match-skill">Design Systems</span>
+      <span class="match-skill">Fintech (Linework)</span>
+      <span class="match-skill">UX Research</span>
+      <span class="match-skill">Mobile UI</span>
+      <span class="match-skill">Bilingual</span>
+    </div>
+    <a class="job-link" href="https://designproject.io/jobs/jobs/961-senior-product-designer-fintech-remote-latam-at-darwoft-604f1p">Ver oferta completa ↗</a>
+  </div>
+
+  <div class="job-card">
+    <div class="job-card-top">
+      <div>
+        <div class="job-title">Product Designer · Plataformas Fintech</div>
+        <div class="job-company">Multiplica Talent / RemoteRocketship · LATAM</div>
+      </div>
+      <span class="match-badge match-mid">◆ Match medio</span>
+    </div>
+    <div class="job-meta">
+      <span class="job-tag">Remoto LATAM</span>
+      <span class="job-tag">Full-time</span>
+    </div>
+    <p class="job-desc">Diseño UX para experiencias financieras centradas en el usuario. Liderazgo de research y wireframes con equipos cross-funcionales. Match medio porque requieren más años en fintech puro.</p>
+    <div class="job-match-skills">
+      <span class="match-skill">UX Research</span>
+      <span class="match-skill">Wireframes</span>
+      <span class="match-skill">Figma</span>
+      <span class="match-skill">Fintech</span>
+    </div>
+    <a class="job-link" href="https://www.remoterocketship.com/country/latin-america/jobs/product-designer">Explorar en RemoteRocketship ↗</a>
+  </div>
+
+  <!-- AGENCY / MISSION-DRIVEN -->
+  <div class="category-label">Agencia · Mission-driven / Desarrollo sostenible</div>
+
+  <div class="job-card">
+    <div class="job-card-top">
+      <div>
+        <div class="job-title">Contract Senior Website Visual Designer (UX/UI)</div>
+        <div class="job-company">Kanopi Studios · 100% Remoto · Drupal & WordPress</div>
+      </div>
+      <span class="match-badge match-high">✦ Match alto</span>
+    </div>
+    <div class="job-meta">
+      <span class="job-tag">Contract · Remote</span>
+      <span class="job-tag">Mission-driven clients</span>
+    </div>
+    <p class="job-desc">Agencia especializada en WordPress/Drupal para clientes con misión social. Buscan diseñador con portfolio de sitios responsive, experiencia en design systems, Figma y conocimiento front-end. Ideal para tu perfil de diseño + desarrollo.</p>
+    <div class="job-match-skills">
+      <span class="match-skill">WordPress</span>
+      <span class="match-skill">Figma</span>
+      <span class="match-skill">Design Systems</span>
+      <span class="match-skill">Responsive Web</span>
+      <span class="match-skill">Front-end basics</span>
+    </div>
+    <a class="job-link" href="https://www.ziprecruiter.com/Jobs/Remote-Ux-Designer">Ver tipo de rol en ZipRecruiter ↗</a>
+  </div>
+
+  <!-- PLATAFORMAS -->
+  <div class="category-label">Plataformas recomendadas para aplicar</div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:1rem;">
+    <div style="border:0.5px solid var(--mid); padding:1rem;">
+      <div style="font-family:'Space Mono',monospace; font-size:10px; font-weight:700; margin-bottom:6px;">Para roles híbridos WP+UX</div>
+      <p style="font-size:11.5px; color:var(--muted); line-height:1.7;"><a href="https://arc.dev/remote-jobs/wordpress" style="color:var(--blue);">arc.dev ↗</a><br><a href="https://remotive.com" style="color:var(--blue);">remotive.com ↗</a><br><a href="https://www.workingnomads.com" style="color:var(--blue);">workingnomads.com ↗</a></p>
+    </div>
+    <div style="border:0.5px solid var(--mid); padding:1rem;">
+      <div style="font-family:'Space Mono',monospace; font-size:10px; font-weight:700; margin-bottom:6px;">Para Product Designer LATAM</div>
+      <p style="font-size:11.5px; color:var(--muted); line-height:1.7;"><a href="https://www.remoterocketship.com/country/latin-america/jobs/product-designer" style="color:var(--blue);">remoterocketship.com ↗</a><br><a href="https://designproject.io" style="color:var(--blue);">designproject.io ↗</a><br><a href="https://builtin.com/jobs/remote/design-ux/fintech" style="color:var(--blue);">builtin.com/fintech ↗</a></p>
+    </div>
+  </div>
+
+  <div class="tip-box">
+    <div class="tip-title">Consejo de reclutador</div>
+    <p>El rol en <strong>Darwoft (fintech LATAM)</strong> es el match más estratégico de tu carrera ahora mismo: paga en USD, es remoto, exige exactamente lo que hiciste en Linework, y buscan bilingüe. Prioriza documentar ese caso de estudio en tu portafolio antes de aplicar. Para las ofertas de WordPress, tu experiencia con Salem Business Journal y SIPcity son argumentos directos, aplica con el .docx ATS.</p>
+  </div>
+
+</div>
+
+</div>
+
+<script>
+function showPanel(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
