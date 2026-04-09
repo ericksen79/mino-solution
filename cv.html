@@ -2,472 +2,745 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>CV Erick</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Erick Hernández — UI/UX Designer & WordPress Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,700;1,700&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{
+      --ink:#263238;--paper:#FDFDFD;--accent:#39A0ED;
+      --muted:#7A7670;--mid:#D9D4CB;--blue:#1B3A5C;
+    }
+    body{background:var(--paper);font-family:'Rubik',sans-serif;color:var(--ink)}
+
+    /* ── HEADER BAR ── */
+    .top-bar{
+      background:var(--ink);
+      position:sticky;top:0;z-index:100;
+    }
+    .top-bar-inner{
+      max-width:860px;margin:0 auto;padding:0.5rem 1.5rem;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    .lang-toggle{display:flex;gap:4px}
+    .lang-btn{
+      background:transparent;border:0.5px solid rgba(255,255,255,0.25);
+      color:rgba(255,255,255,0.5);font-family:'Rubik',sans-serif;font-size:10px;
+      font-weight:500;letter-spacing:0.08em;padding:4px 10px;cursor:pointer;
+      transition:all 0.2s;
+    }
+    .lang-btn.active{background:var(--accent);border-color:var(--accent);color:#fff}
+    .lang-btn:hover:not(.active){color:#fff;border-color:rgba(255,255,255,0.6)}
+    .portfolio-btn{
+      display:inline-flex;align-items:center;gap:6px;
+      background:#fff;color:var(--ink);
+      font-family:'Rubik',sans-serif;font-size:10px;font-weight:700;
+      letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;
+      padding:6px 14px;border-radius:2px;transition:all 0.2s;white-space:nowrap;
+    }
+    .portfolio-btn:hover{background:var(--accent);color:#fff;transform:translateY(-1px)}
+    .portfolio-btn svg{width:12px;height:12px;flex-shrink:0}
+
+    /* ── LAYOUT ── */
+    .wrapper{max-width:860px;margin:0 auto;padding:2rem 1.5rem 3rem}
+
+    /* ── TABS ── */
+    .tab-bar{display:flex;border-bottom:1.5px solid var(--ink);margin-bottom:2rem}
+    .tab{
+      padding:0.6rem 1.4rem;font-family:'Rubik',sans-serif;font-weight:500;
+      font-size:11px;letter-spacing:0.08em;text-transform:uppercase;
+      cursor:pointer;border:none;background:transparent;color:var(--muted);
+      transition:all 0.2s;position:relative;
+    }
+    .tab.active{color:var(--ink)}
+    .tab.active::after{
+      content:'';position:absolute;bottom:-1.5px;left:0;right:0;
+      height:1.5px;background:var(--accent);
+    }
+    .tab:hover{color:var(--ink)}
+    .panel{display:none}
+    .panel.active{display:block}
+
+    /* ── CV HEADER ── */
+    .cv-header{
+      display:grid;grid-template-columns:1fr auto;align-items:start;
+      gap:2rem;margin-bottom:2.5rem;padding-bottom:2rem;
+      border-bottom:1.5px solid var(--mid);
+    }
+    .cv-name{font-weight:700;font-size:clamp(36px,6vw,58px);line-height:1;color:var(--ink)}
+    .cv-name em{font-style:italic;color:var(--accent)}
+    .cv-role{
+      font-weight:500;font-size:10px;letter-spacing:0.12em;
+      text-transform:uppercase;color:var(--muted);margin-top:0.5rem;
+    }
+    .cv-contact-block{text-align:right}
+    .cv-contact-block p{font-size:11.5px;color:var(--muted);line-height:1.9;font-weight:300}
+    .cv-contact-block a{color:var(--blue);text-decoration:none}
+    .available-badge{
+      margin-top:8px;font-size:10px;background:var(--ink);color:var(--paper);
+      padding:4px 9px;display:inline-block;letter-spacing:0.04em;
+    }
+    /* Portfolio CTA inside header — visible on desktop */
+    .header-cta{
+      margin-top:10px;display:inline-flex;align-items:center;gap:5px;
+      background:var(--accent);color:#fff;text-decoration:none;
+      font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+      padding:6px 12px;border-radius:2px;transition:all 0.2s;border:1.5px solid var(--accent);
+    }
+    .header-cta:hover{background:transparent;color:var(--accent)}
+    .header-cta svg{width:11px;height:11px}
+
+    /* ── TWO-COLUMN ── */
+    .two-col{display:grid;grid-template-columns:2fr 1fr;gap:3rem}
+
+    /* ── SECTION LABELS ── */
+    .section-label{
+      font-weight:500;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;
+      color:var(--accent);margin-bottom:0.75rem;
+      display:flex;align-items:center;gap:0.5rem;
+    }
+    .section-label::after{content:'';flex:1;height:0.5px;background:var(--mid)}
+
+    /* ── EXPERIENCE ── */
+    .summary-text{font-size:13.5px;line-height:1.75;color:var(--ink)}
+    .exp-item{margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:0.5px solid var(--mid)}
+    .exp-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+    .exp-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap}
+    .exp-title{font-weight:600;font-size:15px;color:var(--ink)}
+    .exp-date{font-weight:300;font-size:9px;color:var(--muted);white-space:nowrap}
+    .exp-company{font-size:11.5px;color:var(--accent);font-weight:500;margin:2px 0 6px}
+    .exp-desc{font-size:11px;color:var(--muted);line-height:1.75;margin-bottom:6px}
+    .exp-bullets{list-style:none}
+    .exp-bullets li{
+      font-size:12px;color:#455A64;line-height:1.6;
+      padding-left:1rem;position:relative;margin-bottom:3px;
+    }
+    .exp-bullets li::before{content:'—';position:absolute;left:0;color:var(--mid);font-size:10px}
+    .case-link{color:var(--blue);font-size:10px;font-weight:500;text-decoration:none;letter-spacing:0.04em}
+    .case-link:hover{color:var(--accent)}
+
+    /* ── SIDEBAR ── */
+    .sidebar-block{margin-bottom:2rem}
+    .skill-pill{
+      display:inline-block;background:var(--ink);color:var(--paper);
+      font-weight:500;font-size:9.5px;padding:3px 8px;
+      border-radius:2px;margin:3px 2px;letter-spacing:0.04em;
+    }
+    .skill-group{margin-bottom:1.2rem}
+    .skill-group-name{font-size:10px;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px}
+    .cert-item{font-size:11px;color:#455A64;padding:4px 0;border-bottom:0.5px solid var(--mid);line-height:1.5}
+    .cert-org{font-weight:500;font-size:9px;color:var(--accent)}
+
+    /* ── PROJECTS / REFS PANEL ── */
+    .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:2rem}
+    .stat-card{background:var(--ink);color:var(--paper);padding:1rem 1.2rem;border-radius:2px}
+    .stat-num{font-weight:700;font-size:28px;color:var(--accent)}
+    .stat-label{font-weight:500;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);margin-top:2px}
+
+    .category-label{
+      font-weight:500;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;
+      color:var(--accent);margin:1.5rem 0 0.75rem;
+      display:flex;align-items:center;gap:0.5rem;
+    }
+    .category-label::after{content:'';flex:1;height:0.5px;background:var(--mid)}
+
+    .ref-card{border:0.5px solid var(--mid);padding:1.25rem 1.4rem;margin-bottom:0.75rem;transition:border-color 0.2s}
+    .ref-card:hover{border-color:var(--ink)}
+    .ref-top{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;margin-bottom:0.5rem}
+    .ref-name{font-weight:600;font-size:16px;color:var(--ink)}
+    .ref-company{font-size:11.5px;color:var(--accent);font-weight:500;margin-bottom:4px}
+    .ref-meta{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+    .ref-tag{font-size:9px;padding:2px 7px;border:0.5px solid var(--mid);color:var(--muted)}
+    .ref-body{font-size:12px;color:#3A3835;line-height:1.7;margin-bottom:10px}
+    .ref-contacts{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px}
+    .ref-contact{font-size:10px;background:#D2ECFF;color:var(--ink);padding:2px 8px;font-weight:500}
+    .badge{
+      display:inline-flex;align-items:center;font-weight:700;font-size:9px;
+      padding:2px 8px;border-radius:2px;background:#1B3A5C;color:#A8C4E0;
+      white-space:nowrap;
+    }
+    .ref-link{
+      font-weight:500;font-size:9.5px;color:var(--blue);text-decoration:none;
+      letter-spacing:0.04em;display:inline-flex;align-items:center;gap:4px;
+    }
+    .ref-link:hover{color:var(--accent)}
+
+    .sites-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1rem}
+    .site-block{border:0.5px solid var(--mid);padding:1rem}
+    .site-block a{
+      display:block;color:var(--blue);text-decoration:none;
+      font-size:11.5px;line-height:2;font-weight:400;
+    }
+    .site-block a:hover{color:var(--accent)}
+
+    .tip-box{
+      border-left:2px solid var(--accent);padding:0.75rem 1rem;
+      background:#D2ECFF;margin-top:2rem;
+    }
+    .tip-title{
+      font-weight:500;font-size:9px;letter-spacing:0.12em;
+      color:var(--accent);text-transform:uppercase;margin-bottom:4px;
+    }
+    .tip-box p{font-size:12px;line-height:1.7;color:var(--ink)}
+    .tip-box a{color:var(--blue);font-weight:500}
+
+    .print-note{
+      display:flex;align-items:center;gap:8px;font-weight:300;font-size:9px;
+      color:var(--muted);margin-top:1.5rem;padding-top:1rem;
+      border-top:0.5px solid var(--mid);flex-wrap:wrap;
+    }
+    .print-note a{color:var(--blue)}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:620px){
+      .two-col{grid-template-columns:1fr}
+      .cv-header{grid-template-columns:1fr}
+      .cv-contact-block{text-align:left}
+      .stats-row{grid-template-columns:1fr}
+      .sites-grid{grid-template-columns:1fr}
+      .top-bar{flex-wrap:wrap;gap:8px}
+    }
+
+    /* ── LANG VISIBILITY ── */
+    [data-lang="en"]{display:none}
+    body.en [data-lang="en"]{display:revert}
+    body.en [data-lang="es"]{display:none}
+  </style>
 </head>
 <body>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+<!-- ══ STICKY TOP BAR ══ -->
+<div class="top-bar">
+  <div class="top-bar-inner">
+    <div class="lang-toggle">
+      <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <a class="portfolio-btn" href="https://www.mino.solutions/projects" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M2 8h12M9 4l5 4-5 4"/>
+      </svg>
+      <span data-lang="es">Ver portafolio completo</span>
+      <span data-lang="en">View full portfolio</span>
+    </a>
+  </div>
+</div>
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-:root {
-  --ink: #263238;
-  --paper: #FDFDFD;
-  --accent: #39A0ED;
-  --muted: #7A7670;
-  --mid: #D9D4CB;
-  --blue: #1B3A5C;
-}
-
-body { background: var(--paper); font-family: 'Rubik', sans-serif; color: var(--ink); }
-
-.wrapper { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
-
-.tab-bar { display: flex; gap: 0; border-bottom: 1.5px solid var(--ink); margin-bottom: 2rem; }
-.tab { padding: 0.6rem 1.4rem; font-family: 'Rubik', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; border: none; background: transparent; color: var(--muted); transition: all 0.2s; position: relative; }
-.tab.active { color: var(--ink); }
-.tab.active::after { content: ''; position: absolute; bottom: -1.5px; left: 0; right: 0; height: 1.5px; background: var(--accent); }
-.tab:hover { color: var(--ink); }
-
-.panel { display: none; }
-.panel.active { display: block; }
-
-/* ── CV PANEL ── */
-.cv-header { display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 2rem; margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1.5px solid var(--mid); }
-.cv-name { font-family: 'Rubik', sans-serif; font-weight: 700; font-size: clamp(38px, 6vw, 58px); line-height: 1; color: var(--ink); }
-.cv-name em { font-style: italic; color: var(--accent); }
-.cv-role { font-family: 'Rubik', sans-serif; font-weight: 500; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 0.5rem; }
-.cv-contact-block { text-align: right; }
-.cv-contact-block p { font-size: 11.5px; color: var(--muted); line-height: 1.8; font-family: 'Rubik', sans-serif; font-weight: 300; }
-.cv-contact-block a { color: var(--blue); text-decoration: none; }
-
-.two-col { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; }
-.section-label { font-family: 'Rubik', sans-serif; font-weight: 500; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
-.section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--mid); }
-
-.summary-text { font-size: 13.5px; line-height: 1.75; color: var(--ink); }
-
-.exp-item { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 0.5px solid var(--mid); }
-.exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-.exp-top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
-.exp-title { font-family: 'Rubik', sans-serif; font-weight: 600; font-size: 15px; color: var(--ink); }
-.exp-date { font-family: 'Rubik', sans-serif; font-weight: 300; font-size: 9px; color: var(--muted); white-space: nowrap; }
-.exp-company { font-size: 11.5px; color: var(--accent); font-weight: 500; margin: 2px 0 6px; }
-.exp-bullets { list-style: none; }
-.exp-bullets li { font-size: 12px; color: #455A64; line-height: 1.6; padding-left: 1rem; position: relative; margin-bottom: 3px; }
-.exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--mid); font-size: 10px; }
-
-.skill-pill { display: inline-block; background: var(--ink); color: var(--paper); font-family: 'Rubik', sans-serif; font-weight: 500; font-size: 9.5px; padding: 3px 8px; border-radius: 2px; margin: 3px 2px; letter-spacing: 0.04em; }
-.skill-group { margin-bottom: 1.2rem; }
-.skill-group-name { font-size: 10px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
-
-.cert-item { font-size: 11px; color: #455A64; padding: 4px 0; border-bottom: 0.5px solid var(--mid); line-height: 1.4; }
-.cert-org { font-family: 'Rubik', sans-serif; font-weight: 500; font-size: 9px; color: var(--accent); }
-
-.sidebar-block { margin-bottom: 2rem; }
-
-/* ── JOBS PANEL ── */
-.jobs-intro { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 2rem; }
-.stat-card { background: var(--ink); color: var(--paper); padding: 1rem 1.2rem; border-radius: 2px; }
-.stat-num { font-family: 'Rubik', sans-serif; font-weight: 700; font-size: 28px; color: var(--accent); }
-.stat-label { font-family: 'Rubik', sans-serif; font-weight: 500; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid); margin-top: 2px; }
-
-.match-badge { display: inline-flex; align-items: center; gap: 4px; font-family: 'Rubik', sans-serif; font-weight: 700; font-size: 9px; padding: 2px 7px; border-radius: 2px; }
-.match-high { background: #1B3A5C; color: #A8C4E0; }
-.match-mid { background: #455A64; color: #E8C28A; }
-
-.job-card { border: 0.5px solid var(--mid); padding: 1.25rem 1.4rem; margin-bottom: 0.75rem; position: relative; transition: border-color 0.2s; cursor: default; }
-.job-card:hover { border-color: var(--ink); }
-.job-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.5rem; }
-.job-title { font-family: 'Rubik', sans-serif; font-weight: 600; font-size: 16px; color: var(--ink); }
-.job-company { font-size: 11.5px; color: var(--accent); font-weight: 500; margin-bottom: 4px; }
-.job-meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
-.job-tag { font-family: 'Rubik', sans-serif; font-weight: 400; font-size: 9px; padding: 2px 7px; border: 0.5px solid var(--mid); color: var(--muted); }
-.job-desc { font-size: 12px; color: #3A3835; line-height: 1.65; margin-bottom: 10px; }
-.job-match-skills { display: flex; flex-wrap: wrap; gap: 4px; }
-.match-skill { font-size: 10px; background: #D2ECFF; color: var(--ink); padding: 2px 7px; font-weight: 500; }
-.job-link { font-family: 'Rubik', sans-serif; font-weight: 500; font-size: 9.5px; color: var(--blue); text-decoration: none; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; }
-.job-link:hover { color: var(--accent); }
-
-.category-label { font-family: 'Rubik', sans-serif; font-weight: 500; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin: 1.5rem 0 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
-.category-label::after { content: ''; flex: 1; height: 0.5px; background: var(--mid); }
-
-.tip-box { border-left: 2px solid var(--accent); padding: 0.75rem 1rem; background: #D2ECFF; margin-top: 2rem; }
-.tip-box p { font-size: 12px; line-height: 1.65; color: var(--ink); }
-.tip-title { font-family: 'Rubik', sans-serif; font-weight: 500; font-size: 9px; letter-spacing: 0.12em; color: var(--accent); text-transform: uppercase; margin-bottom: 4px; }
-
-.print-note { display: flex; align-items: center; gap: 8px; font-family: 'Rubik', sans-serif; font-weight: 300; font-size: 9px; color: var(--muted); margin-top: 1.5rem; padding-top: 1rem; border-top: 0.5px solid var(--mid); }
-
-@media (max-width: 600px) {
-  .two-col { grid-template-columns: 1fr; }
-  .cv-header { grid-template-columns: 1fr; }
-  .cv-contact-block { text-align: left; }
-  .jobs-intro { grid-template-columns: 1fr; }
-}
-</style>
-
+<!-- ══ MAIN WRAPPER ══ -->
 <div class="wrapper">
 
-<div class="tab-bar">
-  <button class="tab active" onclick="showPanel('cv', this)">CV Visual</button>
-  <button class="tab" onclick="showPanel('jobs', this)">Poyectos y Referencias</button>
-</div>
-
-<!-- ══ CV PANEL ══ -->
-<div id="cv" class="panel active">
-
-  <div class="cv-header">
-    <div>
-      <div class="cv-name">Erick<br><em>Hernández</em></div>
-      <div class="cv-role">UI/UX Designer · WordPress Developer · Product Designer</div>
-    </div>
-    <div class="cv-contact-block">
-      <p>+503 7888 6872</p>
-      <p>es.designer79@gmail.com</p>
-      <p><a href="https://www.linkedin.com/in/erickehc/">linkedin.com/in/erickehc</a></p>
-      <p>San Salvador, El Salvador</p>
-      <p style="margin-top:6px; font-size:10px; background:#0F0E0C; color:#F5F2EC; padding:3px 7px; display:inline-block;">Available · Remote</p>
-    </div>
+  <div class="tab-bar">
+    <button class="tab active" onclick="showPanel('cv',this)">
+      <span data-lang="es">CV Visual</span>
+      <span data-lang="en">Visual CV</span>
+    </button>
+    <button class="tab" onclick="showPanel('refs',this)">
+      <span data-lang="es">Proyectos y Referencias</span>
+      <span data-lang="en">Projects & References</span>
+    </button>
   </div>
 
-  <div class="two-col">
+  <!-- ════════════════════════════
+       CV PANEL
+  ════════════════════════════ -->
+  <div id="cv" class="panel active">
 
-    <!-- LEFT COLUMN -->
-    <div>
-
-      <div class="section-label">Perfil profesional</div>
-      <p class="summary-text" style="margin-bottom:2rem;">
-        UI/UX Designer y WordPress Developer con 6+ años de experiencia construyendo productos digitales de principio a fin. Especializado en interfaces intuitivas, sistemas de diseño escalables y desarrollo web. Experiencia en fintech, media digital y SaaS. Trabajo en inglés y español, con clientes en EE.UU., Australia y El Salvador.
-      </p>
-
-      <div class="section-label">Experiencia</div>
-
-      <div class="exp-item">
-        <div class="exp-top">
-          <div class="exp-title">Senior Web Engineer</div>
-          <div class="exp-date">2025 – actual</div>
-        </div>
-        <div class="exp-company">Salem Business Journal / CATO Media Company</div>
-        <ul class="exp-bullets">
-          <li>Lideré desarrollo y optimización de plataformas de media digital con PHP, CSS, HTML y JavaScript.</li>
-          <li>Rediseñé el periódico digital con experiencias responsive para mobile y desktop.</li>
-          <li>Integré CRM (GoHighLevel) y SEO (Google Analytics, Search Console).</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-top">
-          <div class="exp-title">Lead UI/UX & WordPress Dev</div>
-          <div class="exp-date">2024 – 2025</div>
-        </div>
-        <div class="exp-company">Linework · Fintech</div>
-        <ul class="exp-bullets">
-          <li>Rediseñé una app fintech con crypto marketplace, red social descentralizada y cold wallet.</li>
-          <li>Creé design system completo y UI kit para toda la plataforma.</li>
-          <li>Conduje user research, usability testing y prototipado en Figma.</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-top">
-          <div class="exp-title">Web & UX Designer</div>
-          <div class="exp-date">2023 – 2024</div>
-        </div>
-        <div class="exp-company">SIPcity · Australia · Cloud SaaS</div>
-        <ul class="exp-bullets">
-          <li>Diseñé landing pages responsive para plataforma UCaaS en mercado australiano.</li>
-          <li>Motion graphics con After Effects; SEO management y WordPress con Elementor.</li>
-        </ul>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-top">
-          <div class="exp-title">Web Designer</div>
-          <div class="exp-date">2022 – 2023</div>
-        </div>
-        <div class="exp-company">Taskable · El Salvador</div>
-        <ul class="exp-bullets">
-          <li>Landing pages, prototipos y mantenimiento WordPress con Divi y Elementor.</li>
-        </ul>
-      </div>
-
-      <div class="section-label" style="margin-top:1.5rem;">Proyectos destacados</div>
-      <div class="exp-item">
-        <div class="exp-title" style="font-size:13px;">Lienzos y Trazos — CENAR (2024)</div>
-        <div class="exp-company">Product Designer & Gestor Cultural</div>
-        <ul class="exp-bullets">
-          <li>Website informativo para estudiantes de Bellas Artes del CENAR. UX design, design system y gestión cultural de talleres.</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <!-- RIGHT COLUMN -->
-    <div>
-
-      <div class="sidebar-block">
-        <div class="section-label">Stack</div>
-        <div class="skill-group">
-          <div class="skill-group-name">Diseño</div>
-          <span class="skill-pill">Figma</span>
-          <span class="skill-pill">Adobe XD</span>
-          <span class="skill-pill">Illustrator</span>
-          <span class="skill-pill">Photoshop</span>
-          <span class="skill-pill">After Effects</span>
-          <span class="skill-pill">Blender</span>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-name">Desarrollo</div>
-          <span class="skill-pill">WordPress</span>
-          <span class="skill-pill">PHP</span>
-          <span class="skill-pill">HTML5</span>
-          <span class="skill-pill">CSS3</span>
-          <span class="skill-pill">JavaScript</span>
-          <span class="skill-pill">Elementor</span>
-          <span class="skill-pill">Gutenberg</span>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-name">UX Process</div>
-          <span class="skill-pill">Design Systems</span>
-          <span class="skill-pill">User Research</span>
-          <span class="skill-pill">Usability Testing</span>
-          <span class="skill-pill">Design Sprint</span>
-          <span class="skill-pill">Lean UX</span>
-          <span class="skill-pill">IA</span>
-        </div>
-        <div class="skill-group">
-          <div class="skill-group-name">Marketing & Analytics</div>
-          <span class="skill-pill">SEO</span>
-          <span class="skill-pill">Google Analytics</span>
-          <span class="skill-pill">Search Console</span>
-          <span class="skill-pill">GoHighLevel</span>
-        </div>
-      </div>
-
-      <div class="sidebar-block">
-        <div class="section-label">Educación</div>
-        <div class="cert-item">
-          <strong>Licenciatura en Bellas Artes</strong><br>
-          Minor en Diseño Gráfico<br>
-          <span class="cert-org">Universidad de El Salvador · 2025</span>
-        </div>
-      </div>
-
-      <div class="sidebar-block">
-        <div class="section-label">Certificaciones</div>
-        <div class="cert-item">UX Design Fundamentals<br><span class="cert-org">Google / Coursera</span></div>
-        <div class="cert-item">Graphic Design Specialization<br><span class="cert-org">CalArts / Coursera</span></div>
-        <div class="cert-item">Design Systems · Design Sprint · Lean UX<br><span class="cert-org">Platzi 2021–2024</span></div>
-        <div class="cert-item">Advanced Figma · User-Centered Design<br><span class="cert-org">Platzi 2022–2023</span></div>
-      </div>
-
-      <div class="sidebar-block">
-        <div class="section-label">Idiomas</div>
-        <div class="cert-item">Español <span style="color:var(--accent)">—</span> Nativo</div>
-        <div class="cert-item">Inglés <span style="color:var(--accent)">—</span> Profesional</div>
-      </div>
-
-      <div class="sidebar-block">
-        <div class="section-label">Clientes Freelance</div>
-        <p style="font-size:11px; color:var(--muted); line-height:1.8;">ABG Homes · Clark County Catalyst · Press Release Salem · Denim Project SV · RPG Architect · CATO Media · XMT Construction</p>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="print-note">
-    <span>▲</span> <span>Versión visual para envío directo · Para sistemas ATS descarga el <a href="">.pdf adjunto</a></span>
-  </div>
-
-</div>
-
-<!-- ══ JOBS PANEL ══ -->
-<div id="jobs" class="panel">
-
-  <div class="jobs-intro">
-    <div class="stat-card">
-      <div class="stat-num">6+</div>
-      <div class="stat-label">Años de experiencia</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">20+</div>
-      <div class="stat-label">Proyectos finalizados</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num">$1,000–$2,500</div>
-      <div class="stat-label">Rango estimado USD/mes</div>
-    </div>
-  </div>
-
-  <!-- HYBRID ROLES -->
-  <div class="category-label">Cartas de Referencias</div>
-
-    <div class="job-card">
-    <div class="job-card-top">
+    <div class="cv-header">
       <div>
-        <div class="job-title">Ariela Suvillaga </div>
-        <div class="job-company">Casa Escensia E-commerce</div>
+        <div class="cv-name">Erick<br><em>Hernández</em></div>
+        <div class="cv-role">UI/UX Designer · WordPress Developer · Product Designer</div>
       </div>
-      <span class="match-badge match-high">✦ Founder</span>
+      <div class="cv-contact-block">
+        <p>+503 7888 6872</p>
+        <p><a href="/cdn-cgi/l/email-protection#cfaabce1abaabca6a8a1aabdf8f68fa8a2aea6a3e1aca0a2"><span class="__cf_email__" data-cfemail="066375286263756f61686374313f46616b676f6a2865696b">[email&#160;protected]</span></a></p>
+        <p><a href="https://www.linkedin.com/in/erickehc/" target="_blank">linkedin.com/in/erickehc</a></p>
+        <p>San Salvador, El Salvador</p>
+        <span class="available-badge">
+          <span data-lang="es">Disponible · Remoto</span>
+          <span data-lang="en">Available · Remote</span>
+        </span>
+        <br>
+        <a class="header-cta" href="https://www.mino.solutions/projects" target="_blank" rel="noopener">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="2" y="3" width="12" height="10" rx="1"/>
+            <path d="M5 3V2m6 1V2M2 7h12"/>
+          </svg>
+          <span data-lang="es">Portafolio & Casos de estudio</span>
+          <span data-lang="en">Portfolio & Case studies</span>
+        </a>
+      </div>
     </div>
-    <div class="job-meta">
-      <span class="job-tag">Poryecto de 4 meses</span>
-      <span class="job-tag">San Salvador, 28 de mayo de 2025</span>
-      <span class="job-tag">USA · Remote</span>
-    </div>
-    <p class="job-desc">Me gustaría recomendar a Erick Hernández por su excelente desempeño en el proyecto Casa Esencia. A lo largo del desarrollo, Erick demostró ser un profesional comprometido, creativo y altamente orientado al detalle. Su contribución en el diseño y desarrollo del sitio fue fundamental para lograr una experiencia clara, funcional y coherente con la identidad de la marca. Además, valoro mucho que sus valores estén alineados con los de mi marca, lo que hizo el proceso de trabajo aún más fluido y auténtico. Sin duda, es una persona confiable para cualquier proyecto digital.</p>
-    <div class="job-match-skills">
-      <span class="match-skill">Tel: +34 674 89 23 12</span>
-      <span class="match-skill">Email: arielasuvillaga@gmail.com</span>
-    </div>
-    <a class="job-link" href="https://www.linkedin.com/in/ariela-s-a44204b4/">Ver LinkedIn ↗</a>
-  </div>
 
+    <div class="two-col">
 
-  <div class="job-card">
-    <div class="job-card-top">
+      <!-- ── LEFT ── -->
       <div>
-        <div class="job-title">Luis Roberto Ticas Valdivieso</div>
-        <div class="job-company">Zentroo Lav & Linework</div>
-      </div>
-      <span class="match-badge match-high">✦ Operations Management</span>
-    </div>
-    <div class="job-meta">
-      <span class="job-tag">8 meses colaborando</span>
-      <span class="job-tag">San Salvador, 28 de mayo de 2025</span>
-      <span class="job-tag">USA · Remote</span>
-    </div>
-    <p class="job-desc">Me complace recomendar a Erick Hernández, a quien tuve el privilegio de supervisar directamente en el área de operaciones, marketing y gestión financiera. Durante el tiempo que trabajamos juntos, Erick demostró ser una persona con un talento excepcional, capaz de aportar soluciones creativas y estratégicas en cada proyecto.
 
-Su capacidad para combinar pensamiento analítico con sensibilidad hacia el diseño y la experiencia del usuario lo convierte en un profesional integral. Además, su actitud colaborativa y disposición para aprender enriquecieron no solo su desempeño, sino también el de todo el equipo.
+        <div class="section-label">
+          <span data-lang="es">Perfil profesional</span>
+          <span data-lang="en">Professional profile</span>
+        </div>
+        <p class="summary-text" style="margin-bottom:2rem" data-lang="es">
+          UI/UX Designer y WordPress Developer con 6+ años de experiencia construyendo productos digitales de principio a fin. Especializado en interfaces intuitivas, sistemas de diseño escalables y desarrollo web. Experiencia en fintech, media digital y SaaS. Trabajo en inglés y español, con clientes en EE.UU., Australia y El Salvador.
+        </p>
+        <p class="summary-text" style="margin-bottom:2rem" data-lang="en">
+          UI/UX Designer and WordPress Developer with 6+ years of experience building digital products end-to-end. Specialized in intuitive interfaces, scalable design systems, and web development. Experience in fintech, digital media, and SaaS. Fluent in English and Spanish, with clients across the US, Australia, and El Salvador.
+        </p>
 
-Estoy convencido de que Erick tendrá éxito en todos los proyectos que emprenda, pues su compromiso, ética de trabajo y visión innovadora son cualidades que lo distinguen.
+        <div class="section-label">
+          <span data-lang="es">Experiencia</span>
+          <span data-lang="en">Experience</span>
+        </div>
 
-Por estas razones, recomiendo ampliamente a Erick Hernández para cualquier posición o iniciativa que decida asumir.
-<br>
-Certified Compliance Officer <br>
-Operations / Marketing / Finance / Management </p>
-    <div class="job-match-skills">
-      <span class="match-skill">Tel: +503 7741 0994</span>
-      <span class="match-skill">Email: roberto.ticasvaldivieso.bhn@gmail.com</span>
-    </div>
-    <a class="job-link" href="https://www.linkedin.com/in/robertoticas/">Ver LinkedIn ↗</a>
-  </div>
+        <!-- Job 1 -->
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-title" data-lang="es">Senior UI/UX Designer</div>
+            <div class="exp-title" data-lang="en">Senior UI/UX Designer</div>
+            <div class="exp-date">2025 – <span data-lang="es">actual</span><span data-lang="en">present</span></div>
+          </div>
+          <div class="exp-company">AB POS Solution / NUV POS Solution</div>
+          <ul class="exp-bullets">
+            <li data-lang="es">Liderar el diseño de interfaces para páginas web críticas del ecosistema AB POS y NUV POS, preparándolas para desarrollo técnico.</li>
+            <li data-lang="en">Leading UI design for critical web pages within the AB POS and NUV POS ecosystem, preparing them for technical development.</li>
+            <li data-lang="es">Crear componentes y diseños consistentes para diversas secciones, garantizando una experiencia de usuario escalable.</li>
+            <li data-lang="en">Creating consistent components and layouts across multiple sections, ensuring a scalable user experience.</li>
+            <li data-lang="es">Colaborar con desarrolladores para supervisar la correcta implementación de los diseños en las páginas finales.</li>
+            <li data-lang="en">Collaborating closely with developers to oversee accurate implementation of UI designs in final web pages.</li>
+          </ul>
+        </div>
 
-  <div class="job-card">
-    <div class="job-card-top">
+        <!-- Job 2 -->
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-title">Senior Web Engineer</div>
+            <div class="exp-date">2025</div>
+          </div>
+          <div class="exp-company">Salem Business Journal / CATO Media Company</div>
+          <ul class="exp-bullets">
+            <li data-lang="es">Lideré desarrollo y optimización de plataformas de media digital con PHP, CSS, HTML y JavaScript.</li>
+            <li data-lang="en">Led development and optimization of digital media platforms using PHP, CSS, HTML, and JavaScript.</li>
+            <li data-lang="es">Rediseñé el periódico digital con experiencias responsive para mobile y desktop.</li>
+            <li data-lang="en">Redesigned the digital newspaper with responsive experiences for mobile and desktop.</li>
+            <li data-lang="es">Integré CRM (GoHighLevel) y herramientas SEO (Google Analytics, Search Console).</li>
+            <li data-lang="en">Integrated CRM (GoHighLevel) and SEO tools (Google Analytics, Search Console).</li>
+          </ul>
+        </div>
+
+        <!-- Job 3 -->
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-title" data-lang="es">Lead UI/UX & WordPress Dev</div>
+            <div class="exp-title" data-lang="en">Lead UI/UX & WordPress Dev</div>
+            <div class="exp-date">2024 – 2025</div>
+          </div>
+          <div class="exp-company">Linework · Fintech</div>
+          <ul class="exp-bullets">
+            <li data-lang="es">Rediseñé una app fintech con crypto marketplace, red social descentralizada y cold wallet.</li>
+            <li data-lang="en">Redesigned a fintech app including a crypto marketplace, decentralized social network, and cold wallet.</li>
+            <li data-lang="es">Creé design system completo y UI kit para toda la plataforma.</li>
+            <li data-lang="en">Created a complete design system and UI kit for the entire platform.</li>
+            <li data-lang="es">Conduje user research, usability testing y prototipado en Figma.</li>
+            <li data-lang="en">Conducted user research, usability testing, and prototyping in Figma.</li>
+          </ul>
+        </div>
+
+        <!-- Job 4 -->
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-title" data-lang="es">Web & UX Designer</div>
+            <div class="exp-title" data-lang="en">Web & UX Designer</div>
+            <div class="exp-date">2023 – 2024</div>
+          </div>
+          <div class="exp-company">SIPcity · Australia · Cloud SaaS</div>
+          <ul class="exp-bullets">
+            <li data-lang="es">Diseñé landing pages responsive para plataforma UCaaS en mercado australiano.</li>
+            <li data-lang="en">Designed responsive landing pages for a UCaaS platform in the Australian market.</li>
+            <li data-lang="es">Motion graphics con After Effects; SEO y WordPress con Elementor.</li>
+            <li data-lang="en">Motion graphics with After Effects; SEO management and WordPress with Elementor.</li>
+          </ul>
+        </div>
+
+        <!-- Job 5 -->
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-title">Web Designer</div>
+            <div class="exp-date">2022 – 2023</div>
+          </div>
+          <div class="exp-company">Taskable · El Salvador</div>
+          <ul class="exp-bullets">
+            <li data-lang="es">Landing pages, prototipos y mantenimiento WordPress con Divi y Elementor.</li>
+            <li data-lang="en">Landing pages, prototypes, and WordPress maintenance with Divi and Elementor.</li>
+          </ul>
+        </div>
+
+        <!-- Projects -->
+        <div class="section-label" style="margin-top:1.5rem">
+          <span data-lang="es">Proyectos destacados</span>
+          <span data-lang="en">Featured projects</span>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-title" style="font-size:13px">Lienzos y Trazos — CENAR (2024)</div>
+          </div>
+          <div class="exp-company">
+            Product Designer &amp; <span data-lang="es">Gestor Cultural</span><span data-lang="en">Cultural Manager</span>
+            &nbsp;·&nbsp;
+            <a class="case-link" href="https://hay-cultura.super.site/index/proyectos/case-study/lienzos-trazos" target="_blank">
+              <span data-lang="es">Ver caso de estudio ↗</span><span data-lang="en">View case study ↗</span>
+            </a>
+          </div>
+          <p class="exp-desc" data-lang="es">Sitio web informativo para estudiantes de artes plásticas del CENAR, donde pueden compartir sus obras y promover el desarrollo del arte nacional.</p>
+          <p class="exp-desc" data-lang="en">Informative website for fine arts students at CENAR (National Arts Center), where they can share their work and promote national art development.</p>
+          <ul class="exp-bullets">
+            <li data-lang="es">UX design, design system e implementación. Gestión cultural de talleres y contenido didáctico.</li>
+            <li data-lang="en">UX design, design system, and implementation. Cultural management of workshops and educational content.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-title" style="font-size:13px">ESArt — <span data-lang="es">Escuela de Artes</span><span data-lang="en">School of Arts</span> (2023)</div>
+          </div>
+          <div class="exp-company">
+            UI/UX Designer &amp; <span data-lang="es">Gestor Cultural</span><span data-lang="en">Cultural Manager</span>
+            &nbsp;·&nbsp;
+            <a class="case-link" href="https://hay-cultura.super.site/index/proyectos/case-study/esart/" target="_blank">
+              <span data-lang="es">Ver caso de estudio ↗</span><span data-lang="en">View case study ↗</span>
+            </a>
+          </div>
+          <p class="exp-desc" data-lang="es">Plataforma para que estudiantes de la única Escuela de Artes universitaria en El Salvador compartan sus trabajos y actividades académicas.</p>
+          <p class="exp-desc" data-lang="en">Platform for students of the only university-level School of Arts in El Salvador to share their work and academic activities.</p>
+          <ul class="exp-bullets">
+            <li data-lang="es">Design Thinking, User Research y prototipo de alta fidelidad. <a class="case-link" href="https://hay-cultura.super.site/index/proyectos/case-study/gallery-esart-1" target="_blank">Ver galería ↗</a></li>
+            <li data-lang="en">Design Thinking, User Research, and high-fidelity prototype. <a class="case-link" href="https://hay-cultura.super.site/index/proyectos/case-study/gallery-esart-1" target="_blank">View gallery ↗</a></li>
+            <li data-lang="es">Solución con secciones clave: landing, especialidades, obras, consultas y blog.</li>
+            <li data-lang="en">Solution with key sections: landing, specializations, artworks, inquiries, and blog.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-top">
+            <div class="exp-title" style="font-size:13px">
+              <span data-lang="es">Curso: Diseño y desarrollo de apps móviles</span>
+              <span data-lang="en">Course: Mobile App Design & Development</span>
+              (2022)
+            </div>
+          </div>
+          <div class="exp-company">
+            <span data-lang="es">Facilitador & Gestor Cultural</span><span data-lang="en">Facilitator & Cultural Manager</span>
+            &nbsp;·&nbsp;
+            <a class="case-link" href="https://hay-cultura.super.site/index/blogs/mobile-application-design-and-development" target="_blank">
+              <span data-lang="es">Ver más ↗</span><span data-lang="en">Learn more ↗</span>
+            </a>
+          </div>
+          <ul class="exp-bullets">
+            <li data-lang="es">Proyecto de horas sociales UES en colaboración con el IMJ. +15 jóvenes certificados.</li>
+            <li data-lang="en">Social hours project at UES in collaboration with the IMJ. 15+ certified young participants.</li>
+            <li data-lang="es">Fundamentos UI/UX, Figma y prototipado. Clases de 2h durante 3 meses.</li>
+            <li data-lang="en">UI/UX fundamentals, Figma, and prototyping. 2-hour classes over 3 months.</li>
+          </ul>
+        </div>
+
+      </div><!-- /left -->
+
+      <!-- ── RIGHT ── -->
       <div>
-        <div class="job-title">Doroty Johnstone</div>
-        <div class="job-company">SIPcity</div>
+
+        <div class="sidebar-block">
+          <div class="section-label">Stack</div>
+          <div class="skill-group">
+            <div class="skill-group-name"><span data-lang="es">Diseño</span><span data-lang="en">Design</span></div>
+            <span class="skill-pill">Figma</span>
+            <span class="skill-pill">Adobe XD</span>
+            <span class="skill-pill">Illustrator</span>
+            <span class="skill-pill">Photoshop</span>
+            <span class="skill-pill">After Effects</span>
+            <span class="skill-pill">Blender</span>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-name"><span data-lang="es">Desarrollo</span><span data-lang="en">Development</span></div>
+            <span class="skill-pill">WordPress</span>
+            <span class="skill-pill">PHP</span>
+            <span class="skill-pill">HTML5</span>
+            <span class="skill-pill">CSS3</span>
+            <span class="skill-pill">JavaScript</span>
+            <span class="skill-pill">Elementor</span>
+            <span class="skill-pill">Gutenberg</span>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-name">UX Process</div>
+            <span class="skill-pill">Design Systems</span>
+            <span class="skill-pill">User Research</span>
+            <span class="skill-pill">Usability Testing</span>
+            <span class="skill-pill">Design Sprint</span>
+            <span class="skill-pill">Lean UX</span>
+            <span class="skill-pill">IA</span>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-name">Marketing &amp; Analytics</div>
+            <span class="skill-pill">SEO</span>
+            <span class="skill-pill">Google Analytics</span>
+            <span class="skill-pill">Search Console</span>
+            <span class="skill-pill">GoHighLevel</span>
+          </div>
+        </div>
+
+        <div class="sidebar-block">
+          <div class="section-label"><span data-lang="es">Educación</span><span data-lang="en">Education</span></div>
+          <div class="cert-item">
+            <strong data-lang="es">Licenciatura en Bellas Artes</strong>
+            <strong data-lang="en">Bachelor of Fine Arts</strong><br>
+            <span data-lang="es">Minor en Diseño Gráfico</span>
+            <span data-lang="en">Minor in Graphic Design</span><br>
+            <span class="cert-org">Universidad de El Salvador · 2025</span>
+          </div>
+        </div>
+
+        <div class="sidebar-block">
+          <div class="section-label"><span data-lang="es">Certificaciones</span><span data-lang="en">Certifications</span></div>
+          <div class="cert-item">
+            UX Design Fundamentals<br>
+            <span class="cert-org">Google / Coursera</span>
+          </div>
+          <div class="cert-item">
+            Graphic Design Specialization<br>
+            <span class="cert-org">CalArts / Coursera</span>
+          </div>
+          <div class="cert-item" data-lang="es">
+            Design Systems · Design Sprint · Lean UX · Metodologías de Diseño Digital · Identidad Corporativa · Gestión de Proyectos · Colaboración Diseño-Dev · Evitar Dark Patterns · Estrategias UX<br>
+            <span class="cert-org">Platzi 2024–2025</span>
+          </div>
+          <div class="cert-item" data-lang="en">
+            Design Systems · Design Sprint · Lean UX · Digital Product Design · Corporate Identity · Project Management · Design-Dev Collaboration · Avoiding Dark Patterns · UX Strategies<br>
+            <span class="cert-org">Platzi 2024–2025</span>
+          </div>
+          <div class="cert-item" data-lang="es">
+            Advanced Figma · Diseño Centrado en el Usuario · Fundamentos UI/UX · Arquitectura de Información · Design Thinking · ChatGPT para Product Designers · Bitcoin &amp; Blockchain · Lean UX<br>
+            <span class="cert-org">Platzi / Domestika 2020–2023</span>
+          </div>
+          <div class="cert-item" data-lang="en">
+            Advanced Figma · User-Centered Design · UI/UX Fundamentals · Information Architecture · Design Thinking · ChatGPT for Product Designers · Bitcoin &amp; Blockchain · Lean UX<br>
+            <span class="cert-org">Platzi / Domestika 2020–2023</span>
+          </div>
+          <div class="cert-item" data-lang="es">
+            Diseño Gráfico · Marketing Digital · Emprendimiento Juvenil · Innovación en Políticas Públicas<br>
+            <span class="cert-org">IMJ 2021</span>
+          </div>
+          <div class="cert-item" data-lang="en">
+            Graphic Design · Digital Marketing · Youth Entrepreneurship · Public Policy Innovation<br>
+            <span class="cert-org">IMJ 2021</span>
+          </div>
+        </div>
+
+        <div class="sidebar-block">
+          <div class="section-label"><span data-lang="es">Idiomas</span><span data-lang="en">Languages</span></div>
+          <div class="cert-item"><span data-lang="es">Español</span><span data-lang="en">Spanish</span> <span style="color:var(--accent)">—</span> <span data-lang="es">Nativo</span><span data-lang="en">Native</span></div>
+          <div class="cert-item"><span data-lang="es">Inglés</span><span data-lang="en">English</span> <span style="color:var(--accent)">—</span> <span data-lang="es">Profesional</span><span data-lang="en">Professional</span></div>
+        </div>
+
+        <div class="sidebar-block">
+          <div class="section-label"><span data-lang="es">Clientes Freelance</span><span data-lang="en">Freelance Clients</span></div>
+          <p style="font-size:11px;color:var(--muted);line-height:1.9">
+            ABG Homes · Clark County Catalyst · Press Release Salem · Denim Project SV · RPG Architect · CATO Media · XMT Construction · Casa Escencia · Super Clean SV
+          </p>
+        </div>
+
+      </div><!-- /right -->
+    </div><!-- /two-col -->
+
+    <div class="print-note">
+      <span>▲</span>
+      <span data-lang="es">Versión visual para envío directo · CV para sistemas ATS:
+        <a href="https://docs.google.com/document/d/1Nk-R70bNgAOh0OCjq3IZUy0cjMldOTndA-36C7UJ0eA/edit?usp=sharing" target="_blank">ES</a>
+        &amp;
+        <a href="https://docs.google.com/document/d/1R2SGtXSV9qmn8u3sCGn_zIU6UPRDtQqdybIgRF8P6Pw/edit?usp=sharing" target="_blank">EN</a>
+      </span>
+      <span data-lang="en">Visual version for direct delivery · ATS-ready CV:
+        <a href="https://docs.google.com/document/d/1Nk-R70bNgAOh0OCjq3IZUy0cjMldOTndA-36C7UJ0eA/edit?usp=sharing" target="_blank">ES</a>
+        &amp;
+        <a href="https://docs.google.com/document/d/1R2SGtXSV9qmn8u3sCGn_zIU6UPRDtQqdybIgRF8P6Pw/edit?usp=sharing" target="_blank">EN</a>
+      </span>
+    </div>
+
+  </div><!-- /cv panel -->
+
+  <!-- ════════════════════════════
+       PROJECTS & REFERENCES PANEL
+  ════════════════════════════ -->
+  <div id="refs" class="panel">
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num">6+</div>
+        <div class="stat-label"><span data-lang="es">Años de experiencia</span><span data-lang="en">Years of experience</span></div>
       </div>
-      <span class="match-badge match-high">✦ Founder & Chief Executive Officer</span>
-    </div>
-    <div class="job-meta">
-      <span class="job-tag">1 año colaborativo</span>
-      <span class="job-tag">3 de junio de 2024</span>
-      <span class="job-tag">Australian · Remote</span>
-    </div>
-    <p class="job-desc">Es un honor recomendar a Erick Hernández, quien trabajó con nuestro equipo como junior graphic designer, contribuyendo en proyectos clave como diseño de sitios web, gestión de activos de marca y creación de contenido para YouTube.
-
-Durante su tiempo con nosotros, Erick demostró una ética de trabajo sólida y una gran disposición para asumir nuevos retos. Su talento como diseñador gráfico, junto con su aguda sensibilidad estética, le permitió aportar soluciones visuales de gran calidad que fortalecieron la identidad de nuestros proyectos.
-
-Además de sus habilidades técnicas, Erick fue un verdadero placer de tener en el equipo: colaborativo, creativo y siempre dispuesto a aportar más allá de lo esperado. Aprecio profundamente las contribuciones que realizó durante su tiempo con nosotros.
-
-Por estas razones, recomiendo ampliamente a Erick Hernández para cualquier posición o proyecto en el que decida participar. Estoy seguro de que será un valioso recurso para cualquier organización. Atentamente.</p>
-
-    <a class="job-link" href="https://www.linkedin.com/in/dotjohnstone/">Ver LinkedIn ↗</a>
-  </div>
-
-
-    <div class="job-card">
-    <div class="job-card-top">
-      <div>
-        <div class="job-title">Jesse Lippold Peone</div>
-        <div class="job-company">Salem Business Journal · CATO Media</div>
+      <div class="stat-card">
+        <div class="stat-num">20+</div>
+        <div class="stat-label"><span data-lang="es">Proyectos finalizados</span><span data-lang="en">Completed projects</span></div>
       </div>
-      <span class="match-badge match-high">✦ Founder & Journalist</span>
+      <div class="stat-card">
+        <div class="stat-num">$1k–$2.5k</div>
+        <div class="stat-label"><span data-lang="es">Rango estimado USD/mes</span><span data-lang="en">Estimated range USD/mo</span></div>
+      </div>
     </div>
-    <div class="job-meta">
-      <span class="job-tag">1 año colaborativo</span>
-      <span class="job-tag">24 de noviembre de 2025</span>
-      <span class="job-tag">USA · Remote</span>
+
+    <!-- REFERENCES -->
+    <div class="category-label">
+      <span data-lang="es">Cartas de Referencia</span>
+      <span data-lang="en">Reference Letters</span>
     </div>
-    <p class="job-desc">Tuve el privilegio de contar con Erick Hernández en nuestro equipo, y puedo afirmar que su aporte fue invaluable. Erick se distingue por su responsabilidad y compromiso, cualidades que garantizan que cada tarea se complete en tiempo y con altos estándares, siempre que exista una comunicación clara dentro del equipo.
 
-Como diseñador web, Erick posee un gran ojo para los detalles, asegurando que cada proyecto tenga una apariencia limpia, profesional y alineada con la identidad de la marca. Su capacidad para comunicar ideas con claridad, escuchar retroalimentación y facilitar la colaboración lo convierten en un miembro esencial en cualquier entorno de trabajo.
-
-Erick no solo cumple con lo esperado, sino que eleva la calidad del equipo con su actitud positiva y su enfoque en la excelencia. Recomiendo ampliamente a Erick Hernández para cualquier proyecto o posición, convencido de que será un recurso valioso para cualquier organización.</p>
-    <div class="job-match-skills">
-      <span class="match-skill">Tel: +503 7806 5141</span>
-      <span class="match-skill">Email: Newsroom@salembusinessjournal.org</span>
+    <!-- Ref 1 -->
+    <div class="ref-card">
+      <div class="ref-top">
+        <div>
+          <div class="ref-name">Ariela Suvillaga</div>
+          <div class="ref-company">Casa Escencia E-commerce</div>
+        </div>
+        <span class="badge">✦ Founder</span>
+      </div>
+      <div class="ref-meta">
+        <span class="ref-tag" data-lang="es">Proyecto de 4 meses</span>
+        <span class="ref-tag" data-lang="en">4-month project</span>
+        <span class="ref-tag" data-lang="es">San Salvador, 28 mayo 2025</span>
+        <span class="ref-tag" data-lang="en">San Salvador, May 28, 2025</span>
+        <span class="ref-tag">Remote</span>
+      </div>
+      <p class="ref-body" data-lang="es">Me gustaría recomendar a Erick Hernández por su excelente desempeño en el proyecto Casa Esencia. A lo largo del desarrollo, Erick demostró ser un profesional comprometido, creativo y altamente orientado al detalle. Su contribución en el diseño y desarrollo del sitio fue fundamental para lograr una experiencia clara, funcional y coherente con la identidad de la marca. Además, valoro mucho que sus valores estén alineados con los de mi marca, lo que hizo el proceso de trabajo aún más fluido y auténtico. Sin duda, es una persona confiable para cualquier proyecto digital.</p>
+      <p class="ref-body" data-lang="en">I would like to recommend Erick Hernández for his excellent performance in the Casa Esencia project. Throughout the development, Erick proved to be a committed, creative, and highly detail-oriented professional. His contribution to the site's design and development was key to achieving a clear, functional experience aligned with the brand identity. I also deeply value that his values align with those of my brand, which made the work process even more fluid and authentic. He is undoubtedly a reliable person for any digital project.</p>
+      <div class="ref-contacts">
+        <span class="ref-contact">+34 674 89 23 12</span>
+        <span class="ref-contact"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c3a2b1aaa6afa2b0b6b5aaafafa2a4a283a4aea2aaafeda0acae">[email&#160;protected]</a></span>
+      </div>
+      <a class="ref-link" href="https://www.linkedin.com/in/ariela-s-a44204b4/" target="_blank">LinkedIn ↗</a>
     </div>
-    <a class="job-link" href="https://www.linkedin.com/in/jessepeone/">Ver LinkedIn ↗</a>
-  </div>
 
-
-
-  <!-- PLATAFORMAS -->
-  <div class="category-label">Proyectos y páginas desarrolladas</div>
-
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:1rem;">
-    <div style="border:0.5px solid var(--mid); padding:1rem;">
-
-      <p>
-        <a href="https://nuvpos.com/" style="color:var(--blue);">NUV POS Solution ↗</a>
-        <br>
-        <a href="https://casaescencia.com/" style="color:var(--blue);">Casa Escensia ↗</a>
-        <br>
-        <a href="https://catomediacompany.com/" style="color:var(--blue);">CATO Media ↗</a>
-        <br>
-        <a href="https://salembusinessjournal.org/" style="color:var(--blue);">Salem Business Journal ↗</a>
-        <br>
-        <a href="https://clarkcountycatalyst.com/" style="color:var(--blue);">Clark County Catalyst ↗</a>
-        <br>
-        <a href="https://denimprojectsv.com/" style="color:var(--blue);">Denim Project SV ↗</a>
-        <br>
-        <a href="https://xmt-inc.com/" style="color:var(--blue);">XMT Construction ↗</a>
-      </p>
+    <!-- Ref 2 -->
+    <div class="ref-card">
+      <div class="ref-top">
+        <div>
+          <div class="ref-name">Luis Roberto Ticas Valdivieso</div>
+          <div class="ref-company">Zentroo Lav &amp; Linework</div>
+        </div>
+        <span class="badge">✦ Operations Management</span>
+      </div>
+      <div class="ref-meta">
+        <span class="ref-tag" data-lang="es">8 meses colaborando</span>
+        <span class="ref-tag" data-lang="en">8 months together</span>
+        <span class="ref-tag" data-lang="es">San Salvador, 28 mayo 2025</span>
+        <span class="ref-tag" data-lang="en">San Salvador, May 28, 2025</span>
+        <span class="ref-tag">Remote</span>
+      </div>
+      <p class="ref-body" data-lang="es">Me complace recomendar a Erick Hernández, a quien tuve el privilegio de supervisar directamente en el área de operaciones, marketing y gestión financiera. Durante el tiempo que trabajamos juntos, Erick demostró ser una persona con un talento excepcional, capaz de aportar soluciones creativas y estratégicas en cada proyecto. Su capacidad para combinar pensamiento analítico con sensibilidad hacia el diseño y la experiencia del usuario lo convierte en un profesional integral. Además, su actitud colaborativa y disposición para aprender enriquecieron no solo su desempeño, sino también el de todo el equipo. Recomiendo ampliamente a Erick para cualquier posición o iniciativa que decida asumir.<br><em>Certified Compliance Officer — Operations / Marketing / Finance / Management</em></p>
+      <p class="ref-body" data-lang="en">It is my pleasure to recommend Erick Hernández, whom I had the privilege of supervising directly in operations, marketing, and financial management. During our time working together, Erick proved to be an exceptionally talented individual, able to contribute creative and strategic solutions to every project. His ability to combine analytical thinking with sensitivity to design and user experience makes him an all-around professional. I wholeheartedly recommend Erick for any position or initiative he decides to pursue.<br><em>Certified Compliance Officer — Operations / Marketing / Finance / Management</em></p>
+      <div class="ref-contacts">
+        <span class="ref-contact">+503 7741 0994</span>
+        <span class="ref-contact"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bdcfd2dfd8cfc9d293c9d4dedccecbdcd1d9d4cbd4d8ced293dfd5d3fddad0dcd4d193ded2d0">[email&#160;protected]</a></span>
+      </div>
+      <a class="ref-link" href="https://www.linkedin.com/in/robertoticas/" target="_blank">LinkedIn ↗</a>
     </div>
-    <div style="border:0.5px solid var(--mid); padding:1rem;">
 
-      <p>
-        <a href="https://www.lienzosytrazos.art/" style="color:var(--blue);">CENAR - Lienzos y Trazos ↗</a>
-        <br>
-        <a href="https://linework.online/" style="color:var(--blue);">Linework ↗</a>
-        <br>
-        <a href="https://rpg-architect.com/" style="color:var(--blue);">RPG Architect ↗</a>
-        <br>
-        <a href="https://sipcity.com.au/" style="color:var(--blue);">SIPcity ↗</a>
-        <br>
-        <a href="https://abghomes.us/" style="color:var(--blue);">ABG Homes ↗</a>
-        <br>
-        <a href="https://supercleansv.com/" style="color:var(--blue);">Super Clean SV ↗</a>
-        <br>
-        <a href="https://pressreleasesalem.com/" style="color:var(--blue);">Press Release Salem ↗</a>
-      </p>
+    <!-- Ref 3 -->
+    <div class="ref-card">
+      <div class="ref-top">
+        <div>
+          <div class="ref-name">Doroty Johnstone</div>
+          <div class="ref-company">SIPcity</div>
+        </div>
+        <span class="badge">✦ Founder &amp; CEO</span>
+      </div>
+      <div class="ref-meta">
+        <span class="ref-tag" data-lang="es">1 año colaborando</span>
+        <span class="ref-tag" data-lang="en">1 year together</span>
+        <span class="ref-tag" data-lang="es">3 junio 2024</span>
+        <span class="ref-tag" data-lang="en">June 3, 2024</span>
+        <span class="ref-tag">Australia · Remote</span>
+      </div>
+      <p class="ref-body" data-lang="es">Es un honor recomendar a Erick Hernández, quien trabajó con nuestro equipo como junior graphic designer, contribuyendo en proyectos clave como diseño de sitios web, gestión de activos de marca y creación de contenido para YouTube. Erick demostró una ética de trabajo sólida y una gran disposición para asumir nuevos retos. Su talento como diseñador, junto con su aguda sensibilidad estética, le permitió aportar soluciones visuales de gran calidad. Además, fue un verdadero placer de tener en el equipo: colaborativo, creativo y siempre dispuesto a aportar más allá de lo esperado.</p>
+      <p class="ref-body" data-lang="en">It is an honor to recommend Erick Hernández, who worked with our team as a junior graphic designer, contributing to key projects including website design, brand asset management, and YouTube content creation. Erick demonstrated a strong work ethic and great willingness to take on new challenges. His talent as a designer, combined with his sharp aesthetic sensibility, allowed him to deliver high-quality visual solutions. He was also a true pleasure to have on the team: collaborative, creative, and always going above and beyond.</p>
+      <a class="ref-link" href="https://www.linkedin.com/in/dotjohnstone/" target="_blank">LinkedIn ↗</a>
     </div>
-  </div>
 
-  <div class="tip-box">
-    <div class="tip-title">Conoce Más</div>
-    <p>Contactete conmigo y puedes revisar mi sitio web <a href="https://www.mino.solutions/"><strong>MINO Solutions</strong></a> podras encontrar más información sobre mi trabajo y experiencia, con casos de estudio comó proyectos finalizados.</p>
-  </div>
+    <!-- Ref 4 -->
+    <div class="ref-card">
+      <div class="ref-top">
+        <div>
+          <div class="ref-name">Jesse Lippold Peone</div>
+          <div class="ref-company">Salem Business Journal · CATO Media</div>
+        </div>
+        <span class="badge">✦ Founder &amp; Journalist</span>
+      </div>
+      <div class="ref-meta">
+        <span class="ref-tag" data-lang="es">1 año colaborando</span>
+        <span class="ref-tag" data-lang="en">1 year together</span>
+        <span class="ref-tag" data-lang="es">24 noviembre 2025</span>
+        <span class="ref-tag" data-lang="en">November 24, 2025</span>
+        <span class="ref-tag">USA · Remote</span>
+      </div>
+      <p class="ref-body" data-lang="es">Tuve el privilegio de contar con Erick Hernández en nuestro equipo, y puedo afirmar que su aporte fue invaluable. Erick se distingue por su responsabilidad y compromiso, garantizando que cada tarea se complete en tiempo y con altos estándares. Como diseñador web, posee un gran ojo para los detalles, asegurando que cada proyecto tenga una apariencia limpia, profesional y alineada con la identidad de la marca. Erick no solo cumple con lo esperado, sino que eleva la calidad del equipo con su actitud positiva y su enfoque en la excelencia.</p>
+      <p class="ref-body" data-lang="en">I had the privilege of having Erick Hernández on our team, and I can affirm that his contribution was invaluable. Erick stands out for his responsibility and commitment, ensuring every task is completed on time and to high standards. As a web designer, he has a great eye for detail, making sure every project looks clean, professional, and aligned with the brand identity. Erick not only meets expectations but elevates the team's quality with his positive attitude and focus on excellence.</p>
+      <div class="ref-contacts">
+        <span class="ref-contact">+503 7806 5141</span>
+        <span class="ref-contact"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1a547f6d69687575775a697b767f77786f6973747f696970756f68747b763475687d">[email&#160;protected]</a></span>
+      </div>
+      <a class="ref-link" href="https://www.linkedin.com/in/jessepeone/" target="_blank">LinkedIn ↗</a>
+    </div>
 
-</div>
+    <!-- SITES -->
+    <div class="category-label">
+      <span data-lang="es">Proyectos y páginas desarrolladas</span>
+      <span data-lang="en">Developed projects & pages</span>
+    </div>
 
-</div>
+    <div class="sites-grid">
+      <div class="site-block">
+        <a href="https://nuvpos.com/" target="_blank">NUV POS Solution ↗</a>
+        <a href="https://casaescencia.com/" target="_blank">Casa Escencia ↗</a>
+        <a href="https://catomediacompany.com/" target="_blank">CATO Media ↗</a>
+        <a href="https://salembusinessjournal.org/" target="_blank">Salem Business Journal ↗</a>
+        <a href="https://clarkcountycatalyst.com/" target="_blank">Clark County Catalyst ↗</a>
+        <a href="https://denimprojectsv.com/" target="_blank">Denim Project SV ↗</a>
+        <a href="https://xmt-inc.com/" target="_blank">XMT Construction ↗</a>
+      </div>
+      <div class="site-block">
+        <a href="https://www.lienzosytrazos.art/" target="_blank">CENAR — Lienzos y Trazos ↗</a>
+        <a href="https://linework.online/" target="_blank">Linework ↗</a>
+        <a href="https://rpg-architect.com/" target="_blank">RPG Architect ↗</a>
+        <a href="https://sipcity.com.au/" target="_blank">SIPcity ↗</a>
+        <a href="https://abghomes.us/" target="_blank">ABG Homes ↗</a>
+        <a href="https://supercleansv.com/" target="_blank">Super Clean SV ↗</a>
+        <a href="https://pressreleasesalem.com/" target="_blank">Press Release Salem ↗</a>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-title" data-lang="es">Conoce más</div>
+      <div class="tip-title" data-lang="en">Learn more</div>
+      <p data-lang="es">Visita <a href="https://www.mino.solutions/projects" target="_blank"><strong>MINO Solutions</strong></a> para ver casos de estudio completos, proyectos finalizados y más sobre mi trabajo y experiencia.</p>
+      <p data-lang="en">Visit <a href="https://www.mino.solutions/projects" target="_blank"><strong>MINO Solutions</strong></a> to explore complete case studies, finished projects, and more about my work and experience.</p>
+    </div>
+
+  </div><!-- /refs panel -->
+
+</div><!-- /wrapper -->
 
 <script>
-function showPanel(id, btn) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  btn.classList.add('active');
-}
+  function showPanel(id, btn) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+  function setLang(lang) {
+    document.body.classList.toggle('en', lang === 'en');
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+  }
 </script>
-
-
 
 </body>
 </html>
