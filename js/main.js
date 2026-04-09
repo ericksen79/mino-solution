@@ -187,6 +187,15 @@ const translations = {
     'cases.desc' : 'Cada proyecto es una historia de transformación digital. Más del 90% de mejora en performance, SEO y accesibilidad en todos nuestros clientes.',
     'case.view'  : 'Ver proyecto →',
     'cases.cta'  : 'Ver todos los proyectos →',
+    'cases.cato1'  : 'Ecosistema Digital',
+    'case1.desc'  : 'Ecosistema de 3 plataformas de noticias interconectadas. Infraestructura escalable con WordPress, PHP y automatización completa.',
+    'case1.tag'   : 'Automatización',
+    'case1.metric' : '+90% Rendimiento & SEO',
+    'case2.desc' : 'Rediseño completo de sitio web para empresa de tecnología. Mejoras en UX, velocidad y SEO técnico con resultados medibles en tráfico y conversiones.',
+    'case2.metric' : 'Experiencias más intuitivas',
+    'case3.desc' : 'Rediseño completo de sitio web para empresa de tecnología. Mejoras en UX, velocidad y SEO técnico con resultados medibles en tráfico y conversiones.',
+    'case3.metric' : '+90% en todas las métricas',
+
 
     /* Packages */
     'packages.tag'      : 'Paquetes',
@@ -199,6 +208,35 @@ const translations = {
     'pkg.cta1'          : 'Crear mi presencia digital',
     'pkg.cta2'          : 'Optimizar mi negocio',
     'pkg.cta3'          : 'Impulsar mi presencia',
+
+    'pkg1.sub'          : 'Presencia digital completa: web, transformación y contenido en un solo paquete',
+    'pkg1.f1'          : 'Diagnóstico y modernización de procesos',
+    'pkg1.f2'          : 'Implementación de herramientas digitales',
+    'pkg1.f3'          : 'Optimización de comunicación',
+    'pkg1.f4'          : 'Diseño y desarrollo web profesional',
+    'pkg1.f5'          : 'Integración de canales de comunicación',
+    'pkg1.f6'          : 'UX centrado en conversión',
+    'pkg1.f7'          : 'Contenido personalizado para redes',
+    'pkg1.f8'          : 'Estrategia editorial mensual',
+    'pkg1.f9'          : 'Fortalecimiento de presencia online',
+
+    'pkg2.sub'          : 'Optimización digital para empresas que quieren operar mejor en internet',
+    'pkg2.f1'          : 'Modernización de procesos operativos',
+    'pkg2.f2'          : 'Implementación de herramientas digitales',
+    'pkg2.f3'          : 'Mejora de comunicación empresarial',
+    'pkg2.f4'          : 'Sitio web profesional',
+    'pkg2.f5'          : 'Formularios y canales de contacto',
+    'pkg2.f6'          : 'UX optimizada para conversión',
+
+    'pkg3.sub'          : 'Presencia web profesional con estrategia de contenido para redes sociales',
+    'pkg3.f1'          : 'Diseño y desarrollo web profesional',
+    'pkg3.f2'          : 'Estrategia y creación de contenido para redes',
+    'pkg3.f3'          : 'Integración de canales de comunicación',
+    'pkg3.f4'          : 'UX centrado en conversión',
+    'pkg3.f5'          : 'Estrategia para redes sociales',
+    'pkg3.f6'          : 'Análisis y optimización continua',
+
+    'pkg.mj'          : '¿Necesitas algo diferente? Cuéntanos tu proyecto y creamos una propuesta personalizada.',
 
     /* About */
     'about.tag'            : 'Sobre MINO',
@@ -227,7 +265,7 @@ const translations = {
     'footer.services': 'Servicios',
     'footer.company' : 'Empresa',
     'footer.contact' : 'Contacto',
-    'footer.rights'  : 'Todos los derechos reservados.',
+    'footer.rights'  : 'Todos los derechos reservados para Erick Hernández.',
     'footer.privacy' : 'Privacidad',
     'footer.terms'   : 'Términos',
     'f.s1' : 'Diseño UI/UX',
@@ -239,6 +277,7 @@ const translations = {
     'f.c2' : 'Proyectos',
     'f.c3' : 'Paquetes',
     'f.c4' : 'Portafolio',
+    'f.c5' : 'Currículum'
   },
 
   en: {
@@ -328,6 +367,15 @@ const translations = {
     'cases.desc' : 'Every project is a digital transformation story. Over 90% improvement in performance, SEO and accessibility across all our clients.',
     'case.view'  : 'View project →',
     'cases.cta'  : 'View all projects →',
+    'cases.cato1'  : 'Digital Ecosystem',
+    'case1.desc'  : 'Ecosystem of 3 interconnected news platforms. Scalable infrastructure with WordPress, PHP, and full automation.',
+    'case1.tag'   : 'Automation',
+    'case1.metric' : '+90% Performance & SEO',
+    'case2.desc' : 'Complete website redesign for a tech company. Improvements in UX, speed and technical SEO with measurable results in traffic and conversions.',
+    'case2.metric' : 'More intuitive experiences',
+    'case3.desc' : 'Complete website redesign for a tech company. Improvements in UX, speed and technical SEO with measurable results in traffic and conversions.',
+    'case3.metric' : '+90% across all metrics',
+
 
     'packages.tag'    : 'Packages',
     'packages.title'  : 'Solutions tailored to your digital stage',
@@ -339,6 +387,35 @@ const translations = {
     'pkg.cta1'        : 'Create my digital presence',
     'pkg.cta2'        : 'Optimize my business',
     'pkg.cta3'        : 'Boost my presence',
+
+    'pkg1.sub'        : 'Complete digital presence: web, transformation and content in one package',
+    'pkg1.f1'          : 'Diagnosis and modernization of processes',
+    'pkg1.f2'          : 'Implementation of digital tools',
+    'pkg1.f3'          : 'Optimization of communication',
+    'pkg1.f4'          : 'Professional web design and development',
+    'pkg1.f5'          : 'Integration of communication channels',
+    'pkg1.f6'          : 'UX focused on conversion',
+    'pkg1.f7'          : 'Custom content for social media',
+    'pkg1.f8'          : 'Monthly editorial strategy',
+    'pkg1.f9'          : 'Strengthening online presence',
+
+    'pkg2.sub'        : 'Digital optimization for companies that want to operate better online',
+    'pkg2.f1'          : 'Modernization of operational processes',
+    'pkg2.f2'          : 'Implementation of digital tools',
+    'pkg2.f3'          : 'Optimization of business communication',
+    'pkg2.f4'          : 'Professional website',
+    'pkg2.f5'          : 'Forms and contact channels',
+    'pkg2.f6'          : 'UX optimized for conversion',
+
+    'pkg3.sub'        : 'Professional web presence with content strategy for social media',
+    'pkg3.f1'          : 'Professional web design and development',
+    'pkg3.f2'          : 'Content strategy for social media',
+    'pkg3.f3'          : 'Integration of communication channels',
+    'pkg3.f4'          : 'UX focused on conversion',
+    'pkg3.f5'          : 'Social media strategy',
+    'pkg3.f6'          : 'Continuous analysis and optimization',
+
+    'pkg.mj'          : 'Do you need something different? Tell us about your project and we create a personalized proposal.',
 
     'about.tag'           : 'About MINO',
     'about.title'         : 'Accessible technology that grows your business',
@@ -364,7 +441,7 @@ const translations = {
     'footer.services': 'Services',
     'footer.company' : 'Company',
     'footer.contact' : 'Contact',
-    'footer.rights'  : 'All rights reserved.',
+    'footer.rights'  : 'All rights reserved by Erick Hernández.',
     'footer.privacy' : 'Privacy',
     'footer.terms'   : 'Terms',
     'f.s1' : 'UI/UX Design',
@@ -376,6 +453,8 @@ const translations = {
     'f.c2' : 'Projects',
     'f.c3' : 'Packages',
     'f.c4' : 'Portfolio',
+    'f.c5' : 'Resume',
+
   }
 };
 
