@@ -621,8 +621,12 @@ const projectsTranslations = {
     'caso1.platforms.goal' : 'Digital Ecosystem',
     'caso1.metrics.performance' : '+90% Performance & SEO',
     'caso1.metrics.platforms' : '4 Platforms developed',
-        'caso1.cta' : 'I have a similar project',
+    'caso1.cta' : 'I have a similar project',
 
+
+    /* Caso LINEWORK */
+    'caso2.decr'     : 'An all-in-one platform integrating a marketplace, crypto wallet, decentralized social network, and chat. A global financial ecosystem designed to bring cryptocurrencies into everyday life.',
+    'caso2.time'     : '10 meses',
 
 
     /* CTA */
