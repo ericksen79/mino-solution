@@ -629,6 +629,15 @@ const projectsTranslations = {
     'caso2.time'     : '10 meses',
 
 
+    
+
+    /* Caso Casa Escencia */
+
+
+    /* Caso Lienzos & Trazos */
+
+
+
     /* CTA */
     'pcta.tag'       : 'Have a project?',
     'pcta.title'     : "Let's build something extraordinary together",
