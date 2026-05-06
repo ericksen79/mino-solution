@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ============================================================
+  MINO Solutions — sitemap.xml
+  Actualiza las fechas <lastmod> cada vez que modifiques
+  una página antes de hacer push a GitHub.
+  ============================================================
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ── Página principal ── -->
+  <url>
+    <loc>https://www.mino.solutions/</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <!-- Versión en inglés -->
+    <xhtml:link
+      rel="alternate"
+      hreflang="es"
+      href="https://www.mino.solutions/"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://www.mino.solutions/"/>
+  </url>
+
+  <!-- ── Página de proyectos ── -->
+  <url>
+    <loc>https://www.mino.solutions/projects.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link
+      rel="alternate"
+      hreflang="es"
+      href="https://www.mino.solutions/projects.html"/>
+    <xhtml:link
+      rel="alternate"
+      hreflang="en"
+      href="https://www.mino.solutions/projects.html"/>
+  </url>
+
+  <!-- ── Anclas de secciones principales (index.html) ── -->
+  <!-- Nota: Las anclas no son páginas independientes pero
+       ayudan a Google a entender la estructura del sitio -->
+
+  <url>
+    <loc>https://www.mino.solutions/#services</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mino.solutions/#process</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mino.solutions/#cases</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mino.solutions/#packages</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mino.solutions/#about</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- ── Anclas de proyectos (projects.html) ── -->
+
+  <url>
+    <loc>https://www.mino.solutions/projects.html#proj-cato</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mino.solutions/projects.html#proj-linework</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mino.solutions/projects.html#proj-casa</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://www.mino.solutions/projects.html#proj-lienzos</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

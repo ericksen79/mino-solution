@@ -1,0 +1,14 @@
+# ============================================================
+# MINO Solutions — robots.txt
+# Indica a los buscadores qué pueden y qué no pueden indexar
+# ============================================================
+
+# Permite a todos los bots indexar el sitio
+User-agent: *
+Allow: /
+
+# Evita indexar la página 404
+Disallow: /404.html
+
+# Ubicación del sitemap
+Sitemap: https://www.mino.solutions/sitemap.xml
