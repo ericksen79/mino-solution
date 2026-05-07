@@ -555,8 +555,77 @@ const projectsTranslations = {
     'caso1.metrics.platforms' : '4 Plataformas desarrolladas',
     'caso1.cta' : 'Tengo un proyecto similar',
     
-    /* Caso CATO */
+    /* Caso Linework */
+    'caso2.tag1'     : 'Diseño UX/UI',
+    'caso2.tag2'     : 'Diseño de Producto',
+    'caso2.decr'     : 'Plataforma todo-en-uno que integra Marketplace, Wallet cripto, Red social descentralizada y Chat. Un ecosistema financiero global diseñado para llevar las criptomonedas a la vida cotidiana.',
+    'caso2.time'     : 'Dic 2024 — Jun 2025',
+    'caso2.cta1'      : 'Ver sitio en vivo',
+    'caso2.metrics.modules'      : 'Módulos diseñados',
+    'caso2.metrics.user-roles' : 'Roles de usuario (buyer/seller)',
+    'caso2.metrics.interface-modes' : 'Modos de interfaz',
+    'caso2.metrics.interface-modes-type' : 'Oscuro + Claro',
+    'caso2.metrics.design-system' : 'Sistema de diseño',
+    'caso2.metrics.design-system-desc'      : 'Completo e integral',
+    'caso2.description-title'      : 'Descripción del Proyecto',
+    'caso2.high-fidelity-prototype'      : 'Prototipo de Alta Fidelidad',
+    'caso2.referencias'      : 'Referencias',
+    'caso2.problem'          : 'El Problema',
+    'caso2.problem-title'    : 'Apps fragmentadas: wallets sin marketplace',
+    'caso2.problem-desc'     : 'Los usuarios enfrentan aplicaciones dispersas: wallets sin marketplace, marketplaces sin soporte cripto. Linework debía unificar ambos mundos en una sola solución fluida con cuatro módulos interconectados.',
+    'caso2.hypothesis'       : 'Hipótesis & Enfoque',
+    'caso2.hypothesis-title' : 'Un ecosistema financiero cotidiano',
+    'caso2.hypothesis-desc'  : 'Benchmarking contra Facebook Marketplace, OpenSea, Trust Wallet y MetaMask. La solución: flujos separados para comprador y vendedor, sistema de diseño integral con modo oscuro/claro, e integración de aprendizaje contextual para reducir barreras de adopción.',
+    'caso2.modules'          : 'Los 4 Módulos',
+    'caso2.modules-Marketplace'  : 'Marketplace — Compra/venta con roles duales, filtros por región y categorización por tipo de envío',
+    'caso2.modules-Spíral'       : 'Spiral — Red social descentralizada con chat, reels y soporte de vendedores',
+    'caso2.modules-Wallet'       : 'Wallet — Cripto + fiat, transferencias instantáneas y doble validación de seguridad',
+    'caso2.modules-Finanzas'     : 'Finanzas — Educación financiera sobre criptomonedas en tiempo real',
+    'caso2.process'           : 'Proceso UX',
+    'caso2.process.f1'        : 'User Journey, Proto-usuario y Mapeo de flujos',
+    'caso2.process.f2'        : 'Co-creación en Figma con equipo de desarrollo',
+    'caso2.process.f3'        : 'Prototipos interactivos validados con stakeholders',
+    'caso2.process.f4'        : 'A/B Testing, Card Sorting, Evaluación heurística',
+    'caso2.process.f5'        : 'Integración de Amplitude para monitoreo',
+    'caso2.tech-stack'        : 'Tech Stack',
+    'caso2.tag'               : 'Sistema de Diseño',
+    'caso2.cta2'              : 'Ver prototipo en vivo',
+    
 
+    /* Caso Casa Escencia */
+    'caso3.tab'               : 'Diseño UI/UX',
+    'caso3.desc'              : 'Marca de cuidado capilar premium con identidad visual, estrategia de contenido y e-commerce completo. Del branding conceptual a la tienda online con integración de pagos y facturación electrónica en El Salvador.',
+    'caso3.cta1'              : 'Ver tienda en vivo',
+    'caso3.metrics1'          : 'Performance & Accesibilidad',
+    'caso3.metrics2'          : 'End-to-end',
+    'caso3.metrics2.1'        : 'Branding & e-commerce',
+    'caso3.metrics3'          : 'Arquitectura e-commerce',
+    'caso3.metrics4'          : 'Pasarela integrada',
+    'caso3.problem-title'     : 'El Problema',
+    'caso3.problem-subtitle'  : 'Mercado local sin identidad ni experiencia emocional',
+    'caso3.problem-desc'      : 'El mercado de cuidado capilar en El Salvador presentaba productos genéricos sin identidad, experiencias de compra poco cuidadas y falta de conexión emocional. El e-commerce existente no tenía enfoque UX, generando compras impulsivas, no experienciales.',
+    'caso3.filosofia-title'    : 'La Filosofía',
+    'caso3.filosofia-subtitle' : '"El cuidado personal no es una tarea — es un ritual"',
+    'caso3.filosofia-desc'     : 'Desarrollé una propuesta basada en minimalismo funcional, navegación clara, jerarquía visual limpia y enfoque en sensaciones. El lujo moderno no siempre es tiempo extra a veces es atención plena.',
+    'caso3.servicios-title'    : 'Servicios Realizados',
+    'caso3.servicios-f1'       : 'Branding conceptual e identidad visual',
+    'caso3.servicios-f2'       : 'UX/UI design con enfoque en conversión',
+    'caso3.servicios-f3'       : 'Desarrollo WordPress + Elementor Pro',
+    'caso3.servicios-f4'       : 'Arquitectura e-commerce con WooCommerce',
+    'caso3.servicios-f5'       : 'Integración Wompi (pagos) + EasyFact (DTE)',
+    'caso3.servicios-f6'       : 'Estrategia de contenido y copywriting emocional',
+    'caso3.servicios-f7'       : 'Automatización de email marketing',
+    'caso3.flujo-title'        : 'Flujo de Compra',
+    'caso3.flujo-f1'           : 'Usuario navega productos con una galería optimizada',
+    'caso3.flujo-f2'           : 'Agrega al carrito con CTAs estratégicos',
+    'caso3.flujo-f3'           : 'Checkout simplificado con mínima fricción',
+    'caso3.flujo-f4'           : 'Pago con Wompi (pasarela local de El Salvador)',
+    'caso3.flujo-f5'           : 'Confirmación + generación de factura electrónica DTE',
+    'caso3.tag'                : 'Branding Completo',
+    'caso3.cta2'               : 'Ver tienda en vivo',
+
+
+    /* Caso Lienzos & Trazos */
 
 
     /* CTA */
@@ -567,6 +636,8 @@ const projectsTranslations = {
     'pcta.cta2'      : '← Volver al inicio',
     'pcta.note'      : 'Respuesta en menos de 24 horas · Sin compromiso · Primera consulta gratuita',
   },
+
+
   en: {
     /* Hero */
     'ph.tag'         : 'Portfolio',
@@ -625,11 +696,40 @@ const projectsTranslations = {
 
 
     /* Caso LINEWORK */
+    'caso2.tag1'     : 'UX/UI Design',
+    'caso2.tag2'     : 'Product Design',
     'caso2.decr'     : 'An all-in-one platform integrating a marketplace, crypto wallet, decentralized social network, and chat. A global financial ecosystem designed to bring cryptocurrencies into everyday life.',
-    'caso2.time'     : '10 meses',
-
-
-    
+    'caso2.time'     : 'Dic 2024 — Jun 2025',
+    'caso2.cta1'      : 'View live site',
+    'caso2.metrics.modules'      : 'Designed modules',
+    'caso2.metrics.user-roles' : 'User roles (buyer/seller)',
+    'caso2.metrics.interface-modes' : 'Interface modes',
+    'caso2.metrics.interface-modes-type' : 'Dark + Light',
+    'caso2.metrics.design-system' : 'Design system',
+    'caso2.metrics.design-system-desc'      : 'Complete and comprehensive',
+    'caso2.description-title'      : 'Project Description',
+    'caso2.high-fidelity-prototype'      : 'High Fidelity Prototype',
+    'caso2.referencias'      : 'References',
+    'caso2.problem'          : 'The Problem',
+    'caso2.problem-title'    : 'Fragmented apps: wallets without a marketplace',
+    'caso2.problem-desc'     : 'Users face disparate applications: wallets without marketplaces, marketplaces without crypto support. Linework was meant to unify both worlds into a single, seamless solution with four interconnected modules.',
+    'caso2.hypothesis'       : 'Hypothesis & Approach',
+    'caso2.hypothesis-title' : 'An everyday financial ecosystem',
+    'caso2.hypothesis-desc'  : 'Benchmarking against Facebook Marketplace, OpenSea, Trust Wallet, and MetaMask. The solution: separate buyer and seller flows, a comprehensive design system with dark/light mode, and contextual learning integration to reduce adoption barriers.',
+    'caso2.modules'          : 'The 4 Modules',
+    'caso2.modules-Marketplace'  : 'Marketplace — Buying/selling with dual roles, filters by region, and categorization by shipping type',
+    'caso2.modules-Spíral'       : 'Spiral — A decentralized social network with chat, reels, and vendor support',
+    'caso2.modules-Wallet'       : 'Wallet — Crypto + fiat, instant transfers and two-factor authentication',
+    'caso2.modules-Finanzas'     : 'Finance — Real-time financial education about cryptocurrencies',
+    'caso2.process'           : 'UX Process',
+    'caso2.process.f1'        : 'User Journey, Proto-user and Flow Mapping',
+    'caso2.process.f2'        : 'Co-creation in Figma with the development team',
+    'caso2.process.f3'        : 'Interactive prototypes validated with stakeholders',
+    'caso2.process.f4'        : 'A/B Testing, Card Sorting, Heuristic Evaluation',
+    'caso2.process.f5'        : 'Amplitude integration for monitoring',
+    'caso2.tech-stack'        : 'Tech Stack',
+    'caso2.tag'               : 'Design System',
+    'caso2.cta2'              : 'View live prototype',
 
     /* Caso Casa Escencia */
 
