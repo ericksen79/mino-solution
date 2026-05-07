@@ -624,8 +624,37 @@ const projectsTranslations = {
     'caso3.tag'                : 'Branding Completo',
     'caso3.cta2'               : 'Ver tienda en vivo',
 
-
     /* Caso Lienzos & Trazos */
+    'caso4.tab1'        : 'Transformación Digital',
+    'caso4.tab2'        : 'Gestión Cultural',
+    'caso4.desc'        : 'Plataforma digital institucional para el Centro Nacional de Artes (CENAR) de El Salvador. Galería interactiva de obras estudiantiles, biblioteca de recursos educativos y sistema de gestión de inscripciones.',
+    'caso4.cta1'        : 'Ver sitio en vivo',
+    'caso4.metric1'     : 'Mejora accesibilidad digital',
+    'caso4.metric2'     : 'Encuestas + entrevistas',
+    'caso4.metric3.1'   : 'Galería + Biblioteca',
+    'caso4.metric3.2'   : 'Módulos principales',
+    'caso4.problem-title'     : 'El Problema',
+    'caso4.problem-subtitle'  : 'Sin espacio digital para el arte estudiantil',
+    'caso4.problem-desc'      : 'No existía un espacio digital único para acceder a las obras y recursos del CENAR. Los materiales estaban dispersos o no disponibles en línea, limitando la visibilidad del trabajo estudiantil y el acceso a recursos educativos tanto local como internacionalmente.',
+    'caso4.Insights-f1'       : 'Galería interactiva - Visualización de obras de estudiantes',
+    'caso4.Insights-f2'       : 'Biblioteca integrada - Acceso a recursos educativos',
+    'caso4.Insights-f3'       : 'Categorización & búsqueda avanzada - Facilita encontrar obras y recursos específicos',
+    'caso4.Insights-f4'       : 'Formularios de inscripción - Permite a los usuarios inscribirse y registrar obras',
+    'caso4.research-title'    : 'Métodos de investigación de usuarios',
+    'caso4.research-subtitle' : 'Formulario de Sondeo',
+    'caso4.research-data1'    : 'Primera encuesta',
+    'caso4.research-data2'    : 'Segunda encuesta',
+    'caso4.research-interviews' : 'Entrevistas',
+    'caso4.form-title'          : 'Formulario de Sondeo',
+    'caso4.result-title'        : 'Hipótesis &amp; Resultados',
+    'caso4.result-subtitle'     : 'Mayor visibilidad, alcance global',
+    'caso4.result-desc'         : 'La plataforma digital, junto con capacitación en portafolios y difusión moderna, aumenta la visibilidad del trabajo estudiantil tanto local como internacionalmente. La investigación inicial mediante encuestas y entrevistas fue clave para definir las necesidades reales de cada perfil.',
+    'caso4.tab1'                : 'Transformación Digital',
+    'caso4.tab2'                : 'Gestión Cultural',
+    'caso4.cta2'                : 'Ver sitio en vivo',
+
+    'caso4.stack'               : 'Stack de herramientas y tecnologías',
+
 
 
     /* CTA */
@@ -635,6 +664,11 @@ const projectsTranslations = {
     'pcta.cta1'      : 'Escribir por WhatsApp',
     'pcta.cta2'      : '← Volver al inicio',
     'pcta.note'      : 'Respuesta en menos de 24 horas · Sin compromiso · Primera consulta gratuita',
+    'footer.cta1'    : 'Inicio',
+    'footer.cta2'    : 'Servicios',
+    'footer.cta3'    : 'Contacto',
+    'footer.cta4'    : 'Currículum',
+
   },
 
 
@@ -732,10 +766,67 @@ const projectsTranslations = {
     'caso2.cta2'              : 'View live prototype',
 
     /* Caso Casa Escencia */
-
+    'caso3.tab'               : 'UI/UX Design',
+    'caso3.desc'              : 'Premium hair care brand with a visual identity, content strategy, and complete e-commerce platform. From conceptual branding to online store with integrated payments and electronic invoicing in El Salvador.',
+    'caso3.cta1'              : 'View live store',
+    'caso3.metrics1'          : 'Performance & Accessibility',
+    'caso3.metrics2'          : 'End-to-end',
+    'caso3.metrics2.1'        : 'Branding & e-commerce',
+    'caso3.metrics3'          : 'E-commerce architecture',
+    'caso3.metrics4'          : 'Integrated catwalk',
+    'caso3.problem-title'     : 'The Problem',
+    'caso3.problem-subtitle'  : 'Local market without identity or emotional experience',
+    'caso3.problem-desc'      : 'The hair care market in El Salvador featured generic, unbranded products, poorly curated shopping experiences, and a lack of emotional connection. Existing e-commerce lacked a UX focus, leading to impulsive, non-experiential purchases.',
+    'caso3.filosofia-title'    : 'Philosophy',
+    'caso3.filosofia-subtitle' : '"Self-care is not a chore — it is a ritual"',
+    'caso3.filosofia-desc'     : 'I developed a proposal based on functional minimalism, clear navigation, clean visual hierarchy, and a focus on sensations. Modern luxury is not always about extra time; sometimes it is about mindfulness.',
+    'caso3.servicios-title'    : 'Services Performed',
+    'caso3.servicios-f1'       : 'Conceptual branding and visual identity',
+    'caso3.servicios-f2'       : 'UX/UI design with a focus on conversion',
+    'caso3.servicios-f3'       : 'WordPress Development + Elementor Pro',
+    'caso3.servicios-f4'       : 'E-commerce architecture with WooCommerce',
+    'caso3.servicios-f5'       : 'Wompi (payments) + EasyFact (DTE) integration',
+    'caso3.servicios-f6'       : 'Content strategy and emotional copywriting',
+    'caso3.servicios-f7'       : 'Email marketing automation',
+    'caso3.flujo-title'        : 'Purchase Flow',
+    'caso3.flujo-f1'           : 'User browses products with an optimized gallery',
+    'caso3.flujo-f2'           : 'Add to cart with strategic CTAs',
+    'caso3.flujo-f3'           : 'Simplified checkout with minimal friction',
+    'caso3.flujo-f4'           : 'Payment via Wompi (local payment gateway in El Salvador)',
+    'caso3.flujo-f5'           : 'Confirmation + generation of electronic invoice DTE',
+    'caso3.tag'                : 'Complete Branding',
+    'caso3.cta2'               : 'View live store',
 
     /* Caso Lienzos & Trazos */
+    'caso4.tab1'        : 'Digital Transformation',
+    'caso4.tab2'        : 'Cultural Management',
+    'caso4.desc'        : 'Institutional digital platform for the National Center for the Arts (CENAR) of El Salvador. Interactive gallery of student works, library of educational resources, and registration management system.',
+    'caso4.cta1'        : 'View live site',
+    'caso4.metric1'     : 'Improve digital accessibility',
+    'caso4.metric2'     : 'Surveys + interviews',
+    'caso4.metric3.1'   : 'Gallery + Library',
+    'caso4.metric3.2'   : 'Main modules',
+    'caso4.problem-title'     : 'The Problem',
+    'caso4.problem-subtitle'  : 'No digital space for student art',
+    'caso4.problem-desc'      : 'There was no single digital space to access the works and resources of CENAR. The materials were scattered or unavailable online, limiting the visibility of student work and access to educational resources both locally and internationally.',
+    'caso4.Insights-f1'       : 'Interactive Gallery - Viewing Student Works',
+    'caso4.Insights-f2'       : 'Integrated library - Access to educational resources',
+    'caso4.Insights-f3'       : 'Categorization & advanced search - Makes it easier to find specific works and resources',
+    'caso4.Insights-f4'       : 'Registration forms - Allows users to register and submit works',
+    'caso4.research-title'    : 'User research methods',
+    'caso4.research-subtitle' : 'Survey Form',
+    'caso4.research-data1'    : 'First survey',
+    'caso4.research-data2'    : 'Second survey',
+    'caso4.research-interviews' : 'Interviews',
+    'caso4.form-title'          : 'Survey Form',
+    'caso4.result-title'        : 'Hypothesis & Results',
+    'caso4.result-subtitle'     : 'Greater visibility, global reach',
+    'caso4.result-desc'         : 'The digital platform, along with portfolio training and modern outreach, increases the visibility of student work both locally and internationally. Initial research through surveys and interviews was key to defining the actual needs of each profile.',
+    'caso4.tab1'                : 'Digital Transformation',
+    'caso4.tab2'                : 'Cultural Management',
+    'caso4.cta2'                : 'View live site',
 
+    'caso4.stack'               : 'Stack of tools and technologies ',
 
 
     /* CTA */
@@ -745,6 +836,12 @@ const projectsTranslations = {
     'pcta.cta1'      : 'Message on WhatsApp',
     'pcta.cta2'      : '← Back to home',
     'pcta.note'      : 'Response within 24 hours · No commitment · First consultation free',
+    'cta.wha'        : 'Escribir por WhatsApp',
+    'cta.inicio'     : '← Volver al inicio',
+    'footer.cta1'    : 'Home',
+    'footer.cta2'    : 'Services',
+    'footer.cta3'    : 'Contact',
+    'footer.cta4'    : 'Resume',
   }
 };
 
