@@ -668,6 +668,7 @@ const projectsTranslations = {
     'footer.cta2'    : 'Servicios',
     'footer.cta3'    : 'Contacto',
     'footer.cta4'    : 'Currículum',
+    'footer.copyright' : '© 2025 MINO Solutions. Todos los derechos reservados.',
 
   },
 
@@ -842,6 +843,7 @@ const projectsTranslations = {
     'footer.cta2'    : 'Services',
     'footer.cta3'    : 'Contact',
     'footer.cta4'    : 'Resume',
+    'footer.copyright' : '© 2025 MINO Solutions. All rights reserved.',
   }
 };
 
