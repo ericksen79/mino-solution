@@ -1,0 +1,239 @@
+{
+  "metadata": {
+    "title": "MINO Solutions — Digital Solutions",
+    "description": "Web design, digital transformation and content strategies for companies that want to grow on the internet."
+  },
+  "home": {
+    "title": "Home"
+  },
+  "nav": {
+    "services": "Services",
+    "process": "Process",
+    "cases": "Projects",
+    "packages": "Packages",
+    "about": "About"
+  },
+  "hero": {
+    "title": "Your business deserves<br><em>digital presence</em><br>that sells",
+    "desc": "We design, develop, and optimize your digital ecosystem. High-performance websites, process transformation, and content strategies that convert visitors into clients.",
+    "cta1": "Start my project",
+    "cta2": "View projects",
+    "stat1": "Completed projects",
+    "stat2": "Performance improvement",
+    "stat3": "Areas of expertise",
+    "badge1": {
+      "title": "Performance Score",
+      "sub": "+90% on all projects"
+    },
+    "badge2": {
+      "title": "UI/UX Design",
+      "sub": "User-centered"
+    }
+  },
+  "clients": {
+    "label": "Companies that trust MINO"
+  },
+  "services": {
+    "tag": "Our Services",
+    "title": "Everything your business needs to grow digitally",
+    "desc": "We combine design, technology, and strategy to build a digital ecosystem that works for your business.",
+    "s1": {
+      "title": "UI/UX Design",
+      "desc": "Clear, intuitive, and attractive interfaces that connect your brand with your customers from the first click.",
+      "f1": "User research and analysis",
+      "f2": "Prototyping and wireframes in Figma",
+      "f3": "Conversion-centered design",
+      "f4": "Usability testing"
+    },
+    "s2": {
+      "title": "Web Development",
+      "desc": "Professional websites built from scratch or with WordPress, optimized for performance and conversion.",
+      "f1": "Custom development (HTML/CSS/JS)",
+      "f2": "WordPress + custom themes",
+      "f3": "WooCommerce and e-commerce",
+      "f4": "Payment gateway integration"
+    },
+    "s3": {
+      "title": "Web Optimization",
+      "desc": "We turn slow sites into performance machines. Technical SEO, speed, and accessibility in one service.",
+      "f1": "Complete technical audit",
+      "f2": "Core Web Vitals optimization",
+      "f3": "On-page and technical SEO",
+      "f4": "+90% guaranteed performance"
+    },
+    "s4": {
+      "title": "Digital Transformation",
+      "desc": "We modernize how your company operates: digital tools, automation, and more efficient processes.",
+      "f1": "Digital process diagnosis",
+      "f2": "CRM tool implementation",
+      "f3": "Operational task automation",
+      "f4": "System integration"
+    },
+    "s5": {
+      "title": "Content Strategy",
+      "desc": "We build your social media presence with content that communicates, connects, and converts.",
+      "f1": "Custom editorial strategy",
+      "f2": "Social media content creation",
+      "f3": "Publishing calendar",
+      "f4": "Analysis and continuous improvement"
+    },
+    "cta": {
+      "title": "Don't know where to start?",
+      "desc": "Tell us about your project and we'll recommend the best solution, no strings attached.",
+      "btn": "Free consultation"
+    }
+  },
+  "process": {
+    "tag": "How We Work",
+    "title": "A clear process, no surprises",
+    "desc": "From idea to launch with a proven methodology and constant communication at every stage.",
+    "p1": {
+      "title": "Diagnosis",
+      "desc": "We analyze your business, goals, and audience to understand what digital solution you really need."
+    },
+    "p2": {
+      "title": "Strategy & Design",
+      "desc": "We define the architecture, visual design, and content plan. We present prototypes before developing."
+    },
+    "p3": {
+      "title": "Development",
+      "desc": "We build your solution with clean, optimized code ready to scale. Fast iterations with your feedback."
+    },
+    "p4": {
+      "title": "Launch & Support",
+      "desc": "We publish with full performance, SEO, and accessibility testing. We support you after the launch."
+    }
+  },
+  "cases": {
+    "tag": "Projects",
+    "title": "Real results, not promises",
+    "desc": "Each project is a digital transformation story. Over 90% improvement in performance, SEO, and accessibility.",
+    "cato1": "Digital Ecosystem",
+    "case1": {
+      "desc": "Ecosystem of 3 interconnected news platforms. Scalable infrastructure with WordPress, PHP, and full automation.",
+      "tag": "Automation",
+      "metric": "+90% Performance & SEO"
+    },
+    "case2": {
+      "desc": "Construction project management platform. Lead UX: design of flows that eliminated delays and improved communication.",
+      "metric": "More intuitive experiences"
+    },
+    "case3": {
+      "desc": "Online wellness accessories store. WordPress + WooCommerce with Wompy gateway and premium shopping experience.",
+      "metric": "+90% in all metrics"
+    },
+    "view": "View project →",
+    "cta": "View all projects →"
+  },
+  "packages": {
+    "tag": "Packages",
+    "title": "Solutions tailored to your digital stage",
+    "desc": "From complete web presence to social media strategy. Choose the package that best fits your business goals.",
+    "pkg2": {
+      "sub": "Digital optimization for companies that want to operate better on the internet",
+      "f1": "Modernization of operational processes",
+      "f2": "Implementation of digital tools",
+      "f3": "Improvement of business communication",
+      "web": "Web Development",
+      "f4": "Professional website",
+      "f5": "Forms and contact channels",
+      "f6": "UX optimized for conversion"
+    },
+    "pkg1": {
+      "sub": "Complete digital presence: web, transformation and content in a single package",
+      "f1": "Diagnosis and modernization of processes",
+      "f2": "Implementation of digital tools",
+      "f3": "Communication optimization",
+      "f4": "Professional web design and development",
+      "f5": "Integration of communication channels",
+      "f6": "UX centered on conversion",
+      "f7": "Custom content for social networks",
+      "f8": "Monthly editorial strategy",
+      "f9": "Strengthening of online presence"
+    },
+    "pkg3": {
+      "sub": "Strategy and growth in social networks to connect with your audience",
+      "f1": "Implementation of digital tools",
+      "f2": "Organization of communication processes",
+      "f3": "Content management optimization",
+      "f4": "Custom content for your brand",
+      "f5": "Strategy for social networks",
+      "f6": "Continuous analysis and optimization"
+    },
+    "pkg": {
+      "digital": "Digital Transformation",
+      "web": "Web Development",
+      "content": "Content Strategy",
+      "recommended": "⭐ Most popular",
+      "cta1": "Create my digital presence",
+      "cta2": "Optimize my business",
+      "cta3": "Boost my presence",
+      "mj": "Need something different?"
+    }
+  },
+  "about": {
+    "tag": "About MINO",
+    "title": "Accessible technology that makes your business grow",
+    "desc": "At MINO we believe that digital transformation should not be complicated or inaccessible. We design simple, effective and scalable solutions that allow companies to adapt to the digital environment progressively and sustainably.",
+    "cta": "Let's work together",
+    "badge1": {
+      "t": "Total commitment",
+      "s": "With every project"
+    },
+    "badge2": {
+      "t": "On-time delivery",
+      "s": "No surprises"
+    },
+    "mission": {
+      "title": "Mission",
+      "desc": "To be a strategic ally in the digital transformation of companies, offering reliable solutions that strengthen their online presence."
+    },
+    "vision": {
+      "title": "Vision",
+      "desc": "To become a benchmark in digital solutions for growing businesses in the region, driving innovation and business development."
+    }
+  },
+  "cta": {
+    "tag": "Ready to start?",
+    "title": "Your next client is looking for your business on the internet",
+    "desc": "Don't let the competition get ahead of you. Contact us today and in less than 24 hours we will present you a personalized proposal for your business.",
+    "cta1": "Write on WhatsApp",
+    "cta2": "Send an email",
+    "note": "Response in less than 24 hours · No obligation · First consultation free"
+  },
+  "footer": {
+    "brand": "Digital solutions for companies and entrepreneurs who want to grow on the internet.",
+    "services": "Services",
+    "company": "Company",
+    "contact": "Contact",
+    "rights": "All rights reserved to Erick Hernández.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "f": {
+      "s1": "UI/UX Design",
+      "s2": "Web Development",
+      "s3": "Web Optimization",
+      "s4": "Digital Transformation",
+      "s5": "Content Strategy",
+      "c1": "About Us",
+      "c2": "Projects",
+      "c3": "Packages",
+      "c4": "Portfolio",
+      "c5": "Curriculum"
+    }
+  },
+  "projects": {
+    "hero": {
+      "tag": "Portfolio",
+      "title": "Projects that <em>transform</em><br>digital businesses",
+      "desc": "Each project is a solution to a real problem. Here you will find the process, design decisions, and results achieved in each one.",
+      "s1": "Completed projects",
+      "s2": "Performance improvement",
+      "s3": "Years of experience",
+      "s4": "Countries reached"
+    },
+    "logos": {
+      "label": "Websites and platforms developed"
+    }
+  }
+}

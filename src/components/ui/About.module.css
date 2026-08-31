@@ -1,0 +1,148 @@
+.section {
+  padding: var(--section-padding);
+  background: var(--color-white);
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.aboutVisual {
+  position: relative;
+}
+
+.aboutImgWrap {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.projectImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.aboutBadgeFloat {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: var(--shadow);
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.topLeft {
+  top: 10%;
+  left: -10%;
+}
+
+.botRight {
+  bottom: 10%;
+  right: -10%;
+}
+
+.aboutBadgeIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.aboutBadgeIcon.blue {
+  background: rgba(48, 138, 205, 0.1);
+  color: var(--color-primary);
+}
+
+.aboutBadgeIcon.purple {
+  background: rgba(107, 63, 160, 0.1);
+  color: #6B3FA0;
+}
+
+.aboutBadgeIcon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.aboutBadgeText strong {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--color-dark);
+}
+
+.aboutBadgeText span {
+  font-size: 0.75rem;
+  color: var(--color-gray);
+}
+
+.aboutContent h2 {
+  margin-bottom: 1.5rem;
+}
+
+.aboutContent p {
+  color: var(--color-gray);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.mvGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.mvCard {
+  background: var(--color-gray-light);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+.mvCardHead {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.mvIcon {
+  color: var(--color-primary);
+}
+
+.mvIcon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.mvCardHeading {
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.mvCard p {
+  margin-bottom: 0;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 992px) {
+  .aboutGrid {
+    grid-template-columns: 1fr;
+  }
+  .topLeft {
+    left: 1rem;
+  }
+  .botRight {
+    right: 1rem;
+  }
+}

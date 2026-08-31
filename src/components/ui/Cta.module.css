@@ -1,0 +1,52 @@
+.section {
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.ctaInner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.ctaInner h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.ctaInner p {
+  color: var(--color-gray);
+  font-size: 1.125rem;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.ctaActions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.btnWhite {
+  background: var(--color-white);
+  color: var(--color-dark);
+  border: 1px solid var(--border);
+}
+
+.btnWhite:hover {
+  background: var(--color-gray-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.ctaNote {
+  font-size: 0.875rem !important;
+  margin-bottom: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .ctaInner h2 {
+    font-size: 2rem;
+  }
+}
