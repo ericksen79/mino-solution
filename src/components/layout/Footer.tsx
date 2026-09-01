@@ -6,6 +6,7 @@ import { Link } from '@/i18n/routing';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import GradientAurora from '../ui/core/GradientAurora';
 import styles from './Footer.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -30,6 +31,7 @@ export default function Footer() {
 
   return (
     <footer ref={footerRef} className={styles.footer} role="contentinfo" aria-label="Pie de página de MINO Solutions">
+      <GradientAurora />
       <div className="container">
         <div className={styles.footerGrid}>
 

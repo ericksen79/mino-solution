@@ -110,20 +110,25 @@
     "desc": "Cada proyecto es una historia de transformación digital. Más del 90% de mejora en performance, SEO y accesibilidad.",
     "cato1": "Ecosistema Digital",
     "case1": {
-      "desc": "Ecosistema de 3 plataformas de noticias interconectadas. Infraestructura escalable con WordPress, PHP y automatización completa.",
+      "desc": "Ecosistema de 4 plataformas de noticias interconectadas para Salem, Oregon y Clark County, Washington. Infraestructura escalable, automatizada con WordPress y PHP.",
       "tag": "Automatización",
       "metric": "+90% Performance & SEO"
     },
     "case2": {
-      "desc": "Plataforma de gestión de proyectos de construcción. Lead UX: diseño de flujos que eliminaron retrasos y mejoraron la comunicación.",
+      "desc": "Plataforma todo-en-uno con Marketplace, Wallet cripto, red social descentralizada y chat. Un ecosistema financiero pensado para el día a día.",
       "metric": "Experiencias más intuitivas"
     },
     "case3": {
-      "desc": "Tienda online de accesorios de bienestar. WordPress + WooCommerce con pasarela Wompy y experiencia de compra premium.",
+      "desc": "Marca de cuidado capilar premium: identidad visual, e-commerce completo con WooCommerce y pasarela de pagos Wompi con facturación electrónica.",
       "metric": "+90% en todas las métricas"
     },
     "view": "Ver proyecto →",
-    "cta": "Ver todos los proyectos →"
+    "cta": "Ver todos los proyectos →",
+    "case4": {
+      "desc": "Plataforma digital institucional para el Centro Nacional de Artes (CENAR) de El Salvador. Galería de obras estudiantiles y biblioteca de recursos educativos.",
+      "tag": "Gestión Cultural",
+      "metric": "+90% Mejora en accesibilidad"
+    }
   },
   "packages": {
     "tag": "Paquetes",

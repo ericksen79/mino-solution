@@ -2,35 +2,115 @@
 
 import { useRef } from 'react';
 import { useTranslations } from 'next-intl';
+import { useReducedMotion } from 'framer-motion';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import styles from './Clients.module.css';
 
+// Real client/project logos — files copied from
+// _legacy_site/assets/icons/logos-brands into public/logos-brands (Next
+// only serves static assets from public/, kebab-cased for URL-safe paths).
+// Every entry links to that company's real site: target=_blank +
+// rel="nofollow noopener noreferrer" — nofollow because these are outbound
+// reference links we don't want to vouch for/pass SEO weight through,
+// noopener/noreferrer for the standard tab-hijack + referrer-leak guard.
+// ponytail: ab-pos.svg is ~1.2MB (uncompressed vector paths, not a raster
+// embed) — heaviest asset on the page by far. Works fine, but if this
+// section shows up in a perf audit, run it through svgo before anything
+// fancier.
 const CLIENTS = [
-  { name: 'Lienzos & Trazos', href: 'https://www.lienzosytrazos.art/', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> },
-  { name: 'Linework', href: 'https://linework.online/', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg> },
-  { name: 'CATO Media', href: 'https://catomediacompany.com/', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> },
-  { name: 'Casa Escencia', href: 'https://casaescencia.com/', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg> },
-  { name: 'RPG Architect', href: 'https://rpg-architect.com/', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> },
-  { name: 'Zentro Labs', href: 'https://www.zentroolabs.com/', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10z"/></svg> },
-  { name: 'NuvPOS', href: 'https://nuvpos.com/', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg> },
-  { name: 'ABG Homes', href: 'https://abghomes.us/', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> },
-  { name: 'Super Clean SV', href: 'https://supercleansv.com/', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7z"/></svg> },
-];
+  { name: 'AB POS', href: 'https://abpos.com/', file: 'ab-pos.svg' },
+  { name: 'ABG Homes', href: 'https://abghomes.us/', file: 'abg-homes.svg' },
+  { name: 'Bienes Raíces Maquilishuat SV', href: 'https://sites.google.com/view/bienesracesmaquilishuatsv', file: 'bienes-raices-maquilishuat.svg' },
+  { name: 'CATO Media', href: 'https://catomediacompany.com/', file: 'cato-media.svg' },
+  { name: 'Casa Escencia', href: 'https://casaescencia.com/', file: 'casa-escencia.svg' },
+  { name: 'Clark County Catalyst', href: 'https://clarkcountycatalyst.com/', file: 'clark-county-catalyst.svg' },
+  { name: 'DENIM Corporate Division', href: 'https://denimprojectsv.com/', file: 'denim-corporate-division.svg' },
+  { name: 'Effort Stack', href: 'https://www.instagram.com/effortstack/', file: 'effort-stack.svg' },
+  { name: 'Lienzos & Trazos', href: 'https://www.lienzosytrazos.art/', file: 'lienzos-y-trazos.svg' },
+  { name: 'Linework', href: 'https://linework.online/', file: 'linework.svg' },
+  { name: 'NuvPOS', href: 'https://nuvpos.com/', file: 'nuv-pos.svg' },
+  { name: 'Press Release Salem', href: 'https://pressreleasesalem.com/', file: 'press-release-salem.svg' },
+  { name: 'RPG Architect', href: 'https://rpg-architect.com/', file: 'rpg-architect.svg' },
+  { name: 'SIPcity', href: 'https://sipcity.com.au/', file: 'sipcity.svg' },
+  { name: 'Salem Business Journal', href: 'https://salembusinessjournal.org/', file: 'salem-business-journal.svg' },
+  { name: 'Super Clean SV', href: 'https://supercleansv.com/', file: 'super-clean-drycleaning.svg' },
+  { name: 'XMT Inc.', href: 'https://xmt-inc.com/', file: 'xmt-construction.svg' },
+  { name: 'Zentro Labs', href: 'https://www.zentroolabs.com/', file: 'zentroo.svg' },
+] as const;
+
+// Constant crawl speed in px/second — kept low on purpose for a calm,
+// premium feel. Using a fixed px/s (instead of a fixed total duration)
+// means the loop always feels the same speed no matter how many logos
+// there are.
+const MARQUEE_SPEED = 55;
 
 export default function Clients() {
   const t = useTranslations('clients');
   const trackRef = useRef<HTMLDivElement>(null);
+  const reduceMotion = useReducedMotion();
 
   useGSAP(() => {
-    // Infinite Marquee
-    gsap.to(trackRef.current, {
-      xPercent: -50,
-      ease: 'none',
-      duration: 30,
-      repeat: -1,
-    });
-  }, []);
+    if (reduceMotion) return;
+    const track = trackRef.current;
+    if (!track) return;
+
+    let tween: gsap.core.Tween | undefined;
+
+    function start() {
+      // Bug fix: the logos are real <img> files loading over the network,
+      // so their rendered width isn't known at mount. Measuring
+      // scrollWidth too early (or animating by xPercent, which is
+      // computed once) baked in a stale distance, and the loop would
+      // "jump" once every image finished loading and reflowed. Waiting
+      // for every logo to load, then animating a real pixel distance,
+      // guarantees the loop point lines up exactly — no snap.
+      const loopDistance = track!.scrollWidth / 2;
+      tween = gsap.to(track, {
+        x: -loopDistance,
+        ease: 'none',
+        duration: loopDistance / MARQUEE_SPEED,
+        repeat: -1,
+      });
+    }
+
+    let started = false;
+    function startOnce() {
+      if (started) return;
+      started = true;
+      start();
+    }
+
+    const imgs = Array.from(track.querySelectorAll('img'));
+    const pending = imgs.filter((img) => !img.complete);
+
+    if (pending.length === 0) {
+      startOnce();
+    } else {
+      let remaining = pending.length;
+      const onSettle = () => {
+        remaining -= 1;
+        if (remaining === 0) startOnce();
+      };
+      // Bug fix: only listening for 'load' meant one broken/blocked logo
+      // (404, ad-blocker, slow network) left the remaining counter stuck
+      // above 0 forever — the marquee would just never start. 'error' counts the
+      // same as loaded (scrollWidth is still whatever it ends up being),
+      // and a hard timeout is a last-resort net in case some other browser
+      // quirk skips both events.
+      pending.forEach((img) => {
+        img.addEventListener('load', onSettle, { once: true });
+        img.addEventListener('error', onSettle, { once: true });
+      });
+    }
+
+    const safetyTimer = window.setTimeout(startOnce, 4000);
+
+    return () => {
+      window.clearTimeout(safetyTimer);
+      tween?.kill();
+    };
+  }, { dependencies: [reduceMotion] });
 
   return (
     <section id="clients" className={styles.clients} aria-label={t('label')}>
@@ -38,17 +118,29 @@ export default function Clients() {
         <p className={styles.clientsLabel}>{t('label')}</p>
       </div>
 
-      <div className={styles.clientsTrackWrap}>
+      <div className={`${styles.clientsTrackWrap} ${reduceMotion ? styles.trackWrapStatic : ''}`}>
         <div ref={trackRef} className={styles.clientsTrack} role="list">
-          {/* Render twice for seamless loop */}
+          {/* Rendered twice back-to-back so the loop can wrap from the
+              midpoint to the start invisibly. Second copy is hidden from
+              the a11y tree/tab order — same pattern as LogosCarousel. */}
           {[...CLIENTS, ...CLIENTS].map((client, i) => (
-            <a key={i} href={client.href} target="_blank" rel="noopener noreferrer">
-              <div className={styles.clientItem} role="listitem">
-                <div className={styles.clientIcon} aria-hidden="true">
-                  {client.icon}
-                </div>
-                <span>{client.name}</span>
-              </div>
+            <a
+              key={i}
+              href={client.href}
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              className={styles.clientItem}
+              role="listitem"
+              tabIndex={i >= CLIENTS.length ? -1 : 0}
+              aria-hidden={i >= CLIENTS.length ? 'true' : undefined}
+            >
+              <img
+                src={`/logos-brands/${client.file}`}
+                alt={client.name}
+                className={styles.clientLogo}
+                loading="lazy"
+                decoding="async"
+              />
             </a>
           ))}
         </div>

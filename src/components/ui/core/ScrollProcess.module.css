@@ -1,0 +1,204 @@
+.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 3rem;
+  align-items: start;
+  /* Centered, narrower block instead of spanning the full container —
+     was hugging the left edge with a huge dead zone on the right. */
+  max-width: 880px;
+  margin: 3rem auto 0;
+}
+
+.rail {
+  position: sticky;
+  top: 6rem;
+}
+
+.railLine {
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.railProgress {
+  position: absolute;
+  inset: 0;
+  background: var(--color-light-blue);
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+.railItems {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-left: 28px;
+}
+
+/* Rail items are real <button>s (click jumps Lenis to that step), reset
+   to look like the plain text labels they were before. */
+.railItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  color: var(--color-gray-light);
+  opacity: 0.5;
+  transition: opacity var(--transition), color var(--transition), transform var(--transition);
+}
+
+.railItem:hover,
+.railItem:focus-visible {
+  opacity: 0.8;
+}
+
+.railItem::before {
+  content: '';
+  position: absolute;
+  left: -28px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-dark);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all var(--transition);
+}
+
+.railItemActive {
+  opacity: 1;
+  color: var(--color-white);
+  transform: translateX(4px);
+}
+
+.railItemActive::before {
+  background: var(--color-light-blue);
+  border-color: var(--color-light-blue);
+  box-shadow: 0 0 0 4px rgba(192, 237, 255, 0.15);
+}
+
+.railNum {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+.railTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.stepsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.stepBlock {
+  /* Shorter than before (was 60vh) — less empty scroll distance between
+     steps makes moving through the section read as quicker/more fluid. */
+  min-height: 46vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.stepBlock:last-child {
+  border-bottom: none;
+}
+
+.stepMobileNum {
+  display: none;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-light-blue);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.stepIcon {
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-light-blue);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.stepIcon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.stepTitle {
+  color: var(--color-white);
+  margin-bottom: 1rem;
+}
+
+.stepDesc {
+  color: var(--color-gray-light);
+  opacity: 0.8;
+  line-height: 1.6;
+  max-width: 480px;
+  margin-bottom: 2rem;
+}
+
+.stepImage {
+  aspect-ratio: 16 / 9;
+  max-width: 480px;
+  border-radius: var(--radius-lg);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.stepVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.stepImageIcon {
+  width: 48px;
+  height: 48px;
+  color: var(--color-light-blue);
+  opacity: 0.3;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    margin-top: 1.5rem;
+  }
+  .rail {
+    display: none;
+  }
+  .stepMobileNum {
+    display: block;
+  }
+  .stepBlock {
+    min-height: 0;
+    padding: 2rem 0;
+  }
+}

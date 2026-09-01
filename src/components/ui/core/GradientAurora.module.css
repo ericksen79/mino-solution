@@ -1,0 +1,58 @@
+.aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  /* Negative, not 0 — must paint behind the section's own in-flow content
+     (positioned elements otherwise stack above non-positioned ones,
+     regardless of DOM order). Same trick as Hero's .heroBg. */
+  z-index: -1;
+  pointer-events: none;
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.16;
+  animation: aurora-drift 22s ease-in-out infinite;
+}
+
+.blob1 {
+  top: -15%;
+  left: -10%;
+  width: 45vw;
+  height: 45vw;
+  background: var(--color-primary);
+}
+
+.blob2 {
+  bottom: -20%;
+  right: -8%;
+  width: 40vw;
+  height: 40vw;
+  background: var(--color-secondary);
+  animation-duration: 27s;
+  animation-direction: reverse;
+}
+
+.blob3 {
+  top: 30%;
+  left: 45%;
+  width: 28vw;
+  height: 28vw;
+  background: var(--color-light-blue);
+  opacity: 0.1;
+  animation-duration: 19s;
+  animation-delay: -6s;
+}
+
+@keyframes aurora-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(5%, 4%) scale(1.08); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blob {
+    animation: none;
+  }
+}

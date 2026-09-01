@@ -26,7 +26,7 @@ export default function Navbar() {
 
   useGSAP(() => {
     let lastScrollY = window.scrollY;
-    
+
     const handleDirection = () => {
       const currentScrollY = window.scrollY;
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
@@ -42,8 +42,8 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav 
-      ref={navRef} 
+    <nav
+      ref={navRef}
       className={`${styles.navbar} ${isScrolled ? `${styles.scrolled} glass` : ''}`}
     >
       <div className="container">
@@ -61,24 +61,24 @@ export default function Navbar() {
 
           <ul className={styles.navLinks}>
             <li><Link href="/#services">{t('services')}</Link></li>
-            <li><Link href="/#process">{t('process')}</Link></li>
             <li><Link href="/#cases">{t('cases')}</Link></li>
+            <li><Link href="/#process">{t('process')}</Link></li>
             <li><Link href="/#packages">{t('packages')}</Link></li>
             <li><Link href="/#about">{t('about')}</Link></li>
           </ul>
 
           <div className={styles.navRight}>
             <div className={styles.langToggle}>
-              <Link 
-                href={pathname} 
-                locale="es" 
+              <Link
+                href={pathname}
+                locale="es"
                 className={`${styles.langBtn} ${locale === 'es' ? styles.active : ''}`}
               >
                 ES
               </Link>
-              <Link 
-                href={pathname} 
-                locale="en" 
+              <Link
+                href={pathname}
+                locale="en"
                 className={`${styles.langBtn} ${locale === 'en' ? styles.active : ''}`}
               >
                 EN

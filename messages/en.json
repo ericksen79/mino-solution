@@ -110,20 +110,25 @@
     "desc": "Each project is a digital transformation story. Over 90% improvement in performance, SEO, and accessibility.",
     "cato1": "Digital Ecosystem",
     "case1": {
-      "desc": "Ecosystem of 3 interconnected news platforms. Scalable infrastructure with WordPress, PHP, and full automation.",
+      "desc": "Ecosystem of 4 interconnected news platforms for Salem, Oregon and Clark County, Washington. Scalable, automated infrastructure built with WordPress and PHP.",
       "tag": "Automation",
       "metric": "+90% Performance & SEO"
     },
     "case2": {
-      "desc": "Construction project management platform. Lead UX: design of flows that eliminated delays and improved communication.",
+      "desc": "All-in-one platform with Marketplace, crypto Wallet, decentralized social network, and chat. A financial ecosystem built for everyday life.",
       "metric": "More intuitive experiences"
     },
     "case3": {
-      "desc": "Online wellness accessories store. WordPress + WooCommerce with Wompy gateway and premium shopping experience.",
+      "desc": "Premium hair care brand: visual identity, full WooCommerce e-commerce, and Wompi payment gateway with electronic invoicing.",
       "metric": "+90% in all metrics"
     },
     "view": "View project →",
-    "cta": "View all projects →"
+    "cta": "View all projects →",
+    "case4": {
+      "desc": "Institutional digital platform for El Salvador's National Center for the Arts (CENAR). Student artwork gallery and educational resource library.",
+      "tag": "Cultural Management",
+      "metric": "+90% accessibility improvement"
+    }
   },
   "packages": {
     "tag": "Packages",

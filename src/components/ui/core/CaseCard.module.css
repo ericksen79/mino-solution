@@ -1,0 +1,139 @@
+.card {
+  position: relative;
+}
+
+.link {
+  display: block;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  color: inherit;
+  text-decoration: none;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.link:hover,
+.link:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.imageWrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--color-dark);
+}
+
+/* Oversized + offset so GSAP's ±8% parallax translate never reveals an
+   edge — see CaseCard.tsx's data-parallax tween. */
+.image {
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(11, 37, 64, 0.88) 0%,
+    rgba(11, 37, 64, 0.25) 45%,
+    transparent 70%
+  );
+}
+
+.info {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2rem;
+  color: var(--color-white);
+}
+
+.tag {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.35rem 0.9rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.name {
+  color: var(--color-white);
+  margin-bottom: 0.5rem;
+  font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+}
+
+.desc {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  max-width: 480px;
+  margin-bottom: 1.25rem;
+}
+
+.metricRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.metric {
+  color: var(--color-light-blue);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.viewLink {
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 0.9rem;
+  opacity: 0.85;
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.link:hover .viewLink {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* Mouse-follow badge — desktop-hover flourish, echoes .viewLink. Position
+   driven by JS (left/top, spring-smoothed motion values in CaseCard.tsx);
+   the -50%/-140% offset here just centers it above the cursor. */
+.cursorBadge {
+  position: absolute;
+  transform: translate(-50%, -140%);
+  background: var(--color-white);
+  color: var(--color-dark);
+  padding: 0.6rem 1.1rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: var(--shadow-lg);
+  z-index: 5;
+}
+
+@media (max-width: 640px) {
+  .info {
+    padding: 1.5rem;
+  }
+  .cursorBadge {
+    display: none;
+  }
+}

@@ -3,7 +3,7 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 6rem;
+  padding: 8rem 0 6rem;
   overflow: hidden;
 }
 
@@ -11,144 +11,227 @@
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: -1;
-  background: var(--color-white);
+  /* No solid fill here — the global AnimatedBackground canvas (mounted in
+     layout.tsx) shows through; these blobs just add a slow brand-color
+     tint drift on top of it. */
 }
 
 .heroBlob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.5;
+  filter: blur(90px);
+  opacity: 0.45;
+  animation: blob-drift 16s ease-in-out infinite;
 }
 
 .heroBlob1 {
-  top: -10%; left: -10%;
+  top: -15%; left: -10%;
   width: 50vw; height: 50vw;
   background: var(--color-light-blue);
 }
 
 .heroBlob2 {
-  bottom: -10%; right: -10%;
-  width: 40vw; height: 40vw;
-  background: rgba(48, 138, 205, 0.15);
+  bottom: -20%; right: -10%;
+  width: 42vw; height: 42vw;
+  background: rgba(48, 138, 205, 0.18);
+  animation-duration: 20s;
+  animation-direction: reverse;
 }
 
-.heroGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+@keyframes blob-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(4%, 6%) scale(1.08); }
 }
 
+/* Content: single centered column, headline-led. Replaces the old
+   two-column layout + gradient mockup placeholder (no real illustration
+   asset yet — a fake box read as unfinished, not "innovative"). */
+.heroInner {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Animated gradient sweep across the headline, brand colors only. Frozen
+   to a static gradient under reduced-motion (see media query below). */
 .heroTitle {
   margin-bottom: 1.5rem;
+  background: linear-gradient(
+    100deg,
+    var(--color-dark) 20%,
+    var(--color-primary) 40%,
+    var(--color-secondary) 60%,
+    var(--color-dark) 80%
+  );
+  background-size: 250% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: title-sweep 8s linear infinite;
+}
+
+@keyframes title-sweep {
+  to { background-position: -250% center; }
 }
 
 .heroDesc {
   font-size: 1.125rem;
   color: var(--color-gray);
-  margin-bottom: 2.5rem;
+  margin: 0 auto 2.5rem;
+  max-width: 560px;
   line-height: 1.6;
 }
 
 .heroActions {
   display: flex;
   gap: 1rem;
+  justify-content: center;
   margin-bottom: 3rem;
   flex-wrap: wrap;
 }
 
-.heroStats {
+/* Stats bar: one glass surface instead of a bare flex row — reuses
+   GlassCard so it gets the tilt + spotlight + ambient sheen for free. */
+.statsBar {
   display: flex;
-  gap: 2.5rem;
-  border-top: 1px solid var(--border);
-  padding-top: 2rem;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 1.5rem 1rem;
 }
 
 .statItem {
-  display: flex;
-  flex-direction: column;
+  flex: 1;
+  padding: 0 1.5rem;
+}
+
+.statItem:not(:first-child) {
+  border-left: 1px solid var(--border);
 }
 
 .statNum {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 800;
   color: var(--color-primary);
   line-height: 1;
   margin-bottom: 0.5rem;
 }
 
-.statNum span {
-  font-size: 1.5rem;
+.statSuffix {
+  font-size: 1.25rem;
 }
 
 .statLabel {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--color-gray);
   font-weight: 500;
 }
 
-.heroVisual {
-  position: relative;
-}
-
-.heroMockup {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--color-white), var(--color-gray-light));
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow-lg);
-  overflow: hidden;
-}
-
-.mockupInner {
+/* Ambient floating badges: real copy (hero.badge1/2), no longer pinned to
+   a mockup image. Positioned relative to the full hero section, drifting
+   independently via CSS keyframes — replaces the old JS mousemove
+   parallax (no image to parallax against anymore). */
+.heroBadges {
   position: absolute;
-  inset: 5%;
-  background: var(--color-white);
-  border-radius: var(--radius);
-  box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-heading);
-  font-size: 1.5rem;
-  color: var(--color-gray);
+  inset: 0;
+  pointer-events: none;
 }
 
-.floatingBadge {
+.floatBadge {
   position: absolute;
-  padding: 1rem 1.5rem;
+  pointer-events: auto;
   border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-weight: 600;
   box-shadow: var(--shadow);
 }
 
-.floatingBadge1 {
-  top: 15%; right: -5%;
+.floatBadge1 {
+  top: 18%;
+  right: 8%;
+  animation: badge-float 6s ease-in-out infinite;
 }
 
-.floatingBadge2 {
-  bottom: 15%; left: -5%;
+.floatBadge2 {
+  bottom: 20%;
+  left: 8%;
+  animation: badge-float 7s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+@keyframes badge-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+.badgeContent {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Scroll cue: small bouncing dot, purely decorative (aria-hidden), signals
+   there's more content below without adding any copy. */
+.scrollCue {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 42px;
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.scrollCueDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  animation: scroll-cue-drift 1.8s ease-in-out infinite;
+}
+
+@keyframes scroll-cue-drift {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(14px); opacity: 0.3; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroBlob,
+  .heroTitle,
+  .floatBadge1,
+  .floatBadge2,
+  .scrollCueDot {
+    animation: none;
+  }
 }
 
 @media (max-width: 992px) {
-  .heroGrid {
-    grid-template-columns: 1fr;
-    text-align: center;
+  .heroBadges {
+    display: none;
   }
-  .heroActions, .heroStats {
-    justify-content: center;
+  .statsBar {
+    flex-wrap: wrap;
+    gap: 1rem;
   }
-  .floatingBadge1 {
-    right: 5%;
+  .statItem {
+    flex: 1 1 40%;
+    border-left: none !important;
   }
-  .floatingBadge2 {
-    left: 5%;
+}
+
+@media (max-width: 480px) {
+  .heroActions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .scrollCue {
+    display: none;
   }
 }

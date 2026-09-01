@@ -2,114 +2,124 @@
 
 import { useRef } from 'react';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/routing';
+import { useReducedMotion } from 'framer-motion';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import Button from './core/Button';
+import GlassCard from './core/GlassCard';
 import styles from './Hero.module.css';
 
+// Stat values live here (not in messages/*.json) because they're numbers
+// tweened by GSAP, not translated strings — only the label under each
+// number comes from i18n. Keep this in sync with hero.stat1/2/3 in
+// messages/es.json + en.json if the figures ever change.
+const STATS = [
+  { value: 20, prefix: '+', suffix: '', labelKey: 'stat1' },
+  { value: 90, prefix: '+', suffix: '%', labelKey: 'stat2' },
+  { value: 3, prefix: '', suffix: '', labelKey: 'stat3' },
+] as const;
+
+// v2: single-column, typography-led hero. Dropped the two-column
+// mockup-placeholder layout — that box had no real content (just a
+// gradient standing in for an illustration that isn't produced yet), so it
+// read as unfinished rather than "innovative". Everything here is either
+// real copy or a decorative element that costs no content: gradient-sweep
+// on the headline, two ambient glass badges that drift on their own (pure
+// CSS, no mousemove listener), a single glass stats bar, and a scroll cue.
 export default function Hero() {
   const t = useTranslations('hero');
   const containerRef = useRef<HTMLElement>(null);
-  const mockupRef = useRef<HTMLDivElement>(null);
-  const badge1Ref = useRef<HTMLDivElement>(null);
-  const badge2Ref = useRef<HTMLDivElement>(null);
+  const statRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const reduceMotion = useReducedMotion();
 
   useGSAP(() => {
     const tl = gsap.timeline();
 
-    // Text Reveal
+    // Text reveal, top to bottom.
     tl.from('.hero-text-elem', {
       y: 30,
       opacity: 0,
       duration: 0.8,
-      stagger: 0.2,
+      stagger: 0.15,
       ease: 'power3.out',
     });
 
-    // Mockup Reveal
-    tl.from(mockupRef.current, {
-      scale: 0.9,
-      opacity: 0,
-      duration: 1,
-      ease: 'back.out(1.5)',
-    }, '-=0.4');
-
-    // Badges Parallax effect on mouse move
-    const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      const xPos = (clientX / window.innerWidth - 0.5) * 40;
-      const yPos = (clientY / window.innerHeight - 0.5) * 40;
-
-      gsap.to(badge1Ref.current, { x: xPos, y: yPos, duration: 1, ease: 'power2.out' });
-      gsap.to(badge2Ref.current, { x: -xPos, y: -yPos, duration: 1, ease: 'power2.out' });
-      gsap.to('.hero-blob-elem', { x: xPos * 2, y: yPos * 2, duration: 2, ease: 'power2.out' });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, { scope: containerRef });
+    // Stat count-up: numbers tween from 0 to their real value once the
+    // stats bar has revealed. Skipped under reduced-motion — the
+    // server-rendered final numbers (JSX below) just stay put.
+    if (!reduceMotion) {
+      statRefs.current.forEach((el, i) => {
+        if (!el) return;
+        const counter = { val: 0 };
+        gsap.to(counter, {
+          val: STATS[i].value,
+          duration: 1.4,
+          delay: 0.9 + i * 0.15,
+          ease: 'power2.out',
+          onUpdate: () => {
+            el.textContent = String(Math.round(counter.val));
+          },
+        });
+      });
+    }
+  }, { scope: containerRef, dependencies: [reduceMotion] });
 
   return (
     <section ref={containerRef} className={styles.hero} aria-label="Sección principal">
       <div className={styles.heroBg} aria-hidden="true">
-        <div className={`${styles.heroBlob} ${styles.heroBlob1} hero-blob-elem`}></div>
-        <div className={`${styles.heroBlob} ${styles.heroBlob2} hero-blob-elem`}></div>
+        <div className={`${styles.heroBlob} ${styles.heroBlob1}`} />
+        <div className={`${styles.heroBlob} ${styles.heroBlob2}`} />
+      </div>
+
+      {/* Ambient badges: real copy (badge1/2 from messages), float
+          independently via CSS keyframes — no JS tracking needed since
+          they're no longer pinned to a mockup image. */}
+      <div className={styles.heroBadges} aria-hidden="true">
+        <GlassCard variant="light" className={`${styles.floatBadge} ${styles.floatBadge1}`}>
+          <span className={styles.badgeContent}>🚀 {t('badge1.title')}</span>
+        </GlassCard>
+        <GlassCard variant="dark" className={`${styles.floatBadge} ${styles.floatBadge2}`}>
+          <span className={styles.badgeContent}>💻 {t('badge2.title')}</span>
+        </GlassCard>
       </div>
 
       <div className="container">
-        <div className={styles.heroGrid}>
-          
-          <div className={styles.heroContent}>
-            <h1 
-              className={`${styles.heroTitle} hero-text-elem`} 
-              dangerouslySetInnerHTML={{ __html: t.raw('title') }} 
-            />
-            
-            <p className={`${styles.heroDesc} hero-text-elem`}>
-              {t('desc')}
-            </p>
+        <div className={styles.heroInner}>
+          <h1
+            className={`${styles.heroTitle} hero-text-elem`}
+            dangerouslySetInnerHTML={{ __html: t.raw('title') }}
+          />
 
-            <div className={`${styles.heroActions} hero-text-elem`}>
-              <Button variant="whatsapp" href="https://wa.me/message/J3MYMT4QSDQDL1" external>
-                {t('cta1')}
-              </Button>
-              <Button variant="secondary" href="/#cases">
-                {t('cta2')}
-              </Button>
-            </div>
+          <p className={`${styles.heroDesc} hero-text-elem`}>
+            {t('desc')}
+          </p>
 
-            <div className={`${styles.heroStats} hero-text-elem`}>
-              <div className={styles.statItem}>
-                <div className={styles.statNum}>+20</div>
-                <div className={styles.statLabel}>{t('stat1')}</div>
-              </div>
-              <div className={styles.statItem}>
-                <div className={styles.statNum}>+90<span>%</span></div>
-                <div className={styles.statLabel}>{t('stat2')}</div>
-              </div>
-              <div className={styles.statItem}>
-                <div className={styles.statNum}>3</div>
-                <div className={styles.statLabel}>{t('stat3')}</div>
-              </div>
-            </div>
+          <div className={`${styles.heroActions} hero-text-elem`}>
+            <Button variant="whatsapp" href="https://wa.me/message/J3MYMT4QSDQDL1" external>
+              {t('cta1')}
+            </Button>
+            <Button variant="secondary" href="/#cases">
+              {t('cta2')}
+            </Button>
           </div>
 
-          <div className={styles.heroVisual} aria-hidden="true">
-            <div ref={mockupRef} className={styles.heroMockup}>
-              <div className={styles.mockupInner}>MINO Solutions</div>
-            </div>
-            
-            <div ref={badge1Ref} className={`${styles.floatingBadge} ${styles.floatingBadge1} glass`}>
-              🚀 {t('stat2')}
-            </div>
-            
-            <div ref={badge2Ref} className={`${styles.floatingBadge} ${styles.floatingBadge2} glass-dark`}>
-              💻 {t('stat3')}
-            </div>
-          </div>
-
+          <GlassCard variant="light" className={`${styles.statsBar} hero-text-elem`}>
+            {STATS.map((stat, i) => (
+              <div className={styles.statItem} key={stat.labelKey}>
+                <div className={styles.statNum}>
+                  {stat.prefix}
+                  <span ref={(el) => { statRefs.current[i] = el; }}>{stat.value}</span>
+                  {stat.suffix && <span className={styles.statSuffix}>{stat.suffix}</span>}
+                </div>
+                <div className={styles.statLabel}>{t(stat.labelKey)}</div>
+              </div>
+            ))}
+          </GlassCard>
         </div>
+      </div>
+
+      <div className={styles.scrollCue} aria-hidden="true">
+        <span className={styles.scrollCueDot} />
       </div>
     </section>
   );

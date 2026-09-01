@@ -6,6 +6,7 @@ import {Inter, Rubik} from 'next/font/google';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import SmoothScroll from '@/components/ui/SmoothScroll';
+import AnimatedBackground from '@/components/ui/AnimatedBackground';
 import '../globals.css';
 
 const inter = Inter({subsets: ['latin'], variable: '--font-body'});
@@ -32,17 +33,20 @@ export default async function LocaleLayout({
   params: Promise<{locale: string}>;
 }) {
   const {locale} = await params;
-  
+
   if (!routing.locales.includes(locale as any)) {
     notFound();
   }
- 
+
   const messages = await getMessages();
- 
+
   return (
     <html lang={locale} className={`${inter.variable} ${rubik.variable}`}>
       <body>
         <NextIntlClientProvider messages={messages}>
+          {/* 'use client' component — renders an empty <canvas> on the
+             server, all window/canvas access happens in useEffect only. */}
+          <AnimatedBackground />
           <SmoothScroll>
             <Navbar />
             {children}

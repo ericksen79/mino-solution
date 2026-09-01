@@ -21,6 +21,13 @@
   position: relative;
 }
 
+/* Reduced-motion fallback: no auto-scroll, so make the row swipeable
+   instead of just cropping it to one screenful. */
+.trackWrapStatic {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .clientsTrackWrap::before,
 .clientsTrackWrap::after {
   content: '';
@@ -44,29 +51,45 @@
 
 .clientsTrack {
   display: flex;
-  gap: 4rem;
+  align-items: center;
+  gap: 3rem;
   width: max-content;
-  /* GSAP will animate this */
+  /* GSAP animates transform: translateX on this element (skipped under
+     reduced-motion, see Clients.tsx). will-change hints the browser to
+     composite it on its own layer for a jank-free constant-speed crawl. */
+  will-change: transform;
 }
 
+/* Logo chip: grayscale + dimmed at rest, full color + lifted on
+   hover/focus — the "interactive" cue the brand-logo cloud needs so it
+   doesn't read as a static image strip. */
 .clientItem {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  color: var(--color-gray);
-  font-weight: 600;
-  font-size: 1.125rem;
-  transition: color var(--transition);
-}
-
-.clientItem:hover {
-  color: var(--color-primary);
-}
-
-.clientIcon {
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  align-items: center;
   justify-content: center;
+  height: 56px;
+  padding: 0 0.5rem;
+  filter: grayscale(1);
+  opacity: 0.6;
+  transition: filter var(--transition), opacity var(--transition), transform var(--transition);
+}
+
+.clientItem:hover,
+.clientItem:focus-visible {
+  filter: grayscale(0);
+  opacity: 1;
+  transform: translateY(-3px) scale(1.06);
+}
+
+.clientLogo {
+  height: 100%;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clientItem {
+    transition: none;
+  }
 }

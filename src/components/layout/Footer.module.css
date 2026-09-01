@@ -1,4 +1,12 @@
 .footer {
+  position: relative;
+  /* isolation creates the stacking context GradientAurora's z-index: -1
+     needs to paint above the footer's own background but below its
+     content — without it the blobs render behind the footer entirely and
+     never show up. No overflow: hidden here on purpose: GradientAurora
+     clips its own blobs internally, and overflow on this element isn't
+     needed and would be one more thing that could clip something later. */
+  isolation: isolate;
   background: var(--color-dark);
   color: var(--color-white);
   padding: 6rem 0 2rem;

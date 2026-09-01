@@ -1,0 +1,63 @@
+.card {
+  position: relative;
+  overflow: hidden;
+  transform: perspective(800px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* Cursor-tracking spotlight, only visible on hover/pointer proximity. */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    220px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    rgba(255, 255, 255, 0.35),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Ambient diagonal sheen that drifts across the glass on a loop, so the
+   "reflects light" feel reads even when nobody is hovering. Pure CSS
+   background-position animation — no JS, no layout thrash. */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 60%
+  );
+  background-size: 250% 250%;
+  animation: sheen-drift 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes sheen-drift {
+  0% { background-position: 100% 0%; }
+  50% { background-position: 0% 100%; }
+  100% { background-position: 100% 0%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    transform: none;
+    transition: none;
+  }
+  .card::before {
+    transition: none;
+  }
+  .card::after {
+    animation: none;
+  }
+}
