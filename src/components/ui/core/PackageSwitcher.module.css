@@ -1,0 +1,198 @@
+.switcher {
+  margin-top: 1rem;
+}
+
+.pillbar {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--color-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 0.4rem;
+  max-width: 640px;
+  margin: 0 auto 3rem;
+}
+
+.pill {
+  position: relative;
+  /* isolation: pillBg (child, z-index: -1) needs this element to
+     actually establish a stacking context, otherwise the negative
+     z-index escapes past .pill entirely and paints behind .pillbar's
+     own white background instead of just behind this button's text —
+     the exact bug that made the active label invisible (white text on
+     white, no dark pill ever showing behind it). Same root cause as the
+     GradientAurora fix earlier this session. */
+  isolation: isolate;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 700;
+  color: var(--color-gray);
+  transition: color var(--transition);
+}
+
+.pill[aria-selected="true"] {
+  color: var(--color-white);
+}
+
+.pillBg {
+  position: absolute;
+  inset: 0;
+  background: var(--color-dark);
+  border-radius: var(--radius);
+  z-index: -1;
+}
+
+.pillLabel {
+  position: relative;
+}
+
+.pillDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-light-blue);
+}
+
+.panel {
+  background: var(--color-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 3rem;
+  box-shadow: var(--shadow);
+}
+
+.panelHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(48, 138, 205, 0.1);
+  color: var(--color-primary-dark);
+  padding: 0.3rem 0.9rem;
+  border-radius: 2rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.name {
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--color-gray);
+  max-width: 480px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 0.9rem 1.75rem;
+  border-radius: var(--radius-lg);
+  font-weight: 700;
+  white-space: nowrap;
+  transition: all var(--transition);
+}
+
+.cta:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.cta svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2.5rem;
+}
+
+.groupIcon {
+  width: 2.75rem;
+  height: 2.75rem;
+  color: var(--color-primary);
+  background: var(--color-gray-light);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.groupIcon svg {
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+.groupLabel {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-dark);
+  margin-bottom: 0.9rem;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.features li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: 0.9rem;
+  color: var(--color-gray);
+  line-height: 1.4;
+}
+
+.features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+@media (max-width: 640px) {
+  .pillbar {
+    max-width: 100%;
+  }
+  .pillLabel {
+    font-size: 0.85rem;
+  }
+  .panel {
+    padding: 1.75rem;
+  }
+  .panelHead {
+    align-items: flex-start;
+  }
+  .cta {
+    width: 100%;
+    justify-content: center;
+  }
+}

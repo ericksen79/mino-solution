@@ -173,7 +173,9 @@
       "cta1": "Create my digital presence",
       "cta2": "Optimize my business",
       "cta3": "Boost my presence",
-      "mj": "Need something different?"
+      "mj": "Need something different?",
+      "expand": "See what's included",
+      "collapse": "Hide details"
     }
   },
   "about": {

@@ -173,7 +173,9 @@
       "cta1": "Crear mi presencia digital",
       "cta2": "Optimizar mi negocio",
       "cta3": "Impulsar mi presencia",
-      "mj": "¿Necesitas algo diferente?"
+      "mj": "¿Necesitas algo diferente?",
+      "expand": "Ver qué incluye",
+      "collapse": "Ocultar detalles"
     }
   },
   "about": {
